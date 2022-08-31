@@ -17,7 +17,7 @@ async def on_ready():
 async def on_message(message):
     args = message.content.split()
     
-    id = bot.user.id # message.author.id
+    id = message.author.id
     name = message.author.name
     date = str(datetime.date.today())
 
