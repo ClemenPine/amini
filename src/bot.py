@@ -21,7 +21,7 @@ async def on_message(message):
     name = message.author.name
     date = str(datetime.date.today())
 
-    if args[0] not in ['!amini', '?amini']:
+    if not args or args[0] not in ['!amini', '?amini']:
         return
 
     if len(args) < 2:
