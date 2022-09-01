@@ -3,6 +3,7 @@ from typing import List
 import kb
 
 def added(res: str, *, layout: kb.Layout):
+    print(f'added: {res}')
 
     if res == 'OK':
         return (
@@ -18,6 +19,7 @@ def added(res: str, *, layout: kb.Layout):
 
 
 def forgot(res: str, *, name: str):
+    print(f'removed: {res}')
 
     if res == 'OK':
         return f'I\'ve successfully removed {name} from my servers'
@@ -30,6 +32,7 @@ def forgot(res: str, *, name: str):
 
 
 def changed(res: str, *, old: str, new: str):
+    print(f'renamed: {res}')
     
     if res == 'OK':
         return f'I\'ve successfully renamed {old} to "{new}"'
@@ -45,6 +48,7 @@ def changed(res: str, *, old: str, new: str):
 
 
 def recalled(names: str, *, who: str):
+    print(f'list: {len(names.split())}')
     
     if names:
         return f'```{who}\'s layouts:\n{names}\n```'
@@ -53,16 +57,21 @@ def recalled(names: str, *, who: str):
 
 
 def found(ll: kb.Layout):
+    print(f'found: {ll.name}')
     return str(ll)
 
 
 def hmm(arg: str=''):
+    print(f'unknown: {arg}')
+
     if arg:
         return f'I\'m not really sure what "{arg}" means'
     else:
         return 'Try `!amini help`'
 
 def help():
+    print(f'help')
+
     return (
         f'```\n'
         f'Usage: !amini [command]\n'
