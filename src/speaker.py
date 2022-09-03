@@ -3,7 +3,7 @@ from typing import List
 import kb
 
 def added(res: str, *, layout: kb.Layout):
-    print(f'added: {res}')
+    print(f'added: {layout.name}, {res}')
 
     if res == 'OK':
         return (
@@ -19,7 +19,7 @@ def added(res: str, *, layout: kb.Layout):
 
 
 def forgot(res: str, *, name: str):
-    print(f'removed: {res}')
+    print(f'removed: {name}, {res}')
 
     if res == 'OK':
         return f'I\'ve successfully removed {name} from my servers'
@@ -32,7 +32,7 @@ def forgot(res: str, *, name: str):
 
 
 def changed(res: str, *, old: str, new: str):
-    print(f'renamed: {res}')
+    print(f'renamed: {old} -> {new}, {res}')
     
     if res == 'OK':
         return f'I\'ve successfully renamed {old} to "{new}"'
