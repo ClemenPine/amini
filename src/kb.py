@@ -27,6 +27,9 @@ class Layout:
                     else:
                         self.add(key, 'RT')
 
+        if '_' in self.keymap:
+            return
+
         if not 'LT' in self.keymap.values():
             self.add('_', 'LT')
         elif not 'RT' in self.keymap.values():
