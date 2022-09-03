@@ -30,7 +30,23 @@ class Layout:
         if '_' in self.keymap:
             return
 
-        if not 'LT' in self.keymap.values():
+        if not any(x in self.keymap.values() for x in ['LT', 'RT']):
+            left = 0
+            right = 0
+
+            for key, finger in self.keymap.items():
+                if key in 'bcdfghjklmnpqrstvwxz':
+                    if finger[0] == 'L':
+                        left += 1
+                    elif finger[0] == 'R':
+                        right += 1
+
+            if right > left:
+                self.add('_', 'RT')
+            else:
+                self.add('_', 'LT')
+
+        elif not 'LT' in self.keymap.values():
             self.add('_', 'LT')
         elif not 'RT' in self.keymap.values():
             self.add('_', 'RT')
@@ -82,8 +98,8 @@ def get_finger(idx: int):
 
 def shift(key: str):
     shifted = dict(zip(
-        "abcdefghijklmnopqrstuvwxyz,./;'-=[]",
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ<>?:\"_+{}"
+        "abcdefghijklmnopqrstuvwxyz,./;'=[]",
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ<>?:\"+{}"
     ))
 
     if key in shifted:
