@@ -76,7 +76,7 @@ def find(name: str) -> kb.Layout:
     _, cur = connect()
 
     layouts = cur.execute('SELECT name, matrix FROM layout order by rowid').fetchall()
-    closest = min(layouts, key=lambda x: lev(x[0], name))
+    closest = min(layouts, key=lambda x: lev(x[0].lower(), name))
 
     ll = kb.Layout(name=closest[0], matrix=closest[1])
     return ll
