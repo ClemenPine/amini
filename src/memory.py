@@ -1,4 +1,4 @@
-from Levenshtein import distance as lev
+from jellyfish import damerau_levenshtein_distance as lev
 from typing import List, Tuple
 import sqlite3 as sql
 
