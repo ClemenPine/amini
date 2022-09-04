@@ -31,7 +31,11 @@ def add(matrix: str, *, name: str, date: str, who: int) -> Tuple[str, kb.Layout]
 def forget(name: str, *, perm: str) -> str:
     con, cur = connect()
 
-    cur.execute('DELETE from layout WHERE name=? COLLATE NOCASE and author_id=?', (name, perm))
+    if perm:
+        cur.execute('DELETE from layout WHERE name=? COLLATE NOCASE and author_id=?', (name, perm))
+    else:
+        cur.execute('DELETE from layout WHERE name=? COLLATE NOCASE', (name,))
+
     con.commit()
 
     if cur.rowcount:
@@ -50,7 +54,11 @@ def change(old: str, new: str, *, perm: str) -> str:
     con, cur = connect()
 
     if not cur.execute('SELECT * from layout WHERE name=? COLLATE NOCASE', (new,)).fetchone():
-        cur.execute('UPDATE layout SET name=? WHERE name=? COLLATE NOCASE and author_id=?', (new, old, perm))
+        if perm:
+            cur.execute('UPDATE layout SET name=? WHERE name=? COLLATE NOCASE and author_id=?', (new, old, perm))
+        else:
+            cur.execute('UPDATE layout SET name=? WHERE name=? COLLATE NOCASE', (new, old))
+
         con.commit()
 
     if cur.rowcount == 1:
