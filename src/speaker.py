@@ -31,7 +31,7 @@ def forgot(res: str, *, name: str):
         return reply.replace('NAME', name)
 
     elif res == 'NOPERM':
-        return random.choice(replies['noperm-rename'])
+        return random.choice(replies['noperm-remove'])
 
     elif res == 'NOLAYOUT':
         reply = random.choice(replies['null-layout'])
