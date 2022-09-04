@@ -17,15 +17,15 @@ async def on_ready():
 async def on_message(message):
     args = message.content.split()
     
-    id = str(message.author.id)
+    id = message.author.id
     name = message.author.name
     date = str(datetime.date.today())
 
     if not args or args[0] not in ['!amini', '?amini', '!sudoamini', '?sudoamini']:
         return
 
-    if args[0] in ['!sudoamini', '?sudoamini'] and id == '514971722626367517':
-        id = ''
+    if args[0] in ['!sudoamini', '?sudoamini'] and id == 514971722626367517:
+        id = 0
 
     if len(args) < 2:
         reply = speaker.hmm()

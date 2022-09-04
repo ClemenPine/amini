@@ -28,7 +28,7 @@ def add(matrix: str, *, name: str, date: str, who: int) -> Tuple[str, kb.Layout]
     return res, ll
 
 
-def forget(name: str, *, perm: str) -> str:
+def forget(name: str, *, perm: int) -> str:
     con, cur = connect()
 
     if perm:
@@ -50,7 +50,7 @@ def forget(name: str, *, perm: str) -> str:
     return res
 
 
-def change(old: str, new: str, *, perm: str) -> str:
+def change(old: str, new: str, *, perm: int) -> str:
     con, cur = connect()
 
     if not cur.execute('SELECT * from layout WHERE name=? COLLATE NOCASE', (new,)).fetchone():
@@ -76,7 +76,7 @@ def change(old: str, new: str, *, perm: str) -> str:
     return res
 
 
-def recall(who: str) -> str:
+def recall(who: int) -> str:
     _, cur = connect()
 
     names = cur.execute('SELECT name FROM layout WHERE author_id=?', (who,))
