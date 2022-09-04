@@ -1,53 +1,64 @@
-from typing import List
+import json
+import random
 
 import kb
+
+replies = json.load(open('src/static/responses.json'))
 
 def added(res: str, *, layout: kb.Layout):
     print(f'added: {layout.name}, {res}')
 
     if res == 'OK':
-        return (
-            f'I\'ve successfully added {layout.name} to my servers\n'
-            f'{str(layout)}'
-        )
+        reply = random.choice(replies['add'])
+        return reply.replace('NAME', layout.name) + str(layout)
 
     elif res == 'LENGTH':
-        return 'Names cannot be longer than 25 characters'
+        return random.choice(replies['length'])
 
     elif res == 'NAME':
-        return f'"{layout.name}" has been reserved by an existing layout on my servers'
+        reply = random.choice(replies['name-taken'])
+        return reply.replace('NAME', layout.name)
 
     elif res == 'MATRIX':
-        return f'This layout already exists on my servers'
+        return random.choice(replies['layout-taken'])
 
 
 def forgot(res: str, *, name: str):
     print(f'removed: {name}, {res}')
 
     if res == 'OK':
-        return f'I\'ve successfully removed {name} from my servers'
+        reply = random.choice(replies['remove'])
+        return reply.replace('NAME', name)
 
     elif res == 'NOPERM':
-        return f'I cannot remove a layout that you don\'t own'
+        return random.choice(replies['noperm-rename'])
 
     elif res == 'NOLAYOUT':
-        return f'I couldn\'t find "{name}" in my servers'
+        reply = random.choice(replies['null-layout'])
+        return reply.replace('NAME', name)
 
 
 def changed(res: str, *, old: str, new: str):
     print(f'renamed: {old} -> {new}, {res}')
     
     if res == 'OK':
-        return f'I\'ve successfully renamed {old} to "{new}"'
+        reply = random.choice(replies['change'])
+
+        reply = reply.replace('OLD', old)
+        reply = reply.replace('NEW', new)
+
+        return reply
     
     elif res == 'TAKEN':
-        return f'The name "{new}" is already in use'
+        reply = random.choice(replies['name-taken'])
+        return reply.replace('NAME', new)
 
     elif res == 'NOPERM':
-        return f'I cannot rename a layout that you don\'t own'
+        return random.choice(replies['noperm-rename'])
 
     elif res == 'NOLAYOUT':
-        return f'I couldn\'t find "{old}" in my servers'
+        reply = random.choice(replies['null-layout'])
+        return reply.replace('NAME', old)
 
 
 def recalled(names: str, *, who: str):
@@ -56,7 +67,7 @@ def recalled(names: str, *, who: str):
     if names:
         return f'```{who}\'s layouts:\n{names}\n```'
     else:
-        return 'It seems like you haven\'t added any layouts yet...'
+        return random.choice(replies['no-layouts?'])
 
 
 def found(ll: kb.Layout):
@@ -68,7 +79,8 @@ def hmm(arg: str=''):
     print(f'unknown: {arg}')
 
     if arg:
-        return f'I\'m not really sure what "{arg}" means'
+        reply = random.choice(replies['unknown'])
+        return reply.replace('ARG', arg)
     else:
         return 'Try `!amini help`'
 
@@ -92,3 +104,4 @@ def help():
         f'  - change one of your layout\'s name\n'
         f'```'
     )
+    

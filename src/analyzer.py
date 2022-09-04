@@ -25,8 +25,8 @@ def trigrams(ll, grams: Dict[str, int]):
     return counts
 
 
-def get_table():
-    with open('src/table.json', 'r') as f:
+def get_table(file: str='src/static/table.json'):
+    with open(file, 'r') as f:
         table = json.load(f)
 
     return table
