@@ -7,7 +7,10 @@ import kb
 def add(matrix: str, *, name: str, date: str, who: int) -> Tuple[str, kb.Layout]:
     con, cur = connect()
 
-    if cur.execute('SELECT * from layout WHERE matrix=?', (matrix,)).fetchone():
+    if len(name) > 25:
+        res = 'LENGTH'
+
+    elif cur.execute('SELECT * from layout WHERE matrix=?', (matrix,)).fetchone():
         res = 'MATRIX'
 
     elif cur.execute('SELECT * from layout WHERE name=? COLLATE NOCASE', (name,)).fetchone():

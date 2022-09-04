@@ -11,6 +11,9 @@ def added(res: str, *, layout: kb.Layout):
             f'{str(layout)}'
         )
 
+    elif res == 'LENGTH':
+        return 'Names cannot be longer than 25 characters'
+
     elif res == 'NAME':
         return f'"{layout.name}" has been reserved by an existing layout on my servers'
 
