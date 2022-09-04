@@ -8,7 +8,7 @@
     "remove": [
         "I've successfully removed NAME from my servers",
         "I've successfully purged NAME from my servers",
-        "Name? In these servers? Not happening",
+        "NAME? In these servers? Not happening",
         "Goodbye, NAME"
     ],
     "change": [
