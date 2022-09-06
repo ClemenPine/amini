@@ -1,4 +1,5 @@
 from typing import Dict
+from itertools import zip_longest
 from dataclasses import dataclass
 
 import analyzer, corpora
@@ -14,25 +15,38 @@ class Layout:
         self.matrix = matrix
 
         self.keymap = {}
-        for row in matrix.split('\n'):
-            for idx, key in enumerate(row[::2]):
+        rows = matrix.split('\n')
 
-                if len(row.split()) > 3:
-                    finger = get_finger(idx)
-                    self.add(key, finger)
+        has_thumb = len(rows[-1].split()) < 4
 
+        i = 0
+        for col in zip_longest(*rows, fillvalue=' '):
+            keys = [x for x in col if x != ' ']
+
+            for key in keys:
+                finger = get_finger(i)
+                self.add(key, finger)
+
+            if has_thumb and col[-1] != ' ':
+                if i < 5:
+                    finger = 'LT'
                 else:
-                    if idx < 5:
-                        self.add(key, 'LT')
-                    else:
-                        self.add(key, 'RT')
+                    finger = 'RT'
+
+                self.add(key, finger)
+
+            if keys:
+                i += 1
 
         if '_' in self.keymap:
             return
 
-        if not any(x in self.keymap.values() for x in ['LT', 'RT']):
-            left = 0
-            right = 0
+        if 'LT' in self.keymap.values():
+            self.add('_', 'RT')
+        elif 'RT' in self.keymap.values():
+            self.add('_', 'LT')
+        else:
+            left, right = 0, 0
 
             for key, finger in self.keymap.items():
                 if key in 'bcdfghjklmnpqrstvwxz':
@@ -46,17 +60,10 @@ class Layout:
             else:
                 self.add('_', 'LT')
 
-        elif not 'LT' in self.keymap.values():
-            self.add('_', 'LT')
-        elif not 'RT' in self.keymap.values():
-            self.add('_', 'RT')
-        else:
-            self.add('_', 'LT')
-
 
     def add(self, char: str, finger: str):
         self.keymap[char] = finger
-        self.keymap[shift(char)] = finger
+        # self.keymap[shift(char)] = finger
 
 
     def type(self, string: str):
