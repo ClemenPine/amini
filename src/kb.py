@@ -63,7 +63,7 @@ class Layout:
 
     def add(self, char: str, finger: str):
         self.keymap[char] = finger
-        # self.keymap[shift(char)] = finger
+        self.keymap[shift(char)] = finger
 
 
     def type(self, string: str):

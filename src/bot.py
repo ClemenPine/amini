@@ -62,6 +62,22 @@ async def on_message(message):
         ll = memory.find(name)
         reply = speaker.found(ll)
 
+    elif args[1] == 'view-left':
+        name = parser.get_name(message.content)
+
+        ll = memory.find(name)
+        ll.add('_', 'LT')
+
+        reply = speaker.found(ll)
+
+    elif args[1] == 'view-right':
+        name = parser.get_name(message.content)
+
+        ll = memory.find(name)
+        ll.add('_', 'RT')
+
+        reply = speaker.found(ll)
+
     elif args[1] == 'help':
         reply = speaker.help()
 
