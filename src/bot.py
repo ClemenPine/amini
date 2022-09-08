@@ -1,7 +1,7 @@
 import datetime
 import discord
 
-import parser, memory, speaker
+import parser, memory, namer, speaker
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -77,6 +77,12 @@ async def on_message(message):
         ll.add('_', 'RT')
 
         reply = speaker.found(ll)
+
+    elif args[1] == 'names':
+        matrix = parser.get_matrix(message.content)
+        names = namer.get_names(matrix)
+
+        reply = speaker.named(names)
 
     elif args[1] == 'help':
         reply = speaker.help()

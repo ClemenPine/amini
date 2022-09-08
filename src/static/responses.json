@@ -16,6 +16,15 @@
         "I've successfully renamed OLD to NEW!",
         "I will now refer to OLD as NEW for you"
     ],
+    "name": [
+        "Here are a few names I could come up with:",
+        "Here are some names I came up with:",
+        "I came up with a few names for this layout:"
+    ],
+    "stumped": [
+        "Hmm, that one is tricky",
+        "I can't think of anything for that one"
+    ],
     "length": [
         "Names cannot be longer than 25 characters"
     ],

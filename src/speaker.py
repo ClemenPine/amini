@@ -1,5 +1,6 @@
 import json
 import random
+from typing import List
 
 import kb
 
@@ -73,6 +74,22 @@ def recalled(names: str, *, who: str):
 def found(ll: kb.Layout):
     print(f'found: {ll.name}')
     return str(ll)
+
+
+def named(names: List[str]):
+    if not names:
+        return random.choice(replies['stumped'])
+
+    else:
+        names = '\n'.join(x for x in names[:10])
+        reply = (
+            f'{random.choice(replies["name"])}\n'
+            f'```\n'
+            f'{names}\n'
+            f'```\n'
+        )
+
+        return reply
 
 
 def hmm(arg: str=''):
