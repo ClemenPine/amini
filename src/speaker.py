@@ -123,6 +123,8 @@ def help():
         f'  - delete one of your layouts\n'
         f'rename [old_name] [new_name]\n'
         f'  - change one of your layout\'s name\n'
+        f'names [layout]\n'
+        f'  - suggest some names for a layout\n'        
         f'```'
     )
     
