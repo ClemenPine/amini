@@ -77,6 +77,7 @@ def found(ll: kb.Layout):
 
 
 def named(names: List[str]):
+    print(f'named: {names}')
     if not names:
         return random.choice(replies['stumped'])
 
