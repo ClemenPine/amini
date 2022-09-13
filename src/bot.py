@@ -56,7 +56,7 @@ async def on_message(message):
         names = memory.recall(id)
         reply = speaker.recalled(names, who=name)
 
-    elif args[1] == 'view':
+    elif args[1] in ['view', 'show']:
         name = parser.get_name(message.content)
 
         ll = memory.find(name)
