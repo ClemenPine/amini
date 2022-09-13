@@ -131,6 +131,8 @@ def help():
         f'      - force left thumb use for space\n'
         f'  - view-right [layout]\n'
         f'      - force right thumb use for space\n'
+        f'  - view-none [layout]\n'
+        f'      - force no thumb use for space\n'
         f'list\n'
         f'  - see a list of your layouts\n'
         f'\n'
@@ -140,8 +142,11 @@ def help():
         f'  - delete one of your layouts\n'
         f'rename [old_name] [new_name]\n'
         f'  - change one of your layout\'s name\n'
+        f'\n'
         f'names [layout]\n'
-        f'  - suggest some names for a layout\n'        
+        f'  - suggest some names for a layout\n'   
+        f'convert [from name] [to name]\n'
+        f'  - describe the diff of two layouts via cycles\n'  
         f'```'
     )
     
