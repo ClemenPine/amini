@@ -1,7 +1,7 @@
 import datetime
 import discord
 
-import parser, memory, namer, speaker
+import converter, parser, memory, namer, speaker
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -83,6 +83,13 @@ async def on_message(message):
         names = namer.get_names(matrix)
 
         reply = speaker.named(names)
+
+    elif args[1] == 'convert':
+        names = parser.get_names(message.content)
+        A = memory.find(names[0])
+        B = memory.find(names[1])
+
+        reply = converter.convert(A, B)
 
     elif args[1] == 'help':
         reply = speaker.help()
