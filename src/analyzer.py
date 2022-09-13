@@ -13,6 +13,8 @@ def trigrams(ll, grams: Dict[str, int]):
             gram_type = 'sfR'
         elif key in table:
             gram_type = table[key]
+        elif '_' in gram:
+            continue
         else:
             gram_type = 'unknown'
 

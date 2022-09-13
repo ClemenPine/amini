@@ -78,6 +78,14 @@ async def on_message(message):
 
         reply = speaker.found(ll)
 
+    elif args[1] == 'view-none':
+        name = parser.get_name(message.content)
+
+        ll = memory.find(name)
+        del ll.keymap['_']
+
+        reply = speaker.found(ll)
+
     elif args[1] == 'names':
         matrix = parser.get_matrix(message.content)
         names = namer.get_names(matrix)
