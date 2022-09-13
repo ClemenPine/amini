@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 
 import kb
 
@@ -17,20 +17,22 @@ def load(ll: kb.Layout):
 def get_cycle(char: str, FROM: Dict[str, str], TO: Dict[str, str]) -> str:
     cycles = [char]
 
-    try:
-        curr = char
-        while TO[curr] != FROM[char]:
-            curr = [k for k in FROM if FROM[k] == TO[curr]][0]
-            cycles.append(curr)
-    except:
-        return []
+    curr = char
+    while TO[curr] != FROM[char]:
+        curr = [k for k in FROM if FROM[k] == TO[curr]][0]
+        cycles.append(curr)
 
     return cycles
 
 
-def convert(FROM: kb.Layout, TO: kb.Layout):
+def convert(FROM: kb.Layout, TO: kb.Layout) -> List[str]:
     A = load(FROM)
     B = load(TO)
+
+    if set(A.values()) != set(B.values()):
+        return 'NOSHAPE', None
+    elif set(A.keys()) != set(B.keys()):
+        return 'NOKEY', None
 
     found = []
 
@@ -52,7 +54,7 @@ def convert(FROM: kb.Layout, TO: kb.Layout):
     swaps = sorted(swaps, key=lambda x: len(x))
     cycles = sorted(cycles, key=lambda x: len(x))
 
-    res = [f'a `{"".join(x)}` swap' for x in swaps]
-    res += [f'a `{"".join(x)}` cycle' for x in cycles]
+    final = [f'a `{"".join(x)}` swap' for x in swaps]
+    final += [f'a `{"".join(x)}` cycle' for x in cycles]
 
-    return f'do {", ".join(res[:-1])} and {res[-1]}' 
+    return 'OK', final 

@@ -89,7 +89,8 @@ async def on_message(message):
         A = memory.find(names[0])
         B = memory.find(names[1])
 
-        reply = converter.convert(A, B)
+        res, cycles = converter.convert(A, B)
+        reply = speaker.converted(res, cycles=cycles)
 
     elif args[1] == 'help':
         reply = speaker.help()

@@ -93,6 +93,22 @@ def named(names: List[str]):
         return reply
 
 
+def converted(res: str, *, cycles: List[str]):
+    print(res, cycles)
+
+    if res == 'NOKEY':
+        return 'Those layouts have different keys'
+    if res == 'NOSHAPE':
+        return 'Those shapes are incompatible'
+
+    if len(cycles) > 1:
+        return f'do {", ".join(cycles[:-1])} and {cycles[-1]}'
+    elif cycles:
+        return f'do {", ".join(cycles)}'
+    else:
+        return f'Those layouts are identical'
+
+
 def hmm(arg: str=''):
     print(f'unknown: {arg}')
 
