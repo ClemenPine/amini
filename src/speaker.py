@@ -109,6 +109,12 @@ def converted(res: str, *, cycles: List[str]):
         return f'Those layouts are identical'
 
 
+def questioned(res: str):
+    print(f'asked: {res}')
+
+    return res
+
+
 def hmm(arg: str=''):
     print(f'unknown: {arg}')
 

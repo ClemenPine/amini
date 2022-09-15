@@ -102,8 +102,7 @@ async def on_message(message):
 
     elif args[1] == 'question':
         res = question.get()
-
-        reply = res
+        reply = speaker.questioned(res)
 
     elif args[1] == 'help':
         reply = speaker.help()
