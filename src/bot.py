@@ -1,7 +1,7 @@
 import datetime
 import discord
 
-import converter, parser, memory, namer, speaker
+import converter, parser, memory, namer, question, speaker
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -99,6 +99,11 @@ async def on_message(message):
 
         res, cycles = converter.convert(A, B)
         reply = speaker.converted(res, cycles=cycles)
+
+    elif args[1] == 'question':
+        res = question.get()
+
+        reply = res
 
     elif args[1] == 'help':
         reply = speaker.help()
