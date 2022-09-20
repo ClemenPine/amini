@@ -40,7 +40,7 @@ async def on_message(message):
         res, ll = memory.add(matrix, name=name, date=date, who=id)
         reply = speaker.added(res, layout=ll)
 
-    elif args[1] == 'remove':
+    elif args[1] in ['remove', 'delete']:
         name = parser.get_name(message.content)
 
         res = memory.forget(name, perm=id)
