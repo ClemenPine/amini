@@ -24,8 +24,13 @@ async def on_message(message):
     if not args or args[0] not in ['!amini', '?amini', '!sudoamini', '?sudoamini']:
         return
 
-    if args[0] in ['!sudoamini', '?sudoamini'] and id == 514971722626367517:
-        id = 0
+    if args[0] in ['!sudoamini', '?sudoamini']: 
+        if id == 514971722626367517:
+            id = 0
+        else:
+            reply = f'I\'m sorry {name}. I\'m afraid I can\'t do that.'
+            await message.channel.send(reply, reference=message)
+            return
 
     if len(args) < 2:
         reply = speaker.hmm()
