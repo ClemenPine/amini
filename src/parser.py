@@ -11,3 +11,8 @@ def get_names(content: str):
 def get_matrix(content: str):
     tokens = content.split('```')
     return tokens[1].strip()
+
+
+def get_string(content: str):
+    tokens = content.split()
+    return ' '.join(tokens[2:])

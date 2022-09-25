@@ -1,7 +1,7 @@
 import datetime
 import discord
 
-import converter, parser, memory, namer, question, speaker
+import converter, parser, memory, namer, odds, question, speaker
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -108,6 +108,10 @@ async def on_message(message):
     elif args[1] == 'question':
         res = question.get()
         reply = speaker.questioned(res)
+
+    elif args[1] == 'odds':
+        string = parser.get_string(message.content)
+        reply = odds.find(string)
 
     elif args[1] == 'help':
         reply = speaker.help()
