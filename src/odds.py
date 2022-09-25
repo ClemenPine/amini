@@ -41,6 +41,23 @@ def find(input: str):
     strings = [x.strip().replace('_', ' ') for x in args]
 
     res = {}
+
+    # quote
+    num = 0
+    for string in strings:
+        new = mt.find(string)
+
+        if not num:
+            num = new
+        elif not new:
+            pass
+        else:
+            num = (num * new) / (num + new)
+
+    num //= min(5, len(min(strings, key=lambda x: len(x))))
+    res['quotes'] = humanize.intword(num, '%.0f')
+    
+    # languages
     for name in mt.languages:
         lang = mt.load_language(name)
 
