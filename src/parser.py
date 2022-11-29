@@ -1,6 +1,6 @@
 def get_name(content: str):
     tokens = content.split('```')
-    return '-'.join(tokens[0].split()[2:])
+    return '-'.join(tokens[0].split()[2:]).lower()
 
 
 def get_names(content: str):
