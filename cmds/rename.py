@@ -1,0 +1,33 @@
+from discord import Message
+
+from util import memory, parser
+
+def exec(message: Message):
+    args = parser.get_args(message)
+    id = message.author.id
+
+    old = args[0]
+    new = args[1]
+
+    old_data = memory.get(old)
+    new_data = memory.get(new)
+
+    if not old_data:
+        return f'Error: `{old}` does not exist'
+
+    if new_data:
+        return f'Error: `{new}` already exists'
+
+    if not memory.remove(old, id=id):
+        return f'Error: you don\'t own a layout named `{old}`'
+
+    old_data['name'] = new
+    memory.add(old_data)
+
+    return f'`{old}` has been renamed to `{new}`'
+
+def use():
+    return 'rename [old_name] [new_name]'
+
+def desc():
+    return 'rename one of your layouts'

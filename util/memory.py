@@ -1,0 +1,51 @@
+import os
+import json
+import glob
+from jellyfish import damerau_levenshtein_distance as lev
+
+from util.consts import JSON
+
+def add(data: JSON) -> bool:
+    file = f'layouts/{data["name"]}.json'
+
+    if os.path.exists(file):
+        return False
+
+    with open(file, 'w') as f:
+        f.write(json.dumps(data, indent=4))
+
+    return True
+
+
+def remove(name: str, *, id: int) -> bool:
+    file = f'layouts/{name}.json'
+
+    if not os.path.exists(file):
+        return False
+
+    with open(file, 'r') as f:
+        data = json.load(f)
+
+    check = (data['user'] == id)
+
+    if check:
+        os.remove(file)
+
+    return check
+
+
+def get(name: str) -> JSON:
+    file = f'layouts/{name}.json'
+
+    if not os.path.exists(file):
+        names = [x[8:-5] for x in glob.glob(f'layouts/*.json')]
+        names = sorted(names, key=lambda x: len(x))
+
+        closest = min(names, key=lambda x: lev((''.join(y for y in x.lower() if y in name)), name))
+
+        file = f'layouts/{closest}.json'
+
+    with open(file, 'r') as f:
+        data = json.load(f)
+
+    return data
