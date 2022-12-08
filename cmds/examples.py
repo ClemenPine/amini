@@ -35,7 +35,7 @@ def exec(message: Message):
     res = [f'Examples of `{part}` in MT Quotes:']
     res.append('```')
     
-    res.append(f'{humanize.intcomma(total)} / {humanize.intcomma(len(words))} words ({perc:.2%})')
+    res.append(f'{humanize.intcomma(total)} / {humanize.intcomma(len(words))} words ({perc:.3%})')
     res.append('')
     res += examples
     
