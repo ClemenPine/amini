@@ -1,3 +1,4 @@
+import humanize
 from discord import Message
 from collections import Counter
 from more_itertools import windowed
@@ -15,19 +16,26 @@ def exec(message: Message):
         if string in item:
             counts.update([item])
 
-    res = [f'Examples of `{string}` in MT Quotes:']
-    res.append('```')
-
     examples = []
+    total = 0
+
     for (item, count) in counts.most_common(10):
+        total += count
         examples.append(f'{item:<15} {"(" + str(count) + ")":>6}')
 
     if not examples:
         return f'Error: `{string}` does not appear anywhere in MT Quotes'
 
-    res += examples
-    res.append('```')
+    perc = total / len(words)
 
+    res = [f'Examples of `{string}` in MT Quotes:']
+    res.append('```')
+    
+    res.append(f'{humanize.intword(total, "%.0f")} / {humanize.intword(len(words), "%.0f")} words ({perc:.2%})')
+    res.append('')
+    res += examples
+    
+    res.append('```')
     return '\n'.join(res)
 
 def use():
