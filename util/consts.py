@@ -4,6 +4,9 @@ from typing import Dict
 # Json type
 JSON = Dict[str, any]
 
+# punctuation chars
+PUNCT = '()";:,.?!'
+
 # Set of allowed characters
 NAME_SET = set(
     string.ascii_letters +
