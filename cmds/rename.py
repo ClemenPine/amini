@@ -15,7 +15,7 @@ def exec(message: Message):
 
     if not set(new).issubset(NAME_SET):
         disallowed = list(set(new).difference(NAME_SET))
-        return f'Error: names cannot cantain `{disallowed[0]}`'
+        return f'Error: names cannot contain `{disallowed[0]}`'
 
     old_data = memory.get(old)
     new_data = memory.get(new)
