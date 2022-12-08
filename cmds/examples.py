@@ -31,7 +31,7 @@ def exec(message: Message):
     res = [f'Examples of `{string}` in MT Quotes:']
     res.append('```')
     
-    res.append(f'{humanize.intword(total, "%.0f")} / {humanize.intword(len(words), "%.0f")} words ({perc:.2%})')
+    res.append(f'{humanize.intcomma(total)} / {humanize.intcomma(len(words))} words ({perc:.2%})')
     res.append('')
     res += examples
     
