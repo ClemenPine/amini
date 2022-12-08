@@ -17,9 +17,15 @@ def exec(message: Message):
 
     res = [f'Examples of `{string}` in MT Quotes:']
     res.append('```')
-    for (item, count) in counts.most_common(10):
-        res.append(f'{item:<15} {"(" + str(count) + ")":>6}')
 
+    examples = []
+    for (item, count) in counts.most_common(10):
+        examples.append(f'{item:<15} {"(" + str(count) + ")":>6}')
+
+    if not examples:
+        return f'`{string}` does not appear anywhere in MT Quotes'
+
+    res += examples
     res.append('```')
 
     return '\n'.join(res)
