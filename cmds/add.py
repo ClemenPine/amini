@@ -13,7 +13,7 @@ def exec(message: Message):
 
     if not set(name).issubset(NAME_SET):
         disallowed = list(set(name).difference(NAME_SET))
-        return f'Error: names cannot cantain {disallowed[0]}'
+        return f'Error: names cannot cantain `{disallowed[0]}`'
 
     rows = stringy.split('\n')
 
