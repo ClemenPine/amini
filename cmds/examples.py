@@ -23,7 +23,7 @@ def exec(message: Message):
         examples.append(f'{item:<15} {"(" + str(count) + ")":>6}')
 
     if not examples:
-        return f'`{string}` does not appear anywhere in MT Quotes'
+        return f'Error: `{string}` does not appear anywhere in MT Quotes'
 
     res += examples
     res.append('```')
