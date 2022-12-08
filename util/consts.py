@@ -1,7 +1,15 @@
+import string
 from typing import Dict
 
 # Json type
 JSON = Dict[str, any]
+
+# Set of allowed characters
+NAME_SET = set(
+    string.ascii_letters +
+    string.digits + 
+    " -'"
+)
 
 # letter to indicate an empty space
 FREE_CHAR = '~'

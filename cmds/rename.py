@@ -1,6 +1,7 @@
 from discord import Message
 
 from util import memory, parser
+from util.consts import *
 
 def exec(message: Message):
     args = parser.get_args(message)
@@ -8,6 +9,13 @@ def exec(message: Message):
 
     old = args[0]
     new = args[1]
+
+    if len(new) < 3:
+        return 'Error: names must be at least 3 characters long'
+
+    if not set(new).issubset(NAME_SET):
+        disallowed = list(set(new).difference(NAME_SET))
+        return f'Error: names cannot cantain {disallowed[0]}'
 
     old_data = memory.get(old)
     new_data = memory.get(new)

@@ -11,13 +11,9 @@ def exec(message: Message):
     if len(name) < 3:
         return 'Error: names must be at least 3 characters long'
 
-    if not set(name).issubset(set(
-        string.ascii_letters +
-        string.digits + 
-        " -'"
-    )):
-        return 'Error: names must contain ascii characters only'
-
+    if not set(name).issubset(NAME_SET):
+        disallowed = list(set(name).difference(NAME_SET))
+        return f'Error: names cannot cantain {disallowed[0]}'
 
     rows = stringy.split('\n')
 
