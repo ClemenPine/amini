@@ -15,6 +15,6 @@ def get_layout(message: Message) -> Tuple[str, str]:
     tokens = message.content.split('```')
 
     name = '-'.join(tokens[0].split()[2:]).lower()
-    matrix = tokens[1].strip()
+    matrix = tokens[1].strip().lower()
 
     return name, matrix

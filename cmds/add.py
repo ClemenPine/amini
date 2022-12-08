@@ -5,7 +5,7 @@ from util import authors, memory, parser
 from util.consts import *
 
 def exec(message: Message):
-    name, stringy = parser.get_layout(message)
+    name, string = parser.get_layout(message)
 
     if len(name) < 3:
         return 'Error: names must be at least 3 characters long'
@@ -14,7 +14,7 @@ def exec(message: Message):
         disallowed = list(set(name).difference(NAME_SET))
         return f'Error: names cannot contain `{disallowed[0]}`'
 
-    rows = stringy.split('\n')
+    rows = string.split('\n')
 
     # calculate amount of leading whitespace for each row
     spaces = [] 
@@ -32,7 +32,7 @@ def exec(message: Message):
     else:
         return 'Error: board shape is undefined'
 
-    if not is_rows_valid(stringy, board=board):
+    if not is_rows_valid(string, board=board):
         return 'Error: improper number of rows in layout definition'
 
     rows = [x.strip() for x in rows] # remove leading/trailing whitespace
@@ -110,8 +110,8 @@ def use():
 def desc():
     return 'contribute a new layout'
 
-def is_rows_valid(stringy: str, *, board: str) -> bool:
-    rows = stringy.split('\n')
+def is_rows_valid(string: str, *, board: str) -> bool:
+    rows = string.split('\n')
 
     if board in ['ortho']:
         max_rows = 4
