@@ -1,4 +1,3 @@
-import string
 from discord import Message
 from itertools import zip_longest
 
