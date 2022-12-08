@@ -1,3 +1,4 @@
+import string
 from discord import Message
 from itertools import zip_longest
 
@@ -5,12 +6,20 @@ from util import authors, memory, parser
 from util.consts import *
 
 def exec(message: Message):
-    name, string = parser.get_layout(message)
+    name, stringy = parser.get_layout(message)
 
     if len(name) < 3:
         return 'Error: names must be at least 3 characters long'
 
-    rows = string.split('\n')
+    if not set(name).issubset(set(
+        string.ascii_letters +
+        string.digits + 
+        " -'"
+    )):
+        return 'Error: names must contain ascii characters only'
+
+
+    rows = stringy.split('\n')
 
     # calculate amount of leading whitespace for each row
     spaces = [] 
@@ -28,7 +37,7 @@ def exec(message: Message):
     else:
         return 'Error: board shape is undefined'
 
-    if not is_rows_valid(string, board=board):
+    if not is_rows_valid(stringy, board=board):
         return 'Error: improper number of rows in layout definition'
 
     rows = [x.strip() for x in rows] # remove leading/trailing whitespace
@@ -106,8 +115,8 @@ def use():
 def desc():
     return 'contribute a new layout'
 
-def is_rows_valid(string: str, *, board: str) -> bool:
-    rows = string.split('\n')
+def is_rows_valid(stringy: str, *, board: str) -> bool:
+    rows = stringy.split('\n')
 
     if board in ['ortho']:
         max_rows = 4
