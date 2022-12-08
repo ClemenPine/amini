@@ -2,6 +2,8 @@ import glob
 import discord
 from importlib import import_module
 
+from cmds import help
+
 commands = [x.replace('/', '.')[5:-3] for x in glob.glob('cmds/*.py')]
 
 intents = discord.Intents.default()
@@ -23,6 +25,11 @@ async def on_message(message: discord.Message):
     elif command in commands:
         mod = import_module(f'cmds.{command}')
         reply = mod.exec(message)
+    elif command == 'dm':
+        channel = await bot.create_dm(message.author)
+        await channel.send(help.exec(message))
+
+        reply = f'Sent :)'
     else:
         reply = f'Error: {command} is not an available command'
 
