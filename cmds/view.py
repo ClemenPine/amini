@@ -4,7 +4,7 @@ from util import analyzer, authors, corpora, memory, parser
 
 def exec(message: Message):
     name = parser.get_arg(message)
-    ll = memory.get(name.lower())
+    ll = memory.find(name.lower())
     
     if not ll:
         return f'Error: could not find layout `{name}`'    

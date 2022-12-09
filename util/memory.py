@@ -38,6 +38,18 @@ def get(name: str) -> JSON:
     file = f'layouts/{name}.json'
 
     if not os.path.exists(file):
+        return {}
+
+    with open(file, 'r') as f:
+        data = json.load(f)
+
+    return data
+
+
+def find(name: str) -> JSON:
+    file = f'layouts/{name}.json'
+
+    if not os.path.exists(file):
         names = [x[8:-5] for x in glob.glob(f'layouts/*.json')]
         names = sorted(names, key=lambda x: len(x))
 
