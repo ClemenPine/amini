@@ -1,5 +1,7 @@
 import glob
+import logging
 import discord
+import datetime
 from importlib import import_module
 
 from cmds import help
@@ -12,11 +14,17 @@ intents.message_content = True
 bot = discord.Client(intents=intents)
 
 @bot.event
+async def on_ready():
+    logging.info(f'Logged in as {bot.user}')
+
+@bot.event
 async def on_message(message: discord.Message):
     args = message.content.split()
 
     if not args or args[0] != '!amini':
         return
+
+    logging.info(f'{message.author.name}: {message.content}')
     
     command = args[1].lower()
 
@@ -33,10 +41,20 @@ async def on_message(message: discord.Message):
     else:
         reply = f'Error: {command} is not an available command'
 
+    logging.info(f'AMINI: {reply}')
     await message.channel.send(reply, reference=message)
 
 
 def main():
+    date = datetime.datetime.now()
+
+    logging.basicConfig(
+        filename=f'logs/{date.strftime("%Y-%m-%d_%I:%M%p")}.log',
+        encoding='utf-8',
+        format='%(asctime)s %(message)s',
+        level=logging.DEBUG
+    )
+
     with open('token.txt', 'r') as f:
         token = f.read()
 
