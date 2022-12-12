@@ -1,5 +1,5 @@
 {
-    "name": "mtvap2",
+    "name": "mtvap",
     "user": 130544188818194432,
     "board": "ortho",
     "keys": {
@@ -23,7 +23,7 @@
             "col": 3,
             "finger": "LI"
         },
-        "/": {
+        ";": {
             "row": 0,
             "col": 4,
             "finger": "LI"
@@ -118,7 +118,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "\"": {
+        "/": {
             "row": 2,
             "col": 1,
             "finger": "LR"
