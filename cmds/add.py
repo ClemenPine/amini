@@ -1,7 +1,7 @@
 from discord import Message
 from itertools import zip_longest
 
-from util import authors, memory, parser
+from util import authors, layout, memory, parser
 from util.consts import *
 
 def exec(message: Message):
@@ -99,7 +99,7 @@ def exec(message: Message):
     authors.update(message)
 
     if memory.add(data):
-        return 'Success'
+        return f'Success!\n' + layout.to_string(data)
     else:
         return f'Error: `{name}` already exists'
 
