@@ -9,7 +9,7 @@ def exec(message: Message):
     
     if arg:
         id = authors.get_id(arg)
-        name = arg
+        name = authors.get_name(id)
     else:
         id = message.author.id
         name = message.author.name
