@@ -5,7 +5,7 @@ from util import layout, memory, parser
 def exec(message: Message):
     args = parser.get_args(message)
 
-    ll = memory.get(args[0])
+    ll = memory.find(args[0])
     if not ll:
         return f'Error: couldn\'t find any layout named `{args[0]}`'
 
