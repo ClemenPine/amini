@@ -10,6 +10,9 @@ def exec(message: Message):
         return f'Error: couldn\'t find any layout named `{args[0]}`'
 
     for cycle in args[1:]:
+        if len(set(cycle)) != len(cycle):
+            return f'Error: cannot use duplicate letters in cycle command'
+
         cmap = dict(zip(cycle, cycle[1:] + cycle[0]))
         keymap = {k: ll['keys'][k] for k in cycle}
 
