@@ -21,6 +21,9 @@ async def on_ready():
 async def on_message(message: discord.Message):
     args = message.content.split()
 
+    if message.author == bot.user:
+        return
+
     if not args or args[0] != '!amini':
         return
 
