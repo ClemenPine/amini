@@ -1,9 +1,9 @@
 {
-    "name": "nerves",
-    "user": 130544188818194432,
-    "board": "stagger",
+    "name": "nrst-test",
+    "user": 304373500196552715,
+    "board": "ortho",
     "keys": {
-        "b": {
+        "x": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -13,32 +13,32 @@
             "col": 1,
             "finger": "LR"
         },
-        "d": {
+        "m": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "w": {
+        "g": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "w": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "'": {
+        "k": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "f": {
+        "p": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "o": {
+        "a": {
             "row": 0,
             "col": 7,
             "finger": "RM"
@@ -53,14 +53,9 @@
             "col": 9,
             "finger": "RP"
         },
-        ";": {
+        "'": {
             "row": 0,
             "col": 10,
-            "finger": "RP"
-        },
-        "=": {
-            "row": 0,
-            "col": 11,
             "finger": "RP"
         },
         "n": {
@@ -83,12 +78,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "m": {
+        "y": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "y": {
+        "f": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -98,7 +93,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "a": {
+        "o": {
             "row": 1,
             "col": 7,
             "finger": "RM"
@@ -113,22 +108,17 @@
             "col": 9,
             "finger": "RP"
         },
-        ",": {
-            "row": 1,
-            "col": 10,
-            "finger": "RP"
-        },
-        "x": {
+        "/": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "v": {
+        "q": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "g": {
+        "v": {
             "row": 2,
             "col": 2,
             "finger": "LM"
@@ -138,17 +128,17 @@
             "col": 3,
             "finger": "LI"
         },
-        "q": {
+        "z": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "b": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "k": {
+        "d": {
             "row": 2,
             "col": 6,
             "finger": "RI"
@@ -158,12 +148,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "-": {
+        ";": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "/": {
+        ",": {
             "row": 2,
             "col": 9,
             "finger": "RP"
