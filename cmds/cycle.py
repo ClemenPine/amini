@@ -9,7 +9,7 @@ def exec(message: Message):
     if not ll:
         return f'Error: couldn\'t find any layout named `{args[0]}`'
 
-    if not all(x in ll['keys'] for x in ''.join(args)):
+    if not all(x in ll['keys'] for x in ''.join(args[1])):
         return f'Error: cannot swap letters that aren\'t in the layout'
 
     for cycle in args[1:]:
