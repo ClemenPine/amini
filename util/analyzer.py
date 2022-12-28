@@ -1,6 +1,42 @@
 import json
 from typing import Dict
 
+def use(ll, grams: Dict[str, str]):
+    fingers = {}
+    
+    for gram, count in grams.items():
+        if not gram in ll['keys']:
+            continue
+
+        finger = ll['keys'][gram]['finger']
+        
+        if not finger in fingers:
+            fingers[finger] = 0
+
+        fingers[finger] += count
+
+    total = sum(fingers.values())
+    for finger in fingers:
+        fingers[finger] /= total
+
+    fingers['LH'] = (
+        fingers['LI'] + 
+        fingers['LM'] + 
+        fingers['LR'] +
+        fingers['LP']
+    )
+
+    fingers['RH'] = (
+        fingers['RI'] + 
+        fingers['RM'] + 
+        fingers['RR'] +
+        fingers['RP']
+    )
+
+    return fingers
+
+
+
 def trigrams(ll, grams: Dict[str, int]):
     table = get_table()
 

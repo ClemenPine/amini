@@ -7,6 +7,11 @@ def load(file: str='corpora/mt-quotes.txt') -> str:
 
     return text
 
+def monograms():
+    text = load()
+
+    return dict(Counter(text).most_common())
+
 def trigrams():
     text = load()
 

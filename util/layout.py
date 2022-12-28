@@ -30,8 +30,11 @@ def to_string(ll: JSON):
     elif ll['board'] == 'angle':
         matrix[2][0] = ' ' + matrix[2][0]
 
-    data = corpora.trigrams()
-    stats = analyzer.trigrams(ll, data)
+    monogram = corpora.monograms()
+    trigram = corpora.trigrams()
+    
+    stats = analyzer.trigrams(ll, trigram)
+    use = analyzer.use(ll, monogram)
 
     matrix_str = '\n'.join(' '.join(x) for x in matrix)
 
@@ -49,6 +52,8 @@ def to_string(ll: JSON):
         '\n'
         f'SFB: {stats["sfb"] / 2:.2%}\n' 
         f'DFB: {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}\n'
+        '\n'
+        f'LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}'
         f'```\n'
     )
 
