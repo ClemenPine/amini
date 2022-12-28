@@ -1,4 +1,5 @@
 from collections import Counter
+from more_itertools import windowed
 
 def load(file: str='corpora/mt-quotes.txt') -> str:
 
@@ -7,12 +8,20 @@ def load(file: str='corpora/mt-quotes.txt') -> str:
 
     return text
 
-def monograms():
+def ngrams(n: int):
     text = load()
 
-    return dict(Counter(text).most_common())
+    ngrams = [''.join(x) for x in windowed(text, n=n)]
+    return dict(Counter(ngrams).most_common())
+
+
+def monograms():
+    return ngrams(1)
+
+
+def bigrams():
+    return ngrams(2)
+
 
 def trigrams():
-    text = load()
-
-    return dict(Counter(''.join(x) for x in zip(text, text[1:], text[2:])).most_common())
+    return ngrams(3)
