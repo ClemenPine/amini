@@ -9,6 +9,9 @@ def exec(message: Message):
 
     ll = memory.find(name)
 
+    if ll['name'] == 'QWERTY':
+        return 'You can\'t like Qwerty'
+
     with open('likes.json', 'r') as f:
         likes = json.load(f)
 
