@@ -48,9 +48,14 @@ def to_string(ll: JSON):
     else:
         likes = 0
 
+    if likes == 1:
+        like_string = 'like'
+    else:
+        like_string = 'likes'
+
     res = (
         f'```\n'
-        f'{ll["name"]} ({author}) ({likes} likes)\n'
+        f'{ll["name"]} ({author}) ({likes} {like_string})\n'
         f'{matrix_str}\n'
         f'\n'
         f'{"Alt:":>5} {stats["alternate"]:>6.2%}\n' 
