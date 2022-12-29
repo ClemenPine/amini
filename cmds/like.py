@@ -27,3 +27,9 @@ def exec(message: Message):
 
 
     return f'You {action} {ll["name"]}. (Now at {len(likes[ll["name"]])} likes)'
+
+def use():
+    return 'like [layout name]'
+
+def desc():
+    return 'like/unlike a layout'
