@@ -6,7 +6,7 @@ from discord import Message
 from util import parser
 
 def exec(message: Message):
-    row = parser.get_arg(message)
+    rows = parser.get_args(message)
 
     lines = []
     for file in glob.glob('layouts/*.json'):
@@ -14,9 +14,9 @@ def exec(message: Message):
             ll = json.load(f)
 
         homerow = ''.join(k for k in ll['keys'] if ll['keys'][k]['row'] == 1)
-        if (
+        if all(
             row in homerow or
-            row in homerow[::-1]
+            row in homerow[::-1] for row in rows
         ):
             lines.append(ll['name'])
 
