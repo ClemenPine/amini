@@ -1,3 +1,5 @@
+import json
+
 from util import analyzer, authors, corpora
 from util.consts import JSON
 
@@ -38,9 +40,17 @@ def to_string(ll: JSON):
 
     matrix_str = '\n'.join(' '.join(x) for x in matrix)
 
+    with open('likes.json', 'r') as f:
+        likes = json.load(f)
+
+    if ll['name'] in likes:
+        likes = len(likes[ll['name']])
+    else:
+        likes = 0
+
     res = (
         f'```\n'
-        f'{ll["name"]} ({author})\n'
+        f'{ll["name"]} ({author}) ({likes} likes)\n'
         f'{matrix_str}\n'
         f'\n'
         f'{"Alt:":>5} {stats["alternate"]:>6.2%}\n' 

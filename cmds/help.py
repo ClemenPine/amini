@@ -27,9 +27,3 @@ def exec(message: Message):
     lines.append('```')
 
     return '\n'.join(lines)
-
-def use():
-    return 'help'
-
-def desc():
-    return 'display this help page'
