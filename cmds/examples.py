@@ -1,24 +1,26 @@
 import humanize
 from discord import Message
 from collections import Counter
-from more_itertools import windowed
+from itertools import islice
 
 from util import corpora, parser
 from util.consts import PUNCT
 
 def exec(message: Message):
     part = parser.get_arg(message)
-    words = corpora.load().lower().split()
+    words = corpora.words()
+
+    words = dict(islice(words.items(), 30_000))
 
     if not any(x in PUNCT for x in part):
-        words = [x.strip(PUNCT) for x in words]
-
-    chunk_size = part.count(' ') + 1
+        strip_string = PUNCT
+    else:
+        strip_string = ''
 
     counts = Counter()
-    for item in [' '.join(x) for x in windowed(words, n=chunk_size)]:
-        if part in item:
-            counts.update([item])
+    for word, freq in words.items():
+        if part in word:
+            counts.update({word.strip(strip_string): freq})
 
     examples = []
     total = 0
@@ -28,14 +30,14 @@ def exec(message: Message):
         examples.append(f'{item:<15} {"(" + str(count) + ")":>6}')
 
     if not examples:
-        return f'Error: `{part}` does not appear anywhere in MT Quotes'
+        return f'Error: `{part}` does not appear anywhere in this corpus'
 
-    perc = total / len(words)
+    perc = total / sum(words.values())
 
     res = [f'Examples of `{part}` in MT Quotes:']
     res.append('```')
     
-    res.append(f'{humanize.intcomma(total)} / {humanize.intcomma(len(words))} words ({perc:.3%})')
+    res.append(f'{humanize.intcomma(total)} / {humanize.intcomma(sum(words.values()))} words ({perc:.3%})')
     res.append('')
     res += examples
     

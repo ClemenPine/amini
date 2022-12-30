@@ -1,3 +1,4 @@
+import json
 from collections import Counter
 from more_itertools import windowed
 
@@ -16,12 +17,30 @@ def ngrams(n: int):
 
 
 def monograms():
-    return ngrams(1)
+    with open('cache/akl/monograms.json') as f:
+        grams = json.load(f)
+
+    return grams
+    # return ngrams(1)
 
 
 def bigrams():
-    return ngrams(2)
+    with open('cache/akl/bigrams.json') as f:
+        grams = json.load(f)
+
+    return grams
+    # return ngrams(2)
 
 
 def trigrams():
-    return ngrams(3)
+    with open('cache/akl/trigrams.json') as f:
+        grams = json.load(f)
+
+    return grams
+    # return ngrams(3)
+
+def words():
+    with open('cache/akl/words.json') as f:
+        words = json.load(f)
+
+    return words
