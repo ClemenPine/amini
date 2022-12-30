@@ -1,7 +1,7 @@
 {
     "name": "ridge",
     "user": 368895414482501632,
-    "board": "ortho",
+    "board": "angle",
     "keys": {
         "v": {
             "row": 0,
@@ -105,22 +105,22 @@
         },
         "k": {
             "row": 2,
-            "col": 1,
+            "col": 0,
             "finger": "LR"
         },
         "j": {
             "row": 2,
-            "col": 2,
+            "col": 1,
             "finger": "LM"
         },
         "p": {
             "row": 2,
-            "col": 3,
+            "col": 2,
             "finger": "LI"
         },
         "c": {
             "row": 2,
-            "col": 4,
+            "col": 3,
             "finger": "LI"
         },
         "b": {
@@ -154,11 +154,5 @@
             "finger": "TB"
         }
     },
-    "free": [
-        {
-            "row": 2,
-            "col": 0,
-            "finger": "LP"
-        }
-    ]
+    "free": []
 }

@@ -2,6 +2,8 @@ import json
 from collections import Counter
 from more_itertools import windowed
 
+CORPUS = 'cache/akl'
+
 def load(file: str='corpora/mt-quotes.txt') -> str:
 
     with open(file, 'r') as f:
@@ -17,30 +19,27 @@ def ngrams(n: int):
 
 
 def monograms():
-    with open('cache/akl/monograms.json') as f:
+    with open(f'{CORPUS}/monograms.json') as f:
         grams = json.load(f)
 
     return grams
-    # return ngrams(1)
 
 
 def bigrams():
-    with open('cache/akl/bigrams.json') as f:
+    with open(f'{CORPUS}/bigrams.json') as f:
         grams = json.load(f)
 
     return grams
-    # return ngrams(2)
 
 
 def trigrams():
-    with open('cache/akl/trigrams.json') as f:
+    with open(f'{CORPUS}/trigrams.json') as f:
         grams = json.load(f)
 
     return grams
-    # return ngrams(3)
 
 def words():
-    with open('cache/akl/words.json') as f:
+    with open(f'{CORPUS}/words.json') as f:
         words = json.load(f)
 
     return words
