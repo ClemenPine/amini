@@ -1,5 +1,6 @@
 import json
 from collections import Counter
+from itertools import islice
 from more_itertools import windowed
 
 CORPUS = 'cache/akl'
