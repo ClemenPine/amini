@@ -1,6 +1,7 @@
 __pycache__/
 logs/
 openai/
+minigames/
 
 token.txt
 openai.txt
