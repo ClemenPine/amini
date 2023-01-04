@@ -3,7 +3,7 @@ from collections import Counter
 from itertools import islice
 from more_itertools import windowed
 
-CORPUS = 'cache/akl'
+CORPUS = 'cache/mt-quotes'
 
 def load(file: str='corpora/mt-quotes.txt') -> str:
 

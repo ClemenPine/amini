@@ -34,7 +34,7 @@ def exec(message: Message):
 
     perc = total / sum(words.values())
 
-    res = [f'Examples of `{part}` in AKL Corpus:']
+    res = [f'Examples of `{part}` in MT Corpus:']
     res.append('```')
     
     res.append(f'{humanize.intcomma(total)} / {humanize.intcomma(sum(words.values()))} words ({perc:.3%})')
