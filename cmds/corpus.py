@@ -8,7 +8,7 @@ def exec(message: Message):
     arg = parser.get_arg(message).lower()
 
     if not f'cache/{arg}/' in glob.glob('cache/*/'):
-        return f'The corpus `{arg}` doesn\'t exist.'
+        return f'The corpus `{arg if arg else " "}` doesn\'t exist.'
 
     with open('corpora.json', 'r') as f:
         prefs = json.load(f)
