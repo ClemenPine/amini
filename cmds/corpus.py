@@ -7,8 +7,13 @@ from util import parser
 def exec(message: Message):
     arg = parser.get_arg(message).lower()
 
-    if not f'cache/{arg}/' in glob.glob('cache/*/'):
-        return f'The corpus `{arg if arg else " "}` doesn\'t exist.'
+    corpora = [x[6:-1] for x in glob.glob('cache/*/')]
+
+    if not arg:
+        return '\n'.join(['```', 'List of Corpora:'] + list(sorted(corpora)) + ['```'])
+
+    if not arg in corpora:
+        return f'The corpus `{arg}` doesn\'t exist.'
 
     with open('corpora.json', 'r') as f:
         prefs = json.load(f)
