@@ -9,7 +9,7 @@ def exec(message: Message):
     if not ll:
         return f'Error: could not find layout `{name}`'    
 
-    return layout.to_string(ll)     
+    return layout.to_string(ll, id=message.author.id)     
 
 def use():
     return 'view [name]'

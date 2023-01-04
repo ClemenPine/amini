@@ -8,7 +8,7 @@ from util.consts import PUNCT
 
 def exec(message: Message):
     part = parser.get_arg(message)
-    words = corpora.words()
+    words = corpora.words(id=message.author.id)
 
     words = dict(islice(words.items(), 30_000))
 
@@ -34,7 +34,7 @@ def exec(message: Message):
 
     perc = total / sum(words.values())
 
-    res = [f'Examples of `{part}` in MT Corpus:']
+    res = [f'Examples of `{part}` in {corpora.get_corpus(message.author.id).upper()}:']
     res.append('```')
     
     res.append(f'{humanize.intcomma(total)} / {humanize.intcomma(sum(words.values()))} words ({perc:.3%})')

@@ -6,7 +6,7 @@ def exec(message: Message):
     name = parser.get_arg(message)
     ll = memory.find(name.lower())
 
-    bigrams = corpora.bigrams()
+    bigrams = corpora.ngrams(2, id=message.author.id)
     total = sum(bigrams.values())
 
     lines = []

@@ -11,4 +11,4 @@ def exec(message: Message):
     with open(random.choice(files), 'r') as f:
         ll = json.load(f)
 
-    return layout.to_string(ll)
+    return layout.to_string(ll, id=message.author.id)

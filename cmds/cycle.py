@@ -24,7 +24,7 @@ def exec(message: Message):
 
     ll['name'] += ' (modified)'
 
-    return layout.to_string(ll)
+    return layout.to_string(ll, id=message.author.id)
 
 def use():
     return 'cycle [layout_name] [chars]'

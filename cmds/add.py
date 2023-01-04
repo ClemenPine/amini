@@ -99,7 +99,7 @@ def exec(message: Message):
     authors.update(message)
 
     if memory.add(data):
-        return f'Success!\n' + layout.to_string(data)
+        return f'Success!\n' + layout.to_string(data, id=message.author.id)
     else:
         return f'Error: `{name}` already exists'
 
