@@ -1,43 +1,26 @@
 import json
-from collections import Counter
-from itertools import islice
-from more_itertools import windowed
 
 CORPUS = 'cache/mt-quotes'
-
-def load(file: str='corpora/mt-quotes.txt') -> str:
-
-    with open(file, 'r') as f:
-        text = f.read()
-
-    return text
+NGRAMS = ['monograms', 'bigrams', 'trigrams']
 
 def ngrams(n: int):
-    text = load()
+    path = f'{CORPUS}/{NGRAMS[n - 1]}.json'
 
-    ngrams = [''.join(x) for x in windowed(text, n=n)]
-    return dict(Counter(ngrams).most_common())
-
-
-def monograms():
-    with open(f'{CORPUS}/monograms.json') as f:
+    with open(path, 'r') as f:
         grams = json.load(f)
 
     return grams
+
+def monograms():
+    return ngrams(1)
 
 
 def bigrams():
-    with open(f'{CORPUS}/bigrams.json') as f:
-        grams = json.load(f)
-
-    return grams
+    return ngrams(2)
 
 
 def trigrams():
-    with open(f'{CORPUS}/trigrams.json') as f:
-        grams = json.load(f)
-
-    return grams
+    return ngrams(3)
 
 def words():
     with open(f'{CORPUS}/words.json') as f:
