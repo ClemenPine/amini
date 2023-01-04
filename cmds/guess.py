@@ -14,7 +14,8 @@ def exec(message: Message):
 
     if not os.path.exists(path):
         data = {
-            'guess': ''
+            'guess': '',
+            'tries': 0
         }
 
     else:
@@ -31,9 +32,10 @@ def exec(message: Message):
             arg = arg[:-1]
 
         attempt = float(arg) / 100
+        data['tries'] += 1
 
         if abs(attempt - data['amount']) < .0001:
-            reply = f'You got it! It was `{data["amount"]:.2%}`!'
+            reply = f'You got it in {data["tries"]} tries! `{data["guess"]}` has `{data["amount"]:.2%}` SFBs!'
             data['guess'] = ''
 
         elif data['amount'] > attempt:
@@ -59,6 +61,7 @@ def exec(message: Message):
 
         data['guess'] = guess
         data['amount'] = freq
+        data['tries'] = 0
 
         reply = f'What is the total SFB% of `{guess}`?'
 
