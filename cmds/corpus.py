@@ -10,7 +10,7 @@ def exec(message: Message):
     corpora = [x[6:-1] for x in glob.glob('cache/*/')]
 
     if not arg:
-        return '\n'.join(['```', 'List of Corpora:'] + list(sorted(corpora)) + ['```'])
+        return '\n'.join(['```', 'List of Corpora:'] + [f'- {x}' for x in list(sorted(corpora))] + ['```'])
 
     if not arg in corpora:
         return f'The corpus `{arg}` doesn\'t exist.'
