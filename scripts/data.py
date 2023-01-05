@@ -3,7 +3,7 @@ import json
 from collections import Counter
 from more_itertools import windowed
 
-FILE = 'tr-quotes'
+FILE = 'keymash'
 NGRAMS = ['monograms', 'bigrams', 'trigrams']
 
 def ngrams(text: str, *, n: int):
