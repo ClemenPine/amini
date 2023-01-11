@@ -12,6 +12,7 @@ def exec(message: Message):
 
     words = dict(islice(words.items(), 30_000))
 
+    strip_string = ''
     if not any(x in PUNCT for x in part):
         strip_string = PUNCT
     else:
@@ -19,6 +20,9 @@ def exec(message: Message):
 
     counts = Counter()
     for word, freq in words.items():
+        if part.lower() == part:
+            word = word.lower()
+
         if part in word:
             counts.update({word.strip(strip_string): freq})
 

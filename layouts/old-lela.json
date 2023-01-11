@@ -1,5 +1,5 @@
 {
-    "name": "lela-mg",
+    "name": "old-lela",
     "user": 805982808878350366,
     "board": "angle",
     "keys": {
@@ -108,12 +108,12 @@
             "col": 0,
             "finger": "LR"
         },
-        "g": {
+        "m": {
             "row": 2,
             "col": 1,
             "finger": "LM"
         },
-        "m": {
+        "g": {
             "row": 2,
             "col": 2,
             "finger": "LI"

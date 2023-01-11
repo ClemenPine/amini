@@ -7,6 +7,9 @@ from util.consts import *
 def exec(message: Message):
     name, string = parser.get_layout(message)
 
+    if name[0] == '_':
+        return 'Error: names cannot start with an underscore'
+
     if len(name) < 3:
         return 'Error: names must be at least 3 characters long'
 

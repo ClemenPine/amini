@@ -10,6 +10,10 @@ def exec(message: Message):
     old = args[0]
     new = args[1]
 
+
+    if new[0] == '_':
+        return 'Error: names cannot start with an underscore'
+
     if len(new) < 3:
         return 'Error: names must be at least 3 characters long'
 

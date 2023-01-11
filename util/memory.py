@@ -6,7 +6,7 @@ from jellyfish import damerau_levenshtein_distance as lev
 from util.consts import JSON
 
 def add(data: JSON) -> bool:
-    file = f'layouts/{data["name"]}.json'
+    file = f'layouts/{data["name"].lower()}.json'
 
     if os.path.exists(file):
         return False
