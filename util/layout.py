@@ -70,7 +70,7 @@ def to_string(ll: JSON, id: int):
         f'   (Bad: {stats["bad-redirect"]:>9.2%})\n'
         '\n'
         f'  SFB: {stats["sfb"] / 2:.2%}\n' 
-        f'  DFB: {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}\n'
+        f'  SFS: {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}\n'
         '\n'
         f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}'
         f'```\n'
