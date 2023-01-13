@@ -68,7 +68,7 @@ def to_string(ll: JSON, id: int):
         # f'   (In: {stats["oneh-in"]:>6.2%} Out: {stats["oneh-out"]:>6.2%})\n'
         f' {"Red:":>5} {stats["redirect"] + stats["bad-redirect"]:>6.2%}'
         f'   (Bad: {stats["bad-redirect"]:>9.2%})\n'
-        f'  SFB/DFB: {stats["sfb"] / 2:.2%} | {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}\n'
+        f'  SFB/SFS: {stats["sfb"] / 2:.2%} | {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}\n'
         f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}'
         f'```\n'
     )
