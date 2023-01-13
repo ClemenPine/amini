@@ -6,6 +6,8 @@ from discord import Message
 
 from util import corpora, parser
 
+RESTRICTED = False
+
 LETTERS = 'abcdefghijklmnopqrstuvwxyz'
 DIR = 'minigames/guess'
 

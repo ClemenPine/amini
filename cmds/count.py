@@ -5,6 +5,8 @@ import math
 import random
 from discord import Message
 
+RESTRICTED = False
+
 PATH = 'minigames/count.json'
 
 NAMES = {

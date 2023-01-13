@@ -2,6 +2,8 @@ from discord import Message
 
 from util import layout, memory, parser
 
+RESTRICTED = False
+
 def exec(message: Message):
     name = parser.get_arg(message)
     ll = memory.find(name.lower())

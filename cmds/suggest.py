@@ -2,6 +2,8 @@ from discord import Message
 
 from util import parser
 
+RESTRICTED = False
+
 def exec(message: Message):
     suggestion = parser.get_arg(message)
 

@@ -6,6 +6,8 @@ from importlib import import_module
 
 from cmds import help
 
+AMINI_CHANNEL = 1063291226243207268
+
 commands = [x.replace('/', '.')[5:-3] for x in glob.glob('cmds/*.py')]
 
 intents = discord.Intents.default()
@@ -27,6 +29,11 @@ async def on_message(message: discord.Message):
     if not args or args[0] != '!amini':
         return
 
+    restricted = (
+        message.channel.id != AMINI_CHANNEL and
+        not isinstance(message.channel, discord.channel.DMChannel)
+    )
+
     logging.info(f'{message.author.name}: {message.content}')
     
     command = args[1].lower()
@@ -35,7 +42,12 @@ async def on_message(message: discord.Message):
         reply = 'Try `!amini help`'
     elif command in commands:
         mod = import_module(f'cmds.{command}')
-        reply = mod.exec(message)
+
+        if not restricted or hasattr(mod, 'RESTRICTED') and not mod.RESTRICTED:
+            reply = mod.exec(message)
+        else:
+            reply = f'please use this command in <#{AMINI_CHANNEL}> or in a dm'
+
     elif command == 'dm':
         channel = await bot.create_dm(message.author)
         await channel.send(help.exec(message))
