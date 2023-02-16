@@ -31,6 +31,7 @@ def exec(message: Message):
 
     for (item, count) in counts.most_common(10):
         # total += count
+        item = item.replace('`', '​`')
         examples.append(f'{item:<15} {"(" + str(count) + ")":>6}')
 
     if not examples:

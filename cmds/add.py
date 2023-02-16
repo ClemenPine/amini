@@ -7,6 +7,9 @@ from util.consts import *
 def exec(message: Message):
     name, string = parser.get_layout(message)
 
+    if '~' in string:
+        return '`~` has been disabled'
+
     if name[0] == '_':
         return 'Error: names cannot start with an underscore'
 

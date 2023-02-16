@@ -11,7 +11,7 @@ PUNCT = '()";:,.?!'
 NAME_SET = set(
     string.ascii_letters +
     string.digits + 
-    " _-'():"
+    " _-'():~"
 )
 
 # letter to indicate an empty space

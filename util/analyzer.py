@@ -19,19 +19,23 @@ def use(ll, grams: Dict[str, str]):
     for finger in fingers:
         fingers[finger] /= total
 
-    fingers['LH'] = (
-        fingers['LI'] + 
-        fingers['LM'] + 
-        fingers['LR'] +
-        fingers['LP']
-    )
+    fingers['LH'] = sum(fingers[x] for x in fingers if x[0] == 'L')
+    fingers['RH'] = sum(fingers[x] for x in fingers if x[0] == 'R')
 
-    fingers['RH'] = (
-        fingers['RI'] + 
-        fingers['RM'] + 
-        fingers['RR'] +
-        fingers['RP']
-    )
+
+    # fingers['LH'] = (
+    #     fingers['LI'] + 
+    #     fingers['LM'] + 
+    #     fingers['LR'] +
+    #     fingers['LP']
+    # )
+
+    # fingers['RH'] = (
+    #     fingers['RI'] + 
+    #     fingers['RM'] + 
+    #     fingers['RR'] +
+    #     fingers['RP']
+    # )
 
     return fingers
 

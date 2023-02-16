@@ -3,7 +3,7 @@ import json
 from collections import Counter
 from more_itertools import windowed
 
-FILE = 'movie'
+FILE = 'chained-bigrams'
 NGRAMS = ['monograms', 'bigrams', 'trigrams']
 
 def ngrams(text: str, *, n: int):

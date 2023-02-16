@@ -18,25 +18,31 @@ def exec(message: Message):
     most_liked = list(sorted(likes.items(), key=lambda x: len(x[1]), reverse=True))
     top_corpora = Counter(corpora.values()).most_common()
 
-    return '\n'.join([
+    lines = [
         '```',
         '--- AMINI STATS ---',
         f'Layouts: {len(files)}',
         f'Authors: {len(authors)}',
         '',
         f'Most liked layouts:',
-        f'    {most_liked[0][0]:<15} ({len(likes[most_liked[0][0]])} likes)',
-        f'    {most_liked[1][0]:<15} ({len(likes[most_liked[1][0]])} likes)',
-        f'    {most_liked[2][0]:<15} ({len(likes[most_liked[2][0]])} likes)',
-        f'    {most_liked[3][0]:<15} ({len(likes[most_liked[3][0]])} likes)',
-        f'    {most_liked[4][0]:<15} ({len(likes[most_liked[4][0]])} likes)',
+    ]
+
+    for i in range(10):
+        string = f'    {most_liked[i][0]:<15} ({len(likes[most_liked[i][0]])} likes)'
+        lines.append(string)
+
+    lines += [
         '',
         f'Top Corpora:',
-        f'    {top_corpora[0][0]:<15} ({top_corpora[0][1]} users)',
-        f'    {top_corpora[1][0]:<15} ({top_corpora[1][1]} users)',
-        f'    {top_corpora[2][0]:<15} ({top_corpora[2][1]} users)',
-        '```'
-    ])
+    ]
+
+    for i in range(3):
+        string = f'    {top_corpora[i][0]:<15} ({top_corpora[i][1]} users)'
+        lines.append(string)
+
+    lines.append('```')
+
+    return '\n'.join(lines)
 
 def use():
     return 'stats'
