@@ -14,6 +14,7 @@ def exec(message: Message):
             ll = json.load(f)
 
         homerow = ''.join(k for k in ll['keys'] if ll['keys'][k]['row'] == 1)
+        homerow = homerow[0:4] + homerow[6:10] # ignore center columns
         if all(
             row in homerow or
             row in homerow[::-1] for row in rows
