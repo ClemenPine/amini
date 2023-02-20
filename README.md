@@ -2,4 +2,4 @@
 
 amini is a basic discord bot that displays the stats of a particular layout
 
-![amini in action](https://i.postimg.cc/k4RVncMP/Screenshot-from-2022-08-26-14-24-05.png)
+<img width="499" alt="amini in action" src="https://user-images.githubusercontent.com/53956237/212237537-3d48d0a3-b287-4e84-878e-eddb22be5df1.png">
