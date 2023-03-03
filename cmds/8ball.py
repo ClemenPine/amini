@@ -5,7 +5,10 @@ RESTRICTED = False
 
 def exec(message: Message):
     return random.choice([
-        'Yes', 'No', 'Count on it',
-        'Maybe', 'No doubt',
-        'Absolutely', 'Very likely'
+        'Yes', 'Count on it',
+        'No doubt',
+        'Absolutely', 'Very likely',
+        'Maybe', 'Perhaps',
+        'No', 'No chance', 'Unlikely',
+        'Doubtful', 'Probably not'
     ])
