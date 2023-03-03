@@ -1,0 +1,9 @@
+import random
+from discord import Message
+
+RESTRICTED = False
+
+def exec(message: Message):
+    return random.choice([
+        '<:WoagCat:974475808339034142>', '<:NauseousCat:999695538360426526>', '😻', '<:YawningCat:999695541170606080>', '<:MoyaiCat:997684009662431272>', '<:PleadingCat:977258959582953482>', '<:NerdCat:974475807844081714>', '🐱', '<:PensiveCat:974475808032849920>', '<:FlushedCat:999084897564119112>', '<:BlushCat:999843358249848873>', '<:CatKiss2:1070852067285008384>', '<:SobCat:974475807554699318>', '😹', '😼', '<:MenaceCat:974475807886032916>', '<:MovieCat:1001203710824820856>', '<:WinkCat:1026268620478758993>', '<:MonocleCat:974804376566775890>', '<:WoozyCat:1026591631559905290>', '<:YumCat:974475808099926076>', '<:RollingEyesCat:974475807458209832>', '<:WorriedCat:974475807797936188>', '<:WearyCat:974475807965736960>', '<:ThinkingCat:974617089702789160>', '<:PogCat:974620237402099733>', '<:HeartsCat:999695770334793901>', '<:InnocentCat:974475807076548638>', '<:ImpCat:1001141535875797122>', '<:FireCat:975731706613096508>', '<:SunglassesCat:974857172343214100>'
+    ])
