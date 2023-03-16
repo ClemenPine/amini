@@ -19,7 +19,7 @@
             "finger": "LM"
         },
         "m": {
-            "row": 0,
+            "row": 2,
             "col": 3,
             "finger": "LI"
         },
@@ -119,7 +119,7 @@
             "finger": "LM"
         },
         "l": {
-            "row": 2,
+            "row": 0,
             "col": 3,
             "finger": "LI"
         },

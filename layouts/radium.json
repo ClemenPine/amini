@@ -1,5 +1,5 @@
 {
-    "name": "ruthenium",
+    "name": "radium",
     "user": 761732338744557568,
     "board": "ortho",
     "keys": {
@@ -18,22 +18,22 @@
             "col": 2,
             "finger": "LM"
         },
-        "f": {
+        "c": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "x": {
+        "v": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "q": {
+        "z": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "b": {
+        "p": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "g": {
+        "f": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        ".": {
+        "b": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -103,7 +103,7 @@
             "col": 9,
             "finger": "RP"
         },
-        "j": {
+        ",": {
             "row": 2,
             "col": 0,
             "finger": "LP"
@@ -118,22 +118,22 @@
             "col": 2,
             "finger": "LM"
         },
-        "c": {
+        "g": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "x": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "z": {
+        "q": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "p": {
+        "j": {
             "row": 2,
             "col": 6,
             "finger": "RI"
@@ -143,12 +143,12 @@
             "col": 7,
             "finger": "RM"
         },
-        ",": {
+        ".": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        ";": {
+        "/": {
             "row": 2,
             "col": 9,
             "finger": "RP"
