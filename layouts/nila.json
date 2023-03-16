@@ -24,7 +24,7 @@
             "finger": "LI"
         },
         "v": {
-            "row": 0,
+            "row": 1,
             "col": 4,
             "finger": "LI"
         },
@@ -74,7 +74,7 @@
             "finger": "LI"
         },
         "b": {
-            "row": 1,
+            "row": 0,
             "col": 4,
             "finger": "LI"
         },
