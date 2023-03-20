@@ -140,8 +140,8 @@
         },
         ",": {
             "row": 2,
-            "col": 7,
-            "finger": "RM"
+            "col": 9,
+            "finger": "RP"
         },
         ".": {
             "row": 2,
@@ -150,8 +150,8 @@
         },
         "'": {
             "row": 2,
-            "col": 9,
-            "finger": "RP"
+            "col": 7,
+            "finger": "RM"
         }
     },
     "free": []

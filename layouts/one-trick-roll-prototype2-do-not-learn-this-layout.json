@@ -1,9 +1,9 @@
 {
-    "name": "bleating_goat",
-    "user": 130544188818194432,
-    "board": "angle",
+    "name": "one-trick-roll-prototype2-do-not-learn-this-layout",
+    "user": 401316842083450881,
+    "board": "ortho",
     "keys": {
-        "j": {
+        "g": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -18,7 +18,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "q": {
+        "b": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -33,27 +33,27 @@
             "col": 5,
             "finger": "RI"
         },
-        "d": {
+        "w": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "c": {
+        "d": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "l": {
+        "y": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "w": {
+        "c": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "i": {
+        "l": {
             "row": 1,
             "col": 0,
             "finger": "LP"
@@ -68,87 +68,87 @@
             "col": 2,
             "finger": "LM"
         },
-        "n": {
+        "r": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "'": {
+        "n": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "m": {
+        ",": {
             "row": 1,
             "col": 5,
+            "finger": "RI"
+        },
+        "t": {
+            "row": 1,
+            "col": 6,
             "finger": "RI"
         },
         "h": {
             "row": 1,
-            "col": 6,
-            "finger": "RI"
-        },
-        "s": {
-            "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "t": {
+        "i": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "r": {
+        "s": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        ".": {
+        "'": {
             "row": 2,
             "col": 0,
-            "finger": "LR"
+            "finger": "LP"
         },
-        ",": {
+        "z": {
             "row": 2,
             "col": 1,
-            "finger": "LM"
+            "finger": "LR"
         },
-        "p": {
+        "q": {
             "row": 2,
             "col": 2,
-            "finger": "LI"
+            "finger": "LM"
         },
-        "y": {
+        "m": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "x": {
+        "j": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        "p": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "f": {
+        "v": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "g": {
+        "f": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "v": {
+        ".": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "z": {
+        "x": {
             "row": 2,
             "col": 9,
             "finger": "RP"
