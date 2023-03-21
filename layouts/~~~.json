@@ -1,27 +1,16 @@
 {
-    "name": "woah-edge-case",
+    "name": "~~~",
     "user": 627912342092382228,
     "board": "ortho",
-    "keys": {
-        "t": {
-            "row": 0,
-            "col": 0,
-            "finger": "LP"
-        },
-        "h": {
-            "row": 1,
-            "col": 0,
-            "finger": "LP"
-        },
-        "e": {
-            "row": 2,
-            "col": 0,
-            "finger": "LP"
-        }
-    },
+    "keys": {},
     "free": [
         {
             "row": 0,
+            "col": 0,
+            "finger": "LP"
+        },
+        {
+            "row": 0,
             "col": 1,
             "finger": "LR"
         },
@@ -67,6 +56,11 @@
         },
         {
             "row": 1,
+            "col": 0,
+            "finger": "LP"
+        },
+        {
+            "row": 1,
             "col": 1,
             "finger": "LR"
         },
@@ -109,6 +103,11 @@
             "row": 1,
             "col": 9,
             "finger": "RP"
+        },
+        {
+            "row": 2,
+            "col": 0,
+            "finger": "LP"
         },
         {
             "row": 2,
