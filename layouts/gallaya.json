@@ -78,8 +78,8 @@
             "col": 4,
             "finger": "LI"
         },
-        "k": {
-            "row": 2,
+        "p": {
+            "row": 1,
             "col": 5,
             "finger": "RI"
         },
@@ -128,8 +128,8 @@
             "col": 4,
             "finger": "LI"
         },
-        "p": {
-            "row": 1,
+        "k": {
+            "row": 2,
             "col": 5,
             "finger": "RI"
         },

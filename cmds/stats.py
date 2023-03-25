@@ -8,7 +8,7 @@ def exec(message: Message):
 
     with open('authors.json', 'r') as f:
         authors = json.load(f)
-    
+
     with open('likes.json', 'r') as f:
         likes = json.load(f)
 
@@ -20,7 +20,7 @@ def exec(message: Message):
 
     lines = [
         '```',
-        '--- AMINI STATS ---',
+        '--- CMINI STATS ---',
         f'Layouts: {len(files)}',
         f'Authors: {len(authors)}',
         '',

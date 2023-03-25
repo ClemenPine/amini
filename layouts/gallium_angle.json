@@ -1,7 +1,7 @@
 {
     "name": "gallium_angle",
     "user": 761732338744557568,
-    "board": "angle",
+    "board": "stagger",
     "keys": {
         "b": {
             "row": 0,
@@ -106,17 +106,17 @@
         "x": {
             "row": 2,
             "col": 0,
-            "finger": "LR"
+            "finger": "LP"
         },
         "m": {
             "row": 2,
             "col": 1,
-            "finger": "LM"
+            "finger": "LR"
         },
         "w": {
             "row": 2,
             "col": 2,
-            "finger": "LI"
+            "finger": "LM"
         },
         "g": {
             "row": 2,

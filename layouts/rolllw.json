@@ -1,99 +1,99 @@
 {
-    "name": "seht-drai",
+    "name": "rolllw",
     "user": 444585600318701568,
     "board": "angle",
     "keys": {
-        "f": {
+        "y": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "u": {
+        "o": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "l": {
+        "u": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "v": {
+        "b": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "b": {
+        ".": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        ";": {
-            "row": 2,
-            "col": 0,
-            "finger": "LR"
+        "x": {
+            "row": 0,
+            "col": 5,
+            "finger": "RI"
         },
-        "g": {
+        "k": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "n": {
+        "o": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "o": {
+        "u": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "j": {
+        "v": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "s": {
+        "n": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "e": {
+        "a": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "h": {
+        "e": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "t": {
+        "s": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "k": {
+        ",": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "z": {
-            "row": 2,
-            "col": 4,
-            "finger": "LI"
+        "p": {
+            "row": 1,
+            "col": 5,
+            "finger": "RI"
         },
-        "d": {
+        "h": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "r": {
+        "a": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "a": {
+        "e": {
             "row": 1,
             "col": 8,
             "finger": "RR"
@@ -103,60 +103,60 @@
             "col": 9,
             "finger": "RP"
         },
-        ".": {
-            "row": 1,
-            "col": 10,
-            "finger": "RP"
-        },
         "'": {
-            "row": 1,
-            "col": 5,
-            "finger": "RI"
+            "row": 2,
+            "col": 0,
+            "finger": "LR"
         },
-        "m": {
+        "/": {
             "row": 2,
             "col": 1,
             "finger": "LM"
         },
-        "p": {
+        "w": {
             "row": 2,
             "col": 2,
             "finger": "LI"
         },
-        "w": {
+        "z": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "q": {
-            "row": 0,
-            "col": 5,
-            "finger": "RI"
+        ";": {
+            "row": 2,
+            "col": 4,
+            "finger": "LI"
         },
-        "y": {
+        "f": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "c": {
+        "d": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "x": {
+        "'": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "/": {
+        "j": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        ",": {
+        "q": {
             "row": 2,
             "col": 9,
             "finger": "RP"
+        },
+        "w": {
+            "row": 3,
+            "col": 0,
+            "finger": "TB"
         }
     },
     "free": []
