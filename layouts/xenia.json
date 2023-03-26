@@ -33,34 +33,20 @@
             "col": 5,
             "finger": "RI"
         },
-<<<<<<< HEAD
         "v": {
             "row": 0,
             "col": 8,
             "finger": "RR"
-=======
-        "f": {
-            "row": 0,
-            "col": 6,
-            "finger": "RI"
->>>>>>> 03c3dbb (Sync data)
         },
         "d": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-<<<<<<< HEAD
         "f": {
             "row": 0,
             "col": 6,
             "finger": "RI"
-=======
-        "v": {
-            "row": 0,
-            "col": 8,
-            "finger": "RR"
->>>>>>> 03c3dbb (Sync data)
         },
         "g": {
             "row": 0,

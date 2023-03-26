@@ -1,26 +1,14 @@
 {
-<<<<<<< HEAD
-    "name": "seht-drai-sorted",
-    "user": 805982808878350366,
-    "board": "angle",
-    "keys": {
-        "f": {
-=======
     "name": "rollly-st",
     "user": 328195824238723072,
     "board": "angle",
     "keys": {
         "y": {
->>>>>>> 03c3dbb (Sync data)
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-<<<<<<< HEAD
-        "n": {
-=======
         "o": {
->>>>>>> 03c3dbb (Sync data)
             "row": 0,
             "col": 1,
             "finger": "LR"
@@ -30,20 +18,12 @@
             "col": 2,
             "finger": "LM"
         },
-<<<<<<< HEAD
-        "v": {
-=======
         "f": {
->>>>>>> 03c3dbb (Sync data)
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-<<<<<<< HEAD
-        "b": {
-=======
         "j": {
->>>>>>> 03c3dbb (Sync data)
             "row": 0,
             "col": 4,
             "finger": "LI"
@@ -53,11 +33,7 @@
             "col": 5,
             "finger": "RI"
         },
-<<<<<<< HEAD
-        "y": {
-=======
         "w": {
->>>>>>> 03c3dbb (Sync data)
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -82,57 +58,32 @@
             "col": 0,
             "finger": "LP"
         },
-<<<<<<< HEAD
-        "r": {
-=======
         "a": {
->>>>>>> 03c3dbb (Sync data)
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-<<<<<<< HEAD
-        "h": {
-=======
         "e": {
->>>>>>> 03c3dbb (Sync data)
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-<<<<<<< HEAD
-        "t": {
-=======
         "n": {
->>>>>>> 03c3dbb (Sync data)
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-<<<<<<< HEAD
-        "k": {
-=======
         "b": {
->>>>>>> 03c3dbb (Sync data)
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-<<<<<<< HEAD
-        ";": {
-            "row": 2,
-            "col": 7,
-            "finger": "RM"
-        },
-        "c": {
-=======
         "v": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
         "s": {
->>>>>>> 03c3dbb (Sync data)
             "row": 1,
             "col": 6,
             "finger": "RI"
@@ -152,11 +103,7 @@
             "col": 9,
             "finger": "RP"
         },
-<<<<<<< HEAD
-        ".": {
-=======
         "'": {
->>>>>>> 03c3dbb (Sync data)
             "row": 1,
             "col": 10,
             "finger": "RP"
@@ -166,20 +113,12 @@
             "col": 0,
             "finger": "LR"
         },
-<<<<<<< HEAD
-        "m": {
-=======
         "\"": {
->>>>>>> 03c3dbb (Sync data)
             "row": 2,
             "col": 1,
             "finger": "LM"
         },
-<<<<<<< HEAD
-        "p": {
-=======
         "h": {
->>>>>>> 03c3dbb (Sync data)
             "row": 2,
             "col": 2,
             "finger": "LI"
@@ -199,30 +138,17 @@
             "col": 5,
             "finger": "RI"
         },
-<<<<<<< HEAD
-        "d": {
-=======
         "m": {
->>>>>>> 03c3dbb (Sync data)
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-<<<<<<< HEAD
-        "'": {
-            "row": 1,
-            "col": 5,
-            "finger": "RI"
-        },
-        "/": {
-=======
         "k": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
         "x": {
->>>>>>> 03c3dbb (Sync data)
             "row": 2,
             "col": 8,
             "finger": "RR"

@@ -23,15 +23,9 @@
             "col": 3,
             "finger": "LI"
         },
-<<<<<<< HEAD
         "j": {
             "row": 2,
             "col": 3,
-=======
-        "q": {
-            "row": 0,
-            "col": 4,
->>>>>>> 03c3dbb (Sync data)
             "finger": "LI"
         },
         "k": {
@@ -129,15 +123,9 @@
             "col": 2,
             "finger": "LI"
         },
-<<<<<<< HEAD
         "q": {
             "row": 0,
             "col": 4,
-=======
-        "j": {
-            "row": 2,
-            "col": 3,
->>>>>>> 03c3dbb (Sync data)
             "finger": "LI"
         },
         "z": {
