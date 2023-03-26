@@ -23,7 +23,7 @@ def exec(message: Message):
     rows = string.split('\n')
 
     # calculate amount of leading whitespace for each row
-    spaces = [] 
+    spaces = []
     for row in rows:
         size = len(row) - len(row.lstrip())
         spaces.append(size)
@@ -31,6 +31,8 @@ def exec(message: Message):
     # Determine board type with leading whitespace
     if spaces[0] < spaces[1] < spaces[2]:
         board = 'stagger'
+    elif spaces[0] == spaces[1] and spaces[2] > 1:
+        board = 'mini'
     elif spaces[0] == spaces[1] < spaces[2]:
         board = 'angle'
     elif spaces[0] == spaces[1] == spaces[2]:
@@ -50,7 +52,7 @@ def exec(message: Message):
         if all(x == ' ' for x in col): # column gap detected
             gap = True
             continue
-        
+
         if not gap: # no gap between letters
             return f'Error: missing gap before column `{col}`'
 
@@ -91,8 +93,8 @@ def exec(message: Message):
             keymap[char] = data
 
     # must include all letters except one
-    if len(LETTERS) - len(list(x for x in keymap if x in LETTERS)) > len(free): 
-        return 'Error: missing a required letter in layout definition'
+    if (len(LETTERS) - len(list(x for x in keymap if x in LETTERS)) > len(free)) and board != 'mini':
+        return 'Error: missing a required letter in layout definition: f{board}'
 
     data = {
         'name': name,
@@ -119,7 +121,7 @@ def desc():
 def is_rows_valid(string: str, *, board: str) -> bool:
     rows = string.split('\n')
 
-    if board in ['ortho']:
+    if board in ['ortho', 'mini']:
         max_rows = 4
     else:
         max_rows = 3

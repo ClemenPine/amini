@@ -10,7 +10,7 @@ def to_string(ll: JSON, id: int):
     max_height = max(x['row'] for x in ll['keys'].values()) + 1
 
     matrix = [[' ']*max_width for _ in range(max_height)]
-    
+
     for char, info in ll['keys'].items():
         row = info['row']
         col = info['col']
@@ -31,10 +31,15 @@ def to_string(ll: JSON, id: int):
         matrix[2][0] = '  ' + matrix[2][0]
     elif ll['board'] == 'angle':
         matrix[2][0] = ' ' + matrix[2][0]
+    elif ll['board'] == 'mini':
+        matrix[2][0] = '  ' + matrix[2][0]
+
+    if len(matrix) > 3:
+        matrix[3][0] = ' ' * 13 + matrix[3][0]
 
     monogram = corpora.ngrams(1, id=id)
     trigram = corpora.ngrams(3, id=id)
-    
+
     stats = analyzer.trigrams(ll, trigram)
     use = analyzer.use(ll, monogram)
 
@@ -59,7 +64,7 @@ def to_string(ll: JSON, id: int):
         f'{matrix_str}\n'
         f'\n'
         f'{corpora.get_corpus(id).upper()}:\n'
-        f' {"Alt:":>5} {stats["alternate"]:>6.2%}\n' 
+        f' {"Alt:":>5} {stats["alternate"]:>6.2%}\n'
         f' {"Rol:":>5} {stats["roll-in"] + stats["roll-out"]:>6.2%}'
         f'   (In/Out: {stats["roll-in"]:>6.2%} | {stats["roll-out"]:>6.2%})\n'
         # f'   (In: {stats["roll-in"]:>6.2%} Out: {stats["roll-out"]:>6.2%})\n'
@@ -69,11 +74,11 @@ def to_string(ll: JSON, id: int):
         f' {"Red:":>5} {stats["redirect"] + stats["bad-redirect"]:>6.2%}'
         f'   (Bad: {stats["bad-redirect"]:>9.2%})\n'
         '\n'
-        f'  SFB: {stats["sfb"] / 2:.2%}\n' 
+        f'  SFB: {stats["sfb"] / 2:.2%}\n'
         f'  SFS: {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}\n'
         '\n'
         f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}'
         f'```\n'
     )
 
-    return res   
+    return res
