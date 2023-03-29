@@ -1,7 +1,21 @@
 import json
 
 from util import analyzer, authors, corpora
-from util.consts import JSON
+from util.consts import *
+from util.returns import *
+
+def check_name(name: str):
+    if name[0] == '_':
+        return Error('names cannot start with an underscore')
+
+    if len(name) < 3:
+        return Error('names must be at least 3 characters long')
+
+    if not set(name).issubset(NAME_SET):
+        disallowed = list(set(name).difference(NAME_SET))
+        return Error(f'names cannot contain `{disallowed[0]}`')
+
+    return Success()
 
 def to_string(ll: JSON, id: int):
     author = authors.get_name(ll['user'])

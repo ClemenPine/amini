@@ -3,6 +3,7 @@ from itertools import zip_longest
 
 from util import authors, layout, memory, parser
 from util.consts import *
+from util.returns import *
 
 def exec(message: Message):
     name, string = parser.get_layout(message)
@@ -10,15 +11,9 @@ def exec(message: Message):
     # if '~' in string:
     #     return '`~` has been disabled'
 
-    if name[0] == '_':
-        return 'Error: names cannot start with an underscore'
-
-    if len(name) < 3:
-        return 'Error: names must be at least 3 characters long'
-
-    if not set(name).issubset(NAME_SET):
-        disallowed = list(set(name).difference(NAME_SET))
-        return f'Error: names cannot contain `{disallowed[0]}`'
+    ret = layout.check_name(name)
+    if not ret:
+        return ret.msg
 
     rows = string.split('\n')
 
@@ -94,7 +89,7 @@ def exec(message: Message):
 
     # must include all letters except one
     if (len(LETTERS) - len(list(x for x in keymap if x in LETTERS)) > len(free)) and board != 'mini':
-        return 'Error: missing a required letter in layout definition: f{board}'
+        return f'Error: missing a required letter in layout definition for board: {board}'
 
     data = {
         'name': name,
