@@ -11,8 +11,7 @@ def exec(message: Message):
     # if '~' in string:
     #     return '`~` has been disabled'
 
-    ret = layout.check_name(name)
-    if not ret:
+    if not (ret := layout.check_name(name)):
         return ret.msg
 
     rows = string.split('\n')
