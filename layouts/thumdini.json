@@ -29,7 +29,7 @@
             "finger": "LI"
         },
         "x": {
-            "row": 0,
+            "row": 2,
             "col": 5,
             "finger": "RI"
         },
@@ -129,7 +129,7 @@
             "finger": "LI"
         },
         "j": {
-            "row": 2,
+            "row": 0,
             "col": 5,
             "finger": "RI"
         },

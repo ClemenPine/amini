@@ -58,7 +58,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "n": {
+        "s": {
             "row": 1,
             "col": 1,
             "finger": "LR"
@@ -68,7 +68,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "r": {
+        "n": {
             "row": 1,
             "col": 3,
             "finger": "LI"
