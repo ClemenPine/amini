@@ -29,12 +29,12 @@
             "finger": "LI"
         },
         "j": {
-            "row": 0,
+            "row": 2,
             "col": 5,
             "finger": "RI"
         },
         "k": {
-            "row": 0,
+            "row": 2,
             "col": 6,
             "finger": "RI"
         },
@@ -129,12 +129,12 @@
             "finger": "LI"
         },
         "x": {
-            "row": 2,
+            "row": 0,
             "col": 5,
             "finger": "RI"
         },
         "f": {
-            "row": 2,
+            "row": 0,
             "col": 6,
             "finger": "RI"
         },
