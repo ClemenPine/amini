@@ -1,0 +1,24 @@
+{
+    "name": "weird-shape-test",
+    "user": 805982808878350366,
+    "board": "mini",
+    "keys": {
+        "t": {
+            "row": 0,
+            "col": 0,
+            "finger": "LP"
+        },
+        "x": {
+            "row": 1,
+            "col": 0,
+            "finger": "LP"
+        }
+    },
+    "free": [
+        {
+            "row": 2,
+            "col": 0,
+            "finger": "LP"
+        }
+    ]
+}
