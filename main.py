@@ -30,7 +30,7 @@ async def on_message(message: discord.Message):
     if message.author.bot:
         return
 
-    if not args or args[0] not in ['!amini', '!bmini', '!cmini']:
+    if not args or args[0] not in ['!amini', '!bmini', '!cmini', '!dvormini']:
         return
 
     restricted = (
