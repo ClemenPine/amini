@@ -1,34 +1,34 @@
 {
-    "name": "abomination_for_qwerty99_v2",
-    "user": 1041601122068082709,
+    "name": "apthd3-1",
+    "user": 169285177481101312,
     "board": "ortho",
     "keys": {
-        "j": {
+        "w": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "p": {
+        "f": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "d": {
+        "y": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "w": {
+        "p": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "g": {
+        "b": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "x": {
+        "q": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -38,17 +38,17 @@
             "col": 6,
             "finger": "RI"
         },
-        "o": {
+        "u": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "u": {
+        "o": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "'": {
+        ";": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -58,7 +58,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "n": {
+        "s": {
             "row": 1,
             "col": 1,
             "finger": "LR"
@@ -68,22 +68,22 @@
             "col": 2,
             "finger": "LM"
         },
-        "s": {
+        "h": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "y": {
+        "k": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "f": {
+        "j": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "h": {
+        "n": {
             "row": 1,
             "col": 6,
             "finger": "RI"
@@ -93,32 +93,32 @@
             "col": 7,
             "finger": "RM"
         },
-        "i": {
+        "a": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "a": {
+        "i": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        "q": {
+        "x": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "b": {
+        "c": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "k": {
+        "g": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "c": {
+        "d": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -152,6 +152,11 @@
             "row": 2,
             "col": 9,
             "finger": "RP"
+        },
+        "'": {
+            "row": 3,
+            "col": 0,
+            "finger": "TB"
         }
     },
     "free": []
