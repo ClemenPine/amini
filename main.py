@@ -46,12 +46,13 @@ async def on_message(message: discord.Message):
         reply = 'Try `!cmini help`'
     elif command in commands:
         mod = import_module(f'cmds.{command}')
+        reply = mod.exec(message)
 
-        if not restricted or hasattr(mod, 'RESTRICTED') and not mod.RESTRICTED:
-            reply = mod.exec(message)
-        else:
-            reply = f'please use this command in <#{CMINI_CHANNEL}> or in a dm'
+        if restricted or hasattr(mod, 'RESTRICTED') and mod.RESTRICTED:
+            channel = await bot.create_dm(message.author)
+            await channel.send(mod.exec(message))
 
+            reply = 'Sent :)'
     elif command == 'dm':
         channel = await bot.create_dm(message.author)
         await channel.send(help.exec(message))

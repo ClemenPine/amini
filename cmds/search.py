@@ -24,7 +24,7 @@ def exec(message: Message):
     random.shuffle(res)
 
     lines = [f'I found {len(res)} matches, here are a few of them:']
-    
+
     lines.append('```')
     lines += list(sorted(res[:25], key=lambda x: x.lower()))
     lines.append('```')

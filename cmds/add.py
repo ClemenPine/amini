@@ -86,10 +86,6 @@ def exec(message: Message):
 
             keymap[char] = data
 
-    # must include all letters except one
-    if (len(LETTERS) - len(list(x for x in keymap if x in LETTERS)) > len(free)) and board != 'mini':
-        return f'Error: missing a required letter in layout definition for board: {board}'
-
     data = {
         'name': name,
         'user': message.author.id,
