@@ -5,6 +5,8 @@ from discord import Message
 
 from util import layout
 
+RESTRICTED = False
+
 def exec(message: Message):
     files = glob.glob('layouts/*.json')
 

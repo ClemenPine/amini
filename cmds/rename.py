@@ -3,6 +3,8 @@ from discord import Message
 from util import memory, parser
 from util.consts import *
 
+RESTRICTED = False
+
 def exec(message: Message):
     args = parser.get_args(message)
     id = message.author.id
