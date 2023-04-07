@@ -48,11 +48,11 @@ async def on_message(message: discord.Message):
         mod = import_module(f'cmds.{command}')
         reply = mod.exec(message)
 
-        if restricted or hasattr(mod, 'RESTRICTED') and mod.RESTRICTED:
+        if restricted and (mod.RESTRICTED if hasattr(mod, 'RESTRICTED') else True):
             channel = await bot.create_dm(message.author)
-            await channel.send(mod.exec(message))
+            await channel.send(reply)
 
-            reply = 'Sent :)'
+            reply = 'Sent restricted output in DM :)'
     elif command == 'dm':
         channel = await bot.create_dm(message.author)
         await channel.send(help.exec(message))
