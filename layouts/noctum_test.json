@@ -1,14 +1,14 @@
 {
-    "name": "noctum",
-    "user": 239371209202991105,
+    "name": "noctum_test",
+    "user": 761732338744557568,
     "board": "ortho",
     "keys": {
-        "b": {
+        "p": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "g": {
+        "b": {
             "row": 0,
             "col": 1,
             "finger": "LR"
@@ -128,7 +128,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "g": {
             "row": 2,
             "col": 5,
             "finger": "RI"
