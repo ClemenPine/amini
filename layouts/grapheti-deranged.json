@@ -5,8 +5,8 @@
     "keys": {
         "q": {
             "row": 0,
-            "col": 0,
-            "finger": "LP"
+            "col": 9,
+            "finger": "RP"
         },
         "l": {
             "row": 0,
@@ -50,8 +50,8 @@
         },
         "j": {
             "row": 0,
-            "col": 9,
-            "finger": "RP"
+            "col": 0,
+            "finger": "LP"
         },
         "n": {
             "row": 1,
