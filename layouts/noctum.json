@@ -24,9 +24,9 @@
             "finger": "LI"
         },
         "z": {
-            "row": 0,
-            "col": 4,
-            "finger": "LI"
+            "row": 2,
+            "col": 0,
+            "finger": "LP"
         },
         "j": {
             "row": 0,
@@ -104,9 +104,9 @@
             "finger": "RP"
         },
         "q": {
-            "row": 2,
-            "col": 0,
-            "finger": "LP"
+            "row": 0,
+            "col": 4,
+            "finger": "LI"
         },
         "v": {
             "row": 2,
@@ -130,12 +130,12 @@
         },
         "p": {
             "row": 2,
-            "col": 5,
+            "col": 6,
             "finger": "RI"
         },
         "w": {
             "row": 2,
-            "col": 6,
+            "col": 5,
             "finger": "RI"
         },
         "'": {

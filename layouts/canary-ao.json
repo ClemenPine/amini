@@ -1,9 +1,9 @@
 {
-    "name": "lela",
-    "user": 805982808878350366,
+    "name": "canary-ao",
+    "user": 328195824238723072,
     "board": "angle",
     "keys": {
-        "y": {
+        "w": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -13,25 +13,25 @@
             "col": 1,
             "finger": "LR"
         },
-        "w": {
+        "y": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "k": {
+        "p": {
             "row": 0,
             "col": 3,
+            "finger": "LI"
+        },
+        "k": {
+            "row": 0,
+            "col": 4,
             "finger": "LI"
         },
         "q": {
             "row": 0,
             "col": 5,
             "finger": "RI"
-        },
-        "j": {
-            "row": 0,
-            "col": 4,
-            "finger": "LI"
         },
         "f": {
             "row": 0,
@@ -73,18 +73,18 @@
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "b": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        "x": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "h": {
-            "row": 2,
+        "n": {
+            "row": 1,
             "col": 6,
             "finger": "RI"
         },
@@ -103,7 +103,7 @@
             "col": 9,
             "finger": "RP"
         },
-        "x": {
+        "j": {
             "row": 2,
             "col": 0,
             "finger": "LR"
@@ -118,7 +118,7 @@
             "col": 2,
             "finger": "LI"
         },
-        "m": {
+        "v": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -128,13 +128,13 @@
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "m": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "n": {
-            "row": 1,
+        "h": {
+            "row": 2,
             "col": 6,
             "finger": "RI"
         },
@@ -143,7 +143,7 @@
             "col": 7,
             "finger": "RM"
         },
-        "/": {
+        "\"": {
             "row": 2,
             "col": 8,
             "finger": "RR"
