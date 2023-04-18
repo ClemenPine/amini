@@ -51,8 +51,7 @@ async def on_message(message: discord.Message):
         if restricted and (mod.RESTRICTED if hasattr(mod, 'RESTRICTED') else True):
             channel = await bot.create_dm(message.author)
             await channel.send(reply)
-
-            reply = 'Sent restricted output in DM :)'
+            return
     elif command == 'dm':
         channel = await bot.create_dm(message.author)
         await channel.send(help.exec(message))
