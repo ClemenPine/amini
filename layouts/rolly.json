@@ -1,5 +1,5 @@
 {
-    "name": "rollly3",
+    "name": "rolly",
     "user": 328195824238723072,
     "board": "angle",
     "keys": {
@@ -23,12 +23,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "k": {
+        "j": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "q": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -38,7 +38,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "r": {
+        "w": {
             "row": 0,
             "col": 7,
             "finger": "RM"
@@ -68,17 +68,17 @@
             "col": 2,
             "finger": "LM"
         },
-        "h": {
+        "n": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "p": {
+        "b": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "k": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -88,12 +88,12 @@
             "col": 6,
             "finger": "RI"
         },
-        "n": {
+        "s": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "s": {
+        "r": {
             "row": 1,
             "col": 8,
             "finger": "RR"
@@ -118,12 +118,12 @@
             "col": 1,
             "finger": "LM"
         },
-        "d": {
+        "h": {
             "row": 2,
             "col": 2,
             "finger": "LI"
         },
-        "b": {
+        "p": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -133,22 +133,22 @@
             "col": 4,
             "finger": "LI"
         },
-        "w": {
+        "v": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "g": {
+        "d": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "x": {
+        "g": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "q": {
+        "x": {
             "row": 2,
             "col": 8,
             "finger": "RR"

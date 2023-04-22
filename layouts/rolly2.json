@@ -1,5 +1,5 @@
 {
-    "name": "rollly2-st",
+    "name": "rolly2",
     "user": 328195824238723072,
     "board": "angle",
     "keys": {
@@ -23,22 +23,22 @@
             "col": 3,
             "finger": "LI"
         },
-        "j": {
-            "row": 2,
-            "col": 3,
+        "q": {
+            "row": 0,
+            "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "v": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "m": {
+        "w": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "w": {
+        "d": {
             "row": 0,
             "col": 7,
             "finger": "RM"
@@ -83,12 +83,12 @@
             "col": 5,
             "finger": "RI"
         },
-        "t": {
+        "s": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "s": {
+        "t": {
             "row": 1,
             "col": 7,
             "finger": "RM"
@@ -123,9 +123,9 @@
             "col": 2,
             "finger": "LI"
         },
-        "q": {
-            "row": 0,
-            "col": 4,
+        "j": {
+            "row": 2,
+            "col": 3,
             "finger": "LI"
         },
         "z": {
@@ -133,17 +133,17 @@
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "f": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "d": {
+        "m": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "f": {
+        "k": {
             "row": 2,
             "col": 7,
             "finger": "RM"
