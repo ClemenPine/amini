@@ -21,7 +21,7 @@ def exec(message: Message):
 
         for key, val in cmap.items():
             ll['keys'][key] = keymap[val]
-
+    ll['keys'] = dict(sorted(ll['keys'].items(), key=lambda k: (k[1]['row'], k[1]['col'])))
     name = ll['name']
 
     if not memory.remove(name, id=message.author.id):

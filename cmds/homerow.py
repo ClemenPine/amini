@@ -6,19 +6,17 @@ from discord import Message
 from util import parser
 
 def exec(message: Message):
-    rows = parser.get_args(message)
-
+    row = ''.join(parser.get_args(message))
     lines = []
     for file in glob.glob('layouts/*.json'):
         with open(file, 'r') as f:
             ll = json.load(f)
 
-        homerow = ''.join(k for k in ll['keys'] if ll['keys'][k]['row'] == 1)
-        homerow = homerow[0:4] + homerow[6:10] # ignore center columns
-        if all(
-            row in homerow or
-            row in homerow[::-1] for row in rows
-        ):
+        keys = sorted(ll['keys'].items(), key=lambda k: (k[1]['row'], k[1]['col']))
+        homerow = ''.join(k for k,v in keys if v['row'] == 1)
+
+        it = iter(homerow)
+        if all(i in it for i in row):
             lines.append(ll['name'])
 
     if len(lines) < 25:
