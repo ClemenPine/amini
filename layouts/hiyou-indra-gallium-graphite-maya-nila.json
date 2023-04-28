@@ -1,124 +1,124 @@
 {
-    "name": "hiyou-but-not-good",
+    "name": "hiyou-indra-gallium-graphite-maya-nila",
     "user": 627912342092382228,
-    "board": "ortho",
+    "board": "angle",
     "keys": {
-        "q": {
+        "x": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "u": {
+        "l": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "o": {
+        "d": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "p": {
+        "w": {
             "row": 0,
             "col": 3,
-            "finger": "LI"
-        },
-        "'": {
-            "row": 0,
-            "col": 4,
             "finger": "LI"
         },
         "v": {
             "row": 0,
+            "col": 4,
+            "finger": "LI"
+        },
+        "'": {
+            "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "m": {
+        "y": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "w": {
+        "o": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "j": {
+        "u": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "x": {
+        "j": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "a": {
+        "r": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "i": {
+        "n": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "e": {
+        "t": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "h": {
+        "s": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "y": {
+        "g": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "g": {
+        "p": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "s": {
+        "h": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "t": {
+        "a": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "r": {
+        "e": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "n": {
+        "i": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        ".": {
+        "q": {
             "row": 2,
             "col": 0,
-            "finger": "LP"
-        },
-        ",": {
-            "row": 2,
-            "col": 1,
             "finger": "LR"
         },
-        ";": {
+        "m": {
             "row": 2,
-            "col": 2,
+            "col": 1,
             "finger": "LM"
         },
-        "k": {
+        "c": {
+            "row": 2,
+            "col": 2,
+            "finger": "LI"
+        },
+        "b": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -128,27 +128,27 @@
             "col": 4,
             "finger": "LI"
         },
-        "f": {
+        "k": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "c": {
+        "f": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "d": {
+        ".": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "l": {
+        ";": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "b": {
+        ",": {
             "row": 2,
             "col": 9,
             "finger": "RP"
