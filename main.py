@@ -27,23 +27,40 @@ async def on_ready():
 async def on_message(message: discord.Message):
     args = message.content.split()
 
+    # Is in a DM?
+    is_dm = isinstance(message.channel, discord.channel.DMChannel)
+
+    # Restricted command?
+    restricted = message.channel.id != CMINI_CHANNEL and not is_dm
+
+    # Ignore other bots
     if message.author.bot:
         return
 
-    if not args or args[0] not in ['!amini', '!bmini', '!cmini', '!dvormini']:
+    # Empty message
+    if not args:
         return
 
-    restricted = (
-        message.channel.id != CMINI_CHANNEL and
-        not isinstance(message.channel, discord.channel.DMChannel)
-    )
+    # Get command
+    if is_dm:
+        command = args[0].lower()
+    else:
+        # Check triggers
+        if args[0] not in ['!amini', '!bmini', '!cmini', '!dvormini']:
+            return
+
+        # Get command if any
+        if len(args) > 1:
+            command = args[1].lower()
+        else:
+            command = None
 
     logger.info(f'{message.author.name}: {message.content}')
 
-    command = args[1].lower()
-
-    if len(args) < 2:
+    # Trigger only
+    if not command:
         reply = 'Try `!cmini help`'
+    # Check commands
     elif command in commands:
         mod = import_module(f'cmds.{command}')
         reply = mod.exec(message)
@@ -52,11 +69,7 @@ async def on_message(message: discord.Message):
             channel = await bot.create_dm(message.author)
             await channel.send(reply)
             return
-    elif command == 'dm':
-        channel = await bot.create_dm(message.author)
-        await channel.send(help.exec(message))
-
-        reply = f'Sent :)'
+    # Command not found
     else:
         reply = f'Error: {command} is not an available command'
 
