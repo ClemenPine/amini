@@ -1,6 +1,10 @@
 import string
 from typing import Dict
 
+# Bot triggers
+TRIGGERS = ['!amini', '!bmini', '!cmini', '!dvormini']
+ADMINS = ['apsu']
+
 # Json type
 JSON = Dict[str, any]
 
@@ -10,7 +14,7 @@ PUNCT = '()";:,.?!'
 # Set of allowed characters
 NAME_SET = set(
     string.ascii_letters +
-    string.digits + 
+    string.digits +
     " _-'():~"
 )
 

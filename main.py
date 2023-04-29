@@ -7,6 +7,8 @@ import datetime
 from importlib import import_module
 
 from cmds import help
+from util.consts import TRIGGERS, ADMINS
+from util import authors
 
 CMINI_CHANNEL = 1063291226243207268
 
@@ -18,6 +20,17 @@ intents.message_content = True
 bot = discord.Client(intents=intents)
 
 logger = logging.getLogger('discord')
+
+#### MAINTENANCE MODE ####
+maintenance_mode = False
+
+def maintenance_check(mode, message):
+    if mode and authors.get_name(message.author.id).lower() in ADMINS:
+        return True
+    elif not mode:
+        return True
+    return False
+
 
 @bot.event
 async def on_ready():
@@ -46,7 +59,7 @@ async def on_message(message: discord.Message):
         command = args[0].lower()
     else:
         # Check triggers
-        if args[0] not in ['!amini', '!bmini', '!cmini', '!dvormini']:
+        if args[0] not in TRIGGERS:
             return
 
         # Get command if any
@@ -57,11 +70,19 @@ async def on_message(message: discord.Message):
 
     logger.info(f'{message.author.name}: {message.content}')
 
+    global maintenance_mode
+
     # Trigger only
     if not command:
         reply = 'Try `!cmini help`'
+    elif command == "maintenance":
+        mod = import_module('cmds.maintenance')
+        mode, reply = mod.exec(message, maintenance_mode)
+        if mode != None:
+            maintenance_mode = mode
+
     # Check commands
-    elif command in commands:
+    elif command in commands and maintenance_check(maintenance_mode, message):
         mod = import_module(f'cmds.{command}')
         reply = mod.exec(message)
 
