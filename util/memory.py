@@ -24,7 +24,7 @@ def update(data: JSON):
         f.write(json.dumps(data, indent=4))
 
 
-def remove(name: str, *, id: int) -> bool:
+def remove(name: str, *, id: int, admin: bool = False) -> bool:
     file = f'layouts/{name}.json'
 
     if not os.path.exists(file):
@@ -33,7 +33,7 @@ def remove(name: str, *, id: int) -> bool:
     with open(file, 'r') as f:
         data = json.load(f)
 
-    check = (data['user'] == id) or (authors.get_name(data['user']).lower() in ADMINS)
+    check = (data['user'] == id) or admin
 
     if check:
         os.remove(file)
