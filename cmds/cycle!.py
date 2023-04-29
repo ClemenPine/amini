@@ -32,7 +32,7 @@ def exec(message: Message):
     return layout.to_string(ll, id=message.author.id) + "Successfully updated!"
 
 def use():
-    return 'cycle! [layout_name] [chars]'
+    return 'cycle! | swap! [layout_name] [chars]'
 
 def desc():
     return 'cycle a layout\'s letters around and update the original layout'

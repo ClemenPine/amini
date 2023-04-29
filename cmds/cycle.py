@@ -20,14 +20,14 @@ def exec(message: Message):
         keymap = {k: ll['keys'][k] for k in cycle}
 
         for key, val in cmap.items():
-            ll['keys'][key] = keymap[val]  
+            ll['keys'][key] = keymap[val]
 
     ll['name'] += ' (modified)'
 
     return layout.to_string(ll, id=message.author.id)
 
 def use():
-    return 'cycle [layout_name] [chars]'
+    return 'cycle | swap [layout_name] [chars]'
 
 def desc():
     return 'cycle a layout\'s letters around'
