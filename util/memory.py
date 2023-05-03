@@ -4,7 +4,8 @@ import glob
 from jellyfish import damerau_levenshtein_distance as lev
 
 from util import authors
-from util.consts import JSON, ADMINS
+from util.consts import JSON
+from admins import ADMINS
 
 def add(data: JSON) -> bool:
     file = f'layouts/{data["name"].lower()}.json'

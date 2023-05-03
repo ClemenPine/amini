@@ -7,8 +7,9 @@ import datetime
 from importlib import import_module
 
 from cmds import help
-from util.consts import TRIGGERS, ADMINS
+from util.consts import TRIGGERS
 from util import authors
+from admins import ADMINS
 
 CMINI_CHANNEL = 1063291226243207268
 
@@ -75,6 +76,9 @@ async def on_message(message: discord.Message):
     # Trigger only
     if not command:
         reply = 'Try `!cmini help`'
+    elif command == "member":
+        mod = import_module('cmds.member')
+        reply = mod.exec(message, bot)
     elif command == "maintenance":
         mod = import_module('cmds.maintenance')
         mode, reply = mod.exec(message, maintenance_mode)
