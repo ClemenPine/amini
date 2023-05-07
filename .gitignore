@@ -1,8 +1,11 @@
 __pycache__/
 openai/
 minigames/
+statcache/
 
 token.txt
 openai.txt
 suggestions.txt
 pat.txt
+
+admins.py
