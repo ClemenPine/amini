@@ -23,12 +23,15 @@ def exec(message: Message):
 
     random.shuffle(res)
 
-    short_len = 20
+    res_len = len(res) if len(res) < 20 else 20
+    if res_len < 1:
+        return 'No matches found'
+
     is_dm = message.channel.type is ChannelType.private
-    lines = [f'I found {len(res)} matches, here are {"all" if is_dm else short_len} of them:']
+    lines = [f'I found {len(res)} matches, here are {"all" if is_dm else res_len} of them:']
 
     lines.append('```')
-    lines += list(sorted(res[:None if is_dm else short_len], key=lambda x: x.lower()))
+    lines += list(sorted(res[:None if is_dm else res_len], key=lambda x: x.lower()))
     lines.append('```')
 
     return '\n'.join(lines)
