@@ -15,12 +15,11 @@ def exec(message: Message):
         keys = sorted(ll['keys'].items(), key=lambda k: (k[1]['row'], k[1]['col']))
         homerow = ''.join(k for k,v in keys if v['row'] == 1)
 
-        it = iter(homerow)
         if row.startswith('"') and row.endswith('"'):
-            if row.strip('"') in homerow:
+            if row.strip('"') in homerow or "".join(reversed(row.strip('"'))) in homerow:
                 lines.append(ll['name'])
         else:
-            if all(i in it for i in row):
+            if all(i in homerow for i in row):
                 lines.append(ll['name'])
 
     is_dm = message.channel.type == ChannelType.private
