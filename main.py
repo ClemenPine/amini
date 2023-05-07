@@ -79,7 +79,7 @@ async def on_message(message: discord.Message):
     elif command == "member":
         mod = import_module('cmds.member')
         reply = mod.exec(message, bot)
-    elif command == "maintenance":
+    elif command in ["maintenance", "1984"]:
         mod = import_module('cmds.maintenance')
         mode, reply = mod.exec(message, maintenance_mode)
         if mode != None:
