@@ -1,7 +1,7 @@
 import json
 import glob
 import random
-from discord import Message
+from discord import Message, ChannelType
 
 from util import parser
 
@@ -23,10 +23,12 @@ def exec(message: Message):
 
     random.shuffle(res)
 
-    lines = [f'I found {len(res)} matches, here are a few of them:']
+    short_len = 20
+    is_dm = message.channel.type is ChannelType.private
+    lines = [f'I found {len(res)} matches, here are {"all" if is_dm else short_len} of them:']
 
     lines.append('```')
-    lines += list(sorted(res[:25], key=lambda x: x.lower()))
+    lines += list(sorted(res[:None if is_dm else short_len], key=lambda x: x.lower()))
     lines.append('```')
 
     return '\n'.join(lines)
