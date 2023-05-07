@@ -16,8 +16,12 @@ def exec(message: Message):
         homerow = ''.join(k for k,v in keys if v['row'] == 1)
 
         it = iter(homerow)
-        if all(i in it for i in row):
-            lines.append(ll['name'])
+        if row.startswith('"') and row.endswith('"'):
+            if row.strip('"') in homerow:
+                lines.append(ll['name'])
+        else:
+            if all(i in it for i in row):
+                lines.append(ll['name'])
 
     if len(lines) < 25:
         res = lines
