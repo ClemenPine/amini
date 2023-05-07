@@ -1,7 +1,7 @@
 import glob
 import json
 import random
-from discord import Message
+from discord import Message, ChannelType
 
 from util import parser
 
@@ -23,14 +23,25 @@ def exec(message: Message):
             if all(i in it for i in row):
                 lines.append(ll['name'])
 
-    if len(lines) < 25:
+    is_dm = message.channel.type == ChannelType.private
+
+    if is_dm:
         res = lines
+        res_len = len(lines)
     else:
-        res = random.sample(lines, k=25)
+        if len(lines) < 20:
+            res = lines
+            res_len = len(lines)
+            if res_len < 1:
+                return "No matches found"
+        else:
+            res = random.sample(lines, k=20)
+            res_len = 20
 
     res = list(sorted(res, key=lambda x: x.lower()))
+    note = "" if is_dm else f", here are {res_len} of them"
 
-    return '\n'.join([f'I found {len(lines)} matches, here are a few', '```'] + res + ['```'])
+    return '\n'.join([f'I found {len(lines)} matches{note}', '```'] + res + ['```'])
 
 
 def use():
