@@ -1,59 +1,59 @@
 {
-    "name": "nest",
+    "name": "algae",
     "user": 1045224657596457063,
     "board": "ortho",
     "keys": {
-        "b": {
+        ",": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "y": {
+        "u": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "c": {
+        "o": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "p": {
+        "f": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "'": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        ",": {
+        "z": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "h": {
+        "w": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "u": {
+        "d": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "o": {
+        "l": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "'": {
+        "b": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "n": {
+        "i": {
             "row": 1,
             "col": 0,
             "finger": "LP"
@@ -63,92 +63,92 @@
             "col": 1,
             "finger": "LR"
         },
-        "s": {
+        "a": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "t": {
+        "h": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "d": {
+        "y": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "m": {
+        "g": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "l": {
+        "s": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "i": {
+        "t": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "a": {
+        "r": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "r": {
+        "n": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        ";": {
+        ".": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "j": {
+        "/": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "g": {
+        "x": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "k": {
+        "p": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "k": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        ".": {
+        "v": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "f": {
+        "c": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "w": {
+        "m": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "q": {
+        "j": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "x": {
+        "q": {
             "row": 2,
             "col": 9,
             "finger": "RP"
