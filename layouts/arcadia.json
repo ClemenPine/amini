@@ -1,7 +1,7 @@
 {
     "name": "arcadia",
     "user": 943720217450786816,
-    "board": "angle",
+    "board": "ortho",
     "keys": {
         "f": {
             "row": 0,
@@ -13,12 +13,12 @@
             "col": 1,
             "finger": "LR"
         },
-        "m": {
+        "g": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "g": {
+        "d": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "d": {
+        "m": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "z": {
+        "q": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -103,27 +103,27 @@
             "col": 9,
             "finger": "RP"
         },
-        "v": {
+        "b": {
             "row": 2,
             "col": 0,
+            "finger": "LP"
+        },
+        "v": {
+            "row": 2,
+            "col": 1,
             "finger": "LR"
         },
         "k": {
             "row": 2,
-            "col": 1,
+            "col": 2,
             "finger": "LM"
         },
         "w": {
             "row": 2,
-            "col": 2,
-            "finger": "LI"
-        },
-        "b": {
-            "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "q": {
+        "z": {
             "row": 2,
             "col": 4,
             "finger": "LI"

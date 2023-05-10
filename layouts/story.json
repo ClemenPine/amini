@@ -1,39 +1,39 @@
 {
-    "name": "dividend",
-    "user": 631740610864349194,
-    "board": "angle",
+    "name": "story",
+    "user": 943720217450786816,
+    "board": "ortho",
     "keys": {
-        "p": {
+        "v": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "y": {
+        "d": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "m": {
+        "l": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "g": {
+        "f": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "f": {
+        "g": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "x": {
+        "z": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "l": {
+        "m": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -48,42 +48,42 @@
             "col": 8,
             "finger": "RR"
         },
-        "/": {
+        ",": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "n": {
+        "s": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "s": {
+        "t": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "t": {
+        "r": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "d": {
+        "y": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "w": {
+        "c": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "q": {
+        "b": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "r": {
+        "n": {
             "row": 1,
             "col": 6,
             "finger": "RI"
@@ -103,32 +103,32 @@
             "col": 9,
             "finger": "RP"
         },
-        "z": {
+        "x": {
             "row": 2,
             "col": 0,
-            "finger": "LR"
+            "finger": "LP"
         },
         "k": {
             "row": 2,
             "col": 1,
-            "finger": "LM"
+            "finger": "LR"
         },
-        "c": {
+        "j": {
             "row": 2,
             "col": 2,
-            "finger": "LI"
+            "finger": "LM"
         },
-        "v": {
+        "w": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "b": {
+        "p": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "q": {
             "row": 2,
             "col": 5,
             "finger": "RI"
