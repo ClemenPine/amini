@@ -20,18 +20,34 @@ class FingerMap:
 def parse(word: str, layout: Dict[str, Tuple], fingermap: FingerMap) -> List[str]:
     options = [fingermap[layout[char]] for char in word]
     columns = [layout[char][1] for char in word]
+    cpairs = list(pairwise(columns))
     wpairs = list(pairwise(word))
 
     f = lambda x: "prmitTIMRPP".index(x)
     eq = lambda x: operator.eq(*x[0]) and not operator.eq(*x[1])
-    dist = lambda x, y: abs(f(x) - y)
+    # dist = lambda x, y: abs(f(x) - y)
+    # dist = lambda x, y: (f(x[1]) - f(x[0])) - (y[1] - y[0])
+    # Right: f4 - f3 == Right: c5 - c4 -> 0
+    # Left: f3 - f4 < Right: c5 - c4 -> -1
+    # Right: f4 - f3 > Left: c4 - c5 > -1
+    def cross(x, y):
+        f1 = f(x[0])
+        f2 = f(x[1])
+        c1 = y[0]
+        c2 = y[1]
+        # fdiff = f(x[1]) - f(x[0])
+        cdiff = c1 - c2
+        if (f1 < f2 and c1 < c2) or (f1 > f2 and c1 > c2):
+            return 0
+        else:
+            return abs(cdiff)
 
     def score(option: List[str]) -> Tuple[int, int, int]:
         opairs = list(pairwise(option))
         sfb_score = sum(map(eq, zip(opairs, wpairs)))
-        sfs_score = len(set(zip(option, word)))
-        dfh_score = sum([dist(*cxy) for cxy in zip(option, columns)])
-        return sfb_score, sfs_score, dfh_score
+        unique_score = len(set(zip(option, word)))
+        cross_score = max([cross(*cxy) for cxy in zip(opairs, cpairs)])
+        return sfb_score, unique_score, cross_score
 
     predictions = sorted([(option, score(option))
         for option in product(*options)
@@ -58,17 +74,17 @@ def exec(message: Message):
         return f"Could not find layout: {name}"
 
     layout = {
-        k:(v["row"],v["col"])
+        k:(v["row"],v["col"] if v["row"] < 2 else v["col"]+1)
         for k, v in ll["keys"].items()
     }
 
     fingermap = FingerMap([
         # q   w    e    r    t    y    u    i    o    p    [   ]   \
-        ["p","rp","mr","im","i","IM","IM","MIR","RM","RP","P","P","P"],
+        ["p","rp","mr","im","im","IM","IM","MIR","RM","PR","P","P","P"],
         # a   s    d    f    g   h    j    k    l   ;   '
         ["p","rm","mi","im","i","IM","IM","MR","R","P","P"],
-        # z   x    c    v   b    n    m    ,    .   /
-        ["r","mr","im","im","Ii","IM","IM","MR","R","P"],
+        #    z   x    c    v   b    n    m    ,    .   /
+        ["","r","mr","im","im","Ii","I","IM","MR","R","P"],
         # thumb alpha
         ["T"]
     ])
@@ -83,13 +99,13 @@ def exec(message: Message):
         return "Max word length: 15"
 
     alts, scores = parse(word, layout, fingermap)
-    sfb, use, dfh = scores
+    sfb, unique, cross = scores
 
     return '```' + f"Alt fingering suggestion for '{word}' ({name})\n" + \
         ' '.join([fingernames[o] for o in alts]) + "\n" + \
         ''.join([f"{c:3}" for c in word]) + "\n" + \
         ' '.join([fingernames[fingermap[layout[c]][0]] for c in word]) + " (traditional)\n" + \
         f"SFB: {sfb} / {sfb/len(word):.2%}\n" \
-        f"USE: {use} / {use/len(word):.2%}\n" \
-        f"DFH: {dfh} / {dfh/len(word):.2%}" \
+        f"Unique: {unique} / {unique/len(word):.2%}\n" \
+        f"Cross: {cross}" \
     + '```'
