@@ -1,7 +1,7 @@
 {
     "name": "QWERTY",
     "user": 1085579430623199292,
-    "board": "ortho",
+    "board": "stagger",
     "keys": {
         "q": {
             "row": 0,
