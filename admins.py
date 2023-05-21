@@ -1,1 +1,1 @@
-ADMINS = ['apsu', '<3']
+ADMINS = ['eve', '<3']
