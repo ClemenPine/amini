@@ -18,7 +18,6 @@ def exec(message: Message):
 	ngrams = corpora.ngrams(lengram, id=id)
 	corpus = corpora.get_corpus(id)
 
-	# number = ngrams[ngram] if ngram in ngrams else 0
 	pattern = re.compile(ngram.replace('.', '\.').replace('_', '.'))
 	number = sum(value for key, value in ngrams.items() if pattern.search(key))
 	
