@@ -1,3 +1,5 @@
+import re
+
 from discord import Message
 
 from util import corpora, parser
@@ -16,11 +18,14 @@ def exec(message: Message):
 	ngrams = corpora.ngrams(lengram, id=id)
 	corpus = corpora.get_corpus(id)
 
-	number = ngrams[ngram] if ngram in ngrams else 0
+	# number = ngrams[ngram] if ngram in ngrams else 0
+	pattern = re.compile(ngram.replace('.', '\.').replace('_', '.'))
+	number = sum(value for key, value in ngrams.items() if pattern.search(key))
+	
 	if number == 0:
 		return f"`{ngram}` not found in corpus `{corpus}`"
 
-	total = sum(count for count in ngrams.values())
+	total = sum(ngrams.values())
 
 	return f"`{ngram}` occurs in {number / total:.2%} of `{corpus}`"
 	
