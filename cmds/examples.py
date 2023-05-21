@@ -1,4 +1,5 @@
 import humanize
+import re
 from discord import Message
 from collections import Counter
 from itertools import islice
@@ -8,6 +9,8 @@ from util.consts import PUNCT
 
 def exec(message: Message):
     part = parser.get_arg(message)
+    pattern = re.compile(part.replace('.', '\.').replace('_', '.'))
+
     words = corpora.words(id=message.author.id)
 
     words = dict(islice(words.items(), 30_000))
@@ -23,7 +26,7 @@ def exec(message: Message):
         if part.lower() == part:
             word = word.lower()
 
-        if part in word:
+        if pattern.search(word):
             counts.update({word.strip(strip_string): freq})
 
     examples = []
