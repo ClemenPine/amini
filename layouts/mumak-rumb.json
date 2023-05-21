@@ -1,9 +1,9 @@
 {
-    "name": "mumak-thimb",
+    "name": "mumak-rumb",
     "user": 577978297498075167,
     "board": "ortho",
     "keys": {
-        "z": {
+        "q": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -23,12 +23,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "k": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "-": {
+        "x": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "q": {
+        "/": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -58,7 +58,7 @@
             "col": 10,
             "finger": "RP"
         },
-        "c": {
+        "s": {
             "row": 1,
             "col": 0,
             "finger": "LP"
@@ -83,12 +83,12 @@
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "-": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "s": {
+        "c": {
             "row": 1,
             "col": 6,
             "finger": "RI"
@@ -103,7 +103,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "r": {
+        "i": {
             "row": 1,
             "col": 9,
             "finger": "RP"
@@ -113,7 +113,7 @@
             "col": 10,
             "finger": "RP"
         },
-        "m": {
+        "v": {
             "row": 2,
             "col": 0,
             "finger": "LP"
@@ -133,17 +133,17 @@
             "col": 3,
             "finger": "LI"
         },
-        "k": {
+        "j": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "/": {
+        "z": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "x": {
+        "m": {
             "row": 2,
             "col": 6,
             "finger": "RI"
@@ -168,7 +168,7 @@
             "col": 10,
             "finger": "RP"
         },
-        "i": {
+        "r": {
             "row": 3,
             "col": 0,
             "finger": "TB"
