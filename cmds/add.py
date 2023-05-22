@@ -72,7 +72,10 @@ def exec(message: Message):
             if i < 3:
                 finger = fmap[min(j, len(fmap) - 1)]
             else:
-                finger = 'TB' # thumb row
+                if spaces[3] > 8:
+                    finger = 'RT'
+                else:
+                    finger = 'LT'
 
             data = {
                 'row': i,

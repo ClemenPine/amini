@@ -49,7 +49,8 @@ def to_string(ll: JSON, id: int):
         matrix[2][0] = '  ' + matrix[2][0]
 
     if len(matrix) > 3:
-        matrix[3][0] = ' ' * 13 + matrix[3][0]
+        indent = 6 if ll['keys'][matrix[3][0].strip()]['finger'] == 'LT' else 13
+        matrix[3][0] = ' ' * indent + matrix[3][0]
 
     monogram = corpora.ngrams(1, id=id)
     trigram = corpora.ngrams(3, id=id)

@@ -19,8 +19,8 @@ def use(ll, grams: Dict[str, str]):
     for finger in fingers:
         fingers[finger] /= total
 
-    fingers['LH'] = sum(fingers[x] for x in fingers if x[0] == 'L')
-    fingers['RH'] = sum(fingers[x] for x in fingers if x[0] == 'R')
+    fingers['LH'] = sum(fingers[x] for x in fingers if x[0] in 'L')
+    fingers['RH'] = sum(fingers[x] for x in fingers if x[0] in 'RT')
 
 
     # fingers['LH'] = (
@@ -51,6 +51,7 @@ def trigrams(ll, grams: Dict[str, int]):
             continue
 
         key = '-'.join(ll['keys'][x]['finger'] for x in gram if x in ll['keys'])
+        key = key.replace('TB', 'RT')
 
         if len(set(gram)) < len(gram):
             gram_type = 'sfR'
