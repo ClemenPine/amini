@@ -3,12 +3,12 @@
     "user": 577978297498075167,
     "board": "ortho",
     "keys": {
-        "q": {
+        "w": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "m": {
+        "k": {
             "row": 0,
             "col": 1,
             "finger": "LR"
@@ -23,12 +23,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "w": {
+        "v": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "x": {
+        ":": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "/": {
+        "y": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -73,17 +73,17 @@
             "col": 2,
             "finger": "LM"
         },
-        "c": {
+        "d": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "p": {
+        "c": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "x": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -108,17 +108,17 @@
             "col": 9,
             "finger": "RP"
         },
-        ",": {
+        "-": {
             "row": 1,
             "col": 10,
             "finger": "RP"
         },
-        "k": {
+        "q": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "d": {
+        "m": {
             "row": 2,
             "col": 1,
             "finger": "LR"
@@ -128,7 +128,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "y": {
+        "p": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -158,7 +158,7 @@
             "col": 8,
             "finger": "RR"
         },
-        ".": {
+        "=": {
             "row": 2,
             "col": 9,
             "finger": "RP"
@@ -167,6 +167,21 @@
             "row": 2,
             "col": 10,
             "finger": "RP"
+        },
+        ",": {
+            "row": 3,
+            "col": 0,
+            "finger": "RT"
+        },
+        ".": {
+            "row": 3,
+            "col": 1,
+            "finger": "RT"
+        },
+        "/": {
+            "row": 3,
+            "col": 2,
+            "finger": "RT"
         }
     },
     "free": []

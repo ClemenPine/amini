@@ -1,5 +1,5 @@
 {
-    "name": "rolly4-alt",
+    "name": "crnt",
     "user": 328195824238723072,
     "board": "angle",
     "keys": {
@@ -28,17 +28,17 @@
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "j": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "m": {
+        "k": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "r": {
+        "h": {
             "row": 0,
             "col": 7,
             "finger": "RM"
@@ -78,7 +78,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "v": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -93,7 +93,7 @@
             "col": 7,
             "finger": "RM"
         },
-        "h": {
+        "r": {
             "row": 1,
             "col": 8,
             "finger": "RR"
@@ -133,7 +133,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "p": {
             "row": 2,
             "col": 5,
             "finger": "RI"
@@ -143,12 +143,12 @@
             "col": 6,
             "finger": "RI"
         },
-        "x": {
+        "m": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "j": {
+        "x": {
             "row": 2,
             "col": 8,
             "finger": "RR"

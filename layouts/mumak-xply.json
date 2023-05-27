@@ -1,5 +1,5 @@
 {
-    "name": "mumak-scindex",
+    "name": "mumak-xply",
     "user": 577978297498075167,
     "board": "ortho",
     "keys": {
@@ -28,7 +28,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "x": {
+        "j": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -48,12 +48,12 @@
             "col": 8,
             "finger": "RR"
         },
-        "/": {
+        "\\": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "\\": {
+        "\"": {
             "row": 0,
             "col": 10,
             "finger": "RP"
@@ -78,12 +78,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "p": {
+        "m": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "b": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -108,17 +108,17 @@
             "col": 9,
             "finger": "RP"
         },
-        ",": {
+        "-": {
             "row": 1,
             "col": 10,
             "finger": "RP"
         },
-        "m": {
+        "x": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "b": {
+        "p": {
             "row": 2,
             "col": 1,
             "finger": "LR"
@@ -158,7 +158,7 @@
             "col": 8,
             "finger": "RR"
         },
-        ".": {
+        "=": {
             "row": 2,
             "col": 9,
             "finger": "RP"
@@ -167,6 +167,21 @@
             "row": 2,
             "col": 10,
             "finger": "RP"
+        },
+        ",": {
+            "row": 3,
+            "col": 0,
+            "finger": "RT"
+        },
+        ".": {
+            "row": 3,
+            "col": 1,
+            "finger": "RT"
+        },
+        "/": {
+            "row": 3,
+            "col": 2,
+            "finger": "RT"
         }
     },
     "free": []
