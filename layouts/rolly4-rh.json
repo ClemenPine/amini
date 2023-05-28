@@ -1,5 +1,5 @@
 {
-    "name": "rolly-alt",
+    "name": "rolly4-rh",
     "user": 328195824238723072,
     "board": "angle",
     "keys": {
@@ -33,17 +33,17 @@
             "col": 5,
             "finger": "RI"
         },
-        "d": {
+        "m": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "w": {
+        "h": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "l": {
+        "p": {
             "row": 0,
             "col": 8,
             "finger": "RR"
@@ -68,17 +68,17 @@
             "col": 2,
             "finger": "LM"
         },
-        "n": {
+        "s": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "b": {
+        "x": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "k": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -88,12 +88,12 @@
             "col": 6,
             "finger": "RI"
         },
-        "s": {
+        "r": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "r": {
+        "n": {
             "row": 1,
             "col": 8,
             "finger": "RR"
@@ -118,12 +118,12 @@
             "col": 1,
             "finger": "LM"
         },
-        "h": {
+        "w": {
             "row": 2,
             "col": 2,
             "finger": "LI"
         },
-        "p": {
+        "g": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -133,22 +133,22 @@
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "v": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "m": {
+        "d": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "g": {
+        "l": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "x": {
+        "b": {
             "row": 2,
             "col": 8,
             "finger": "RR"
