@@ -1,9 +1,9 @@
 {
-    "name": "deciduous-old",
+    "name": "dng",
     "user": 943720217450786816,
-    "board": "ortho",
+    "board": "angle",
     "keys": {
-        "x": {
+        "f": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -23,12 +23,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "q": {
+        "z": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "j": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "q": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "f": {
+        "p": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -103,27 +103,27 @@
             "col": 9,
             "finger": "RP"
         },
-        "z": {
+        "x": {
             "row": 2,
             "col": 0,
-            "finger": "LP"
-        },
-        "j": {
-            "row": 2,
-            "col": 1,
             "finger": "LR"
         },
         "b": {
             "row": 2,
-            "col": 2,
+            "col": 1,
             "finger": "LM"
         },
         "m": {
             "row": 2,
-            "col": 3,
+            "col": 2,
             "finger": "LI"
         },
         "k": {
+            "row": 2,
+            "col": 3,
+            "finger": "LI"
+        },
+        "v": {
             "row": 2,
             "col": 4,
             "finger": "LI"

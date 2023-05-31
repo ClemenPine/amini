@@ -1,9 +1,9 @@
 {
-    "name": "deciduous-angle",
+    "name": "dld",
     "user": 943720217450786816,
-    "board": "angle",
+    "board": "ortho",
     "keys": {
-        "f": {
+        "x": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -23,12 +23,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "j": {
+        "q": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "q": {
+        "p": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -78,7 +78,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "f": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -103,27 +103,27 @@
             "col": 9,
             "finger": "RP"
         },
-        "x": {
+        "z": {
             "row": 2,
             "col": 0,
+            "finger": "LP"
+        },
+        "j": {
+            "row": 2,
+            "col": 1,
             "finger": "LR"
         },
         "b": {
             "row": 2,
-            "col": 1,
+            "col": 2,
             "finger": "LM"
         },
         "m": {
             "row": 2,
-            "col": 2,
-            "finger": "LI"
-        },
-        "k": {
-            "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "k": {
             "row": 2,
             "col": 4,
             "finger": "LI"
