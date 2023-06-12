@@ -1,9 +1,9 @@
 {
-    "name": "testing-once-again",
+    "name": "xinea",
     "user": 627912342092382228,
     "board": "ortho",
     "keys": {
-        ",": {
+        "/": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -28,7 +28,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "k": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -53,7 +53,7 @@
             "col": 9,
             "finger": "RP"
         },
-        "i": {
+        "e": {
             "row": 1,
             "col": 0,
             "finger": "LP"
@@ -63,7 +63,7 @@
             "col": 1,
             "finger": "LR"
         },
-        "e": {
+        "i": {
             "row": 1,
             "col": 2,
             "finger": "LM"
@@ -108,17 +108,17 @@
             "col": 10,
             "finger": "RP"
         },
-        ".": {
+        ";": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "/": {
+        ".": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        ";": {
+        ",": {
             "row": 2,
             "col": 2,
             "finger": "LM"
@@ -133,7 +133,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "j": {
             "row": 2,
             "col": 5,
             "finger": "RI"
