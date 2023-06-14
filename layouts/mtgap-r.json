@@ -1,84 +1,84 @@
 {
-    "name": "salt",
-    "user": 514971722626367517,
+    "name": "mtgap-r",
+    "user": 328195824238723072,
     "board": "ortho",
     "keys": {
-        "b": {
+        "y": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "c": {
+        "w": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "l": {
+        "o": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "g": {
+        "u": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "q": {
+        "'": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "k": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "y": {
+        "d": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "o": {
+        "l": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "u": {
+        "c": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        ",": {
+        "p": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "n": {
+        "i": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "s": {
+        "r": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "r": {
+        "e": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "t": {
+        "a": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "m": {
+        ".": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "x": {
+        "b": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -88,67 +88,67 @@
             "col": 6,
             "finger": "RI"
         },
-        "a": {
+        "t": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "e": {
+        "s": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "i": {
+        "n": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        "p": {
+        "j": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "f": {
+        "x": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "w": {
+        "q": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "d": {
+        ",": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        ";": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "z": {
+        "v": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "k": {
+        "f": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "'": {
+        "m": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        ";": {
+        "g": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        ".": {
+        "z": {
             "row": 2,
             "col": 9,
             "finger": "RP"
