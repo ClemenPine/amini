@@ -1,8 +1,9 @@
 import glob
 import json
 import random
-from discord import Message, ChannelType
+import re
 
+from discord import Message, ChannelType
 from util import parser
 
 def exec(message: Message):
@@ -16,7 +17,8 @@ def exec(message: Message):
         homerow = ''.join(k for k,v in keys if v['row'] == 1)
 
         if row.startswith('"') and row.endswith('"'):
-            if row.strip('"') in homerow or "".join(reversed(row.strip('"'))) in homerow:
+            pattern = re.compile(row.strip('"').replace('.', '\.').replace('_', '.'))
+            if pattern.search(homerow) or pattern.search("".join(reversed(homerow))):
                 lines.append(ll['name'])
         else:
             if all(i in homerow for i in row):

@@ -4,4 +4,7 @@ from discord import Message
 RESTRICTED = False
 
 def exec(message: Message):
-    return '<a:wooper:1081033714043207771>'
+    return random.choice([
+        '<a:wooperno:1085582045121613874>',
+        '<a:wooper:1081033714043207771>'
+    ])

@@ -4,7 +4,7 @@ from discord import Message
 
 from util import corpora, parser
 
-RESTRICTED = False
+RESTRICTED = True
 
 def exec(message: Message):
 	id = message.author.id

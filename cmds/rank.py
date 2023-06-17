@@ -36,11 +36,26 @@ def exec(message: Message):
                     'sfs': stats["dsfb-red"] + stats["dsfb-alt"]
                 }
                 stat = 'sfs'
+            case 'inroll' | 'roll-in':
+                results[name] = {
+                    'roll-in': stats["roll-in"]
+                }
+                stat = 'roll-in'
+            case 'outroll' | 'roll-out':
+                results[name] = {
+                    'roll-out': stats["roll-out"]
+                }
+                stat = 'roll-out'
+            case 'rollinratio' | 'roll-in-ratio':
+                results[name] = {
+                    'roll-in-ratio': stats["roll-out"] / stats["roll-in"]
+                }
+                stat = 'roll-in-ratio'
             case _:
                 return f'{stat} not supported'
 
     return '```' + '\n'.join(
         [f'{name} - {stat} = {result[stat]:.2%}' for name, result
             in sorted(results.items(), key=lambda x:x[1][stat])
-            if result[stat] > 0.001][:10]
+            if result[stat] > 0.001][:15]
         ) + '```'
