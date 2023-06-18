@@ -11,6 +11,7 @@ RESTRICTED = False
 def exec(message: Message):
     user = message.author.id
     user_name = authors.get_name(user).lower()
+    corpus = corpora.get_corpus(user)
     # Check current user
     # if user_name not in ADMINS:
         # return 'Unauthorized'
@@ -18,6 +19,7 @@ def exec(message: Message):
     stat = parser.get_arg(message).lower()
     results = {}
     reverse = False
+    percent = True
     # trigram = corpora.ngrams(3, id=message.author.id)
     for file in os.scandir('cache'):
         # print(f'Opening: {file.name}')
@@ -29,48 +31,81 @@ def exec(message: Message):
         # stats = analyzer.trigrams(data, trigram)
 
         name = file.name.split(".json")[0]
-        corpus = corpora.get_corpus(user)
         stats = cache.get(name, corpus)
 
         # print(f"Name: {name}, Corpus: {corpus}")
+        try:
+            match stat:
+                case 'sfb' | 'sfbs':
+                    stat = 'sfb'
+                    results[name] = {
+                        stat: stats["sfb"] / 2
+                    }
+                case 'sfs' | 'dsfb' | 'dsfbs':
+                    stat = 'sfs'
+                    results[name] = {
+                        stat: stats["dsfb-red"] + stats["dsfb-alt"]
+                    }
+                case 'red' | 'redirect' | 'redirects':
+                    stat = 'redirect'
+                    results[name] = {
+                        stat: stats["redirect"] + stats["bad-redirect"]
+                    }
+                case 'oneh' | 'onehand' | 'onehands':
+                    stat = 'onehand'
+                    results[name] = {
+                        stat: stats["oneh-in"] + stats["oneh-out"]
+                    }
+                case 'inroll' | 'inrolls' | 'roll-in':
+                    stat = 'roll-in'
+                    results[name] = {
+                        stat: stats["roll-in"]
+                    }
+                    reverse = True
+                case 'outroll' | 'outrolls' | 'roll-out':
+                    stat = 'roll-out'
+                    results[name] = {
+                        stat: stats["roll-out"]
+                    }
+                    reverse = True
+                case 'roll' | 'rolls' | 'roll-total':
+                    stat = 'roll-total'
+                    results[name] = {
+                        stat: stats["roll-in"] + stats["roll-out"]
+                    }
+                    reverse = True
+                case 'inrollratio' | 'roll-in-ratio':
+                    stat = 'roll-in-ratio'
+                    results[name] = {
+                        stat: stats["roll-in"] / stats["roll-out"]
+                    }
+                    reverse = True
+                    percent = False
+                case 'outrollratio' | 'roll-out-ratio':
+                    stat = 'roll-out-ratio'
+                    results[name] = {
+                        stat: stats["roll-out"] / stats["roll-in"]
+                    }
+                    reverse = True
+                    percent = False
+                case _:
+                    return f'{stat} not supported'
+        except:
+            print(f"{name}: Error computing {stat}")
 
-        match stat:
-            case 'sfb' | 'sfbs':
-                results[name] = {
-                    'sfb': stats["sfb"] / 2
-                }
-                stat = 'sfb'
-            case 'sfs' | 'dsfb' | 'dsfbs':
-                results[name] = {
-                    'sfs': stats["dsfb-red"] + stats["dsfb-alt"]
-                }
-                stat = 'sfs'
-            case 'inroll' | 'roll-in':
-                results[name] = {
-                    'roll-in': stats["roll-in"]
-                }
-                stat = 'roll-in'
-                reverse = True
-            case 'outroll' | 'roll-out':
-                results[name] = {
-                    'roll-out': stats["roll-out"]
-                }
-                stat = 'roll-out'
-                reverse = True
-            # case 'rollinratio' | 'roll-in-ratio':
-            #     results[name] = {
-            #         'roll-in-ratio': stats["roll-out"] / stats["roll-in"]
-            #     }
-            #     stat = 'roll-in-ratio'
-            case _:
-                return f'{stat} not supported'
-
-    sorted_results = sorted(results.items(), key=lambda x:x[1][stat]) \
+    sorted_results = sorted(results.items(), key=lambda x:x[1][stat])
     if reverse:
         sorted_results = reversed(sorted_results)
 
-    return '```' + '\n'.join(
-        [f'{name} - {stat} = {result[stat]:.2%}' for name, result
-            in sorted_results
-            if result[stat] > 0.001][:15]
-        ) + '```'
+    if percent: 
+        return '```\n' + f'{corpus.upper()}\n' + '\n'.join(
+            [f'{result[stat]:.2%} -- {name}' for name, result
+                in sorted_results
+                if result[stat] > 0.001][:15]
+            ) + '```'
+    else:
+        return '```\n' + f'{corpus.upper()}\n' + '\n'.join(
+            [f'{result[stat]:.3} -- {name}' for name, result
+                in sorted_results
+                if result[stat] > 0.001][:15]
+            ) + '```'
