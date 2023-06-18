@@ -12,11 +12,12 @@ def exec(message: Message):
     user = message.author.id
     user_name = authors.get_name(user).lower()
     # Check current user
-    if user_name not in ADMINS:
-        return 'Unauthorized'
+    # if user_name not in ADMINS:
+        # return 'Unauthorized'
 
     stat = parser.get_arg(message).lower()
     results = {}
+    reverse = False
     # trigram = corpora.ngrams(3, id=message.author.id)
     for file in os.scandir('cache'):
         # print(f'Opening: {file.name}')
@@ -49,11 +50,13 @@ def exec(message: Message):
                     'roll-in': stats["roll-in"]
                 }
                 stat = 'roll-in'
+                reverse = True
             case 'outroll' | 'roll-out':
                 results[name] = {
                     'roll-out': stats["roll-out"]
                 }
                 stat = 'roll-out'
+                reverse = True
             # case 'rollinratio' | 'roll-in-ratio':
             #     results[name] = {
             #         'roll-in-ratio': stats["roll-out"] / stats["roll-in"]
@@ -62,8 +65,12 @@ def exec(message: Message):
             case _:
                 return f'{stat} not supported'
 
+    sorted_results = sorted(results.items(), key=lambda x:x[1][stat]) \
+    if reverse:
+        sorted_results = reversed(sorted_results)
+
     return '```' + '\n'.join(
         [f'{name} - {stat} = {result[stat]:.2%}' for name, result
-            in sorted(results.items(), key=lambda x:x[1][stat])
+            in sorted_results
             if result[stat] > 0.001][:15]
         ) + '```'
