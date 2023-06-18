@@ -5,7 +5,7 @@ NGRAMS = ['monograms', 'bigrams', 'trigrams']
 
 def ngrams(n: int, *, id: int=0):
     file = get_corpus(id)
-    path = f'cache/{file}/{NGRAMS[n - 1]}.json'
+    path = f'corpora/{file}/{NGRAMS[n - 1]}.json'
 
     with open(path, 'r') as f:
         grams = json.load(f)
@@ -23,7 +23,7 @@ def trigrams():
 
 def words(id: int=0):
     file = get_corpus(id)
-    with open(f'cache/{file}/words.json') as f:
+    with open(f'corpora/{file}/words.json') as f:
         words = json.load(f)
 
     return words

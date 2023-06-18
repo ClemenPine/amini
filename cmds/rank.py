@@ -3,7 +3,7 @@ import json
 import logging
 
 from discord import Message
-from util import parser, corpora, analyzer, authors
+from util import parser, corpora, analyzer, authors, cache
 from admins import ADMINS
 
 RESTRICTED = False
@@ -17,14 +17,22 @@ def exec(message: Message):
 
     stat = parser.get_arg(message).lower()
     results = {}
-    trigram = corpora.ngrams(3, id=message.author.id)
-    for file in os.scandir('layouts'):
-        print(f'Opening: {file.name}')
-        with open(f'layouts/{file.name}', 'r') as f:
-            data = json.load(f)
+    # trigram = corpora.ngrams(3, id=message.author.id)
+    for file in os.scandir('cache'):
+        # print(f'Opening: {file.name}')
+        # with open(f'layouts/{file.name}', 'r') as f:
+        #     data = json.load(f)
 
-        name = data['name']
-        stats = analyzer.trigrams(data, trigram)
+        # name = data['name']
+
+        # stats = analyzer.trigrams(data, trigram)
+
+        name = file.name.split(".json")[0]
+        corpus = corpora.get_corpus(user)
+        stats = cache.get(name, corpus)
+
+        # print(f"Name: {name}, Corpus: {corpus}")
+
         match stat:
             case 'sfb' | 'sfbs':
                 results[name] = {
@@ -46,11 +54,11 @@ def exec(message: Message):
                     'roll-out': stats["roll-out"]
                 }
                 stat = 'roll-out'
-            case 'rollinratio' | 'roll-in-ratio':
-                results[name] = {
-                    'roll-in-ratio': stats["roll-out"] / stats["roll-in"]
-                }
-                stat = 'roll-in-ratio'
+            # case 'rollinratio' | 'roll-in-ratio':
+            #     results[name] = {
+            #         'roll-in-ratio': stats["roll-out"] / stats["roll-in"]
+            #     }
+            #     stat = 'roll-in-ratio'
             case _:
                 return f'{stat} not supported'
 
