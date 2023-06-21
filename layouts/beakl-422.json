@@ -1,9 +1,9 @@
 {
-    "name": "inroll-sage-chilling-on-top",
-    "user": 328195824238723072,
+    "name": "beakl-422",
+    "user": 270881578371121152,
     "board": "ortho",
     "keys": {
-        "f": {
+        "z": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -28,29 +28,39 @@
             "col": 4,
             "finger": "LI"
         },
-        "q": {
+        "v": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "p": {
+        "g": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "c": {
+        "l": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "l": {
+        "p": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "x": {
+        "q": {
             "row": 0,
             "col": 9,
+            "finger": "RP"
+        },
+        ";": {
+            "row": 0,
+            "col": 10,
+            "finger": "RP"
+        },
+        "=": {
+            "row": 0,
+            "col": 11,
             "finger": "RP"
         },
         "h": {
@@ -73,22 +83,22 @@
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "f": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "d": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "t": {
+        "s": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "s": {
+        "t": {
             "row": 1,
             "col": 7,
             "finger": "RM"
@@ -103,52 +113,57 @@
             "col": 9,
             "finger": "RP"
         },
-        "b": {
+        "-": {
+            "row": 1,
+            "col": 10,
+            "finger": "RP"
+        },
+        "x": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "j": {
+        ".": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        ";": {
+        ",": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        ".": {
+        "k": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        ",": {
+        "/": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "w": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "d": {
+        "c": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "g": {
+        "m": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "m": {
+        "b": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "w": {
+        "j": {
             "row": 2,
             "col": 9,
             "finger": "RP"
