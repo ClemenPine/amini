@@ -9,7 +9,7 @@ def exec(message: Message):
 
     cats = [emoji for emoji in message.guild.emojis
             if emoji.available
-            and 'cat' in emoji.name]
+            and 'cat' in emoji.name.lower()]
 
     if not cats:
         return "No cats in here :("

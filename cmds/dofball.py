@@ -9,7 +9,7 @@ def exec(message: Message):
 
     dofs = [emoji for emoji in message.guild.emojis
             if emoji.available
-            and 'dof' in emoji.name]
+            and 'dof' in emoji.name.lower()]
 
     if not dofs:
         return "No dofs in here :("
