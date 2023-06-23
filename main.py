@@ -73,6 +73,10 @@ async def on_message(message: discord.Message):
 
     global maintenance_mode
 
+    # Make these commands DM-only regardless of channel
+    if command in ["xkb"]:
+        restricted = True
+
     # Trigger only
     if not command:
         reply = 'Try `!cmini help`'
