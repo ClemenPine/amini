@@ -2,6 +2,8 @@ from discord import Message
 
 from util import memory, parser
 
+RESTRICTED = True
+
 row_names = ['AD', 'AC', 'AB']
 
 translations = {
