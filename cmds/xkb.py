@@ -1,6 +1,6 @@
 from discord import Message
 
-from util import layout, memory, parser
+from util import memory, parser
 
 row_names = ['AD', 'AC', 'AB']
 
@@ -76,10 +76,9 @@ def exec(message: Message):
 
     # It's too late to implement this in a better way, sorry
     # This also assumes ANSI enter key (\ above enter?)
-    # since that's how qwerty.jsonfined
+    # since that's how qwerty.json is defined
     done_ad13 = False
     for i in range(len(row_names)):
-        special_keys_done = False  # Naively assume one specially-named key per row
         xkb += '\n'
         for key, props in keys.items():
             if props['row'] == row and props['col'] == col:
