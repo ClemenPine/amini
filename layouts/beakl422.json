@@ -1,9 +1,9 @@
 {
-    "name": "beakl-422",
+    "name": "beakl422",
     "user": 270881578371121152,
     "board": "ortho",
     "keys": {
-        "z": {
+        "x": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -118,7 +118,7 @@
             "col": 10,
             "finger": "RP"
         },
-        "x": {
+        "z": {
             "row": 2,
             "col": 0,
             "finger": "LP"
