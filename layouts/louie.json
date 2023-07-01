@@ -8,12 +8,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "g": {
+        "c": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "b": {
+        "p": {
             "row": 0,
             "col": 2,
             "finger": "LM"
@@ -108,12 +108,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "c": {
+        "g": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "p": {
+        "b": {
             "row": 2,
             "col": 2,
             "finger": "LM"
