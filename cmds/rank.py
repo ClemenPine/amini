@@ -17,6 +17,11 @@ def exec(message: Message):
         # return 'Unauthorized'
 
     stat = parser.get_arg(message).lower()
+    if stat == '':
+        return '```\n' + \
+            'Supported rank stats:\n' + \
+            'alt sfb sfs red oneh inroll outroll roll inrollratio outrollratio' + \
+            '```'
     results = {}
     reverse = False
     percent = True
@@ -36,6 +41,12 @@ def exec(message: Message):
         # print(f"Name: {name}, Corpus: {corpus}")
         try:
             match stat:
+                case 'alt' | 'alts' | 'alternate':
+                    stat = 'alt'
+                    results[name] = {
+                        stat: stats["alternate"]
+                    }
+                    reverse = True
                 case 'sfb' | 'sfbs':
                     stat = 'sfb'
                     results[name] = {
