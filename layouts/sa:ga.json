@@ -1,9 +1,9 @@
 {
-    "name": "xenia-E",
+    "name": "sa:ga",
     "user": 627912342092382228,
     "board": "ortho",
     "keys": {
-        "/": {
+        ".": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -28,32 +28,32 @@
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "f": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "f": {
+        "d": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "d": {
+        "l": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "v": {
+        "b": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "g": {
+        "w": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "e": {
+        "i": {
             "row": 1,
             "col": 0,
             "finger": "LP"
@@ -63,7 +63,7 @@
             "col": 1,
             "finger": "LR"
         },
-        "i": {
+        "e": {
             "row": 1,
             "col": 2,
             "finger": "LM"
@@ -108,22 +108,22 @@
             "col": 10,
             "finger": "RP"
         },
-        ";": {
+        ",": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        ".": {
+        "/": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        ",": {
+        ":": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "l": {
+        "j": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -148,12 +148,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "b": {
+        "v": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "w": {
+        "g": {
             "row": 2,
             "col": 9,
             "finger": "RP"
