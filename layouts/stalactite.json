@@ -1,34 +1,34 @@
 {
-    "name": "gallium_dioxide",
+    "name": "stalactite",
     "user": 943720217450786816,
     "board": "ortho",
     "keys": {
-        "-": {
+        "b": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "b": {
+        "y": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "d": {
+        "o": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "p": {
+        "u": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        ";": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "v": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -38,130 +38,120 @@
             "col": 6,
             "finger": "RI"
         },
-        "o": {
+        "d": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "u": {
+        "l": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        ",": {
+        "p": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "r": {
+        "h": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "n": {
+        "i": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "t": {
+        "e": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "c": {
+        "a": {
             "row": 1,
             "col": 3,
+            "finger": "LI"
+        },
+        "'": {
+            "row": 1,
+            "col": 4,
             "finger": "LI"
         },
         "g": {
             "row": 1,
-            "col": 4,
-            "finger": "LI"
-        },
-        "v": {
-            "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "h": {
+        "s": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "a": {
+        "t": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "e": {
+        "r": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "i": {
+        "n": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        "x": {
+        "k": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        ";": {
+        "j": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "m": {
+        "z": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "q": {
+        ",": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "w": {
+        ".": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "w": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "y": {
+        "c": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "'": {
+        "m": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "/": {
+        "q": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        ".": {
+        "x": {
             "row": 2,
             "col": 9,
             "finger": "RP"
-        },
-        "l": {
-            "row": 3,
-            "col": 0,
-            "finger": "LT"
-        },
-        "s": {
-            "row": 3,
-            "col": 5,
-            "finger": "LT"
         }
     },
     "free": []
