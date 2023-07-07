@@ -1,5 +1,5 @@
 {
-    "name": "graphite",
+    "name": "graphite-matrix",
     "user": 130544188818194432,
     "board": "ortho",
     "keys": {
@@ -143,12 +143,12 @@
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "k": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "k": {
+        "p": {
             "row": 2,
             "col": 6,
             "finger": "RI"
