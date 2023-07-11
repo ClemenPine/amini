@@ -1,84 +1,84 @@
 {
-    "name": "tetracycline",
+    "name": "ember2",
     "user": 943720217450786816,
-    "board": "ortho",
+    "board": "angle",
     "keys": {
-        "y": {
+        "m": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "o": {
+        "l": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "u": {
+        "d": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "n": {
+        "f": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "x": {
+        "b": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "z": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "d": {
+        "y": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "l": {
+        "o": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "f": {
+        "u": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "w": {
+        ",": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "i": {
+        "r": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "e": {
+        "n": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "a": {
+        "t": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "r": {
+        "s": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "g": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        "j": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -88,47 +88,47 @@
             "col": 6,
             "finger": "RI"
         },
-        "t": {
+        "a": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "s": {
+        "e": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "c": {
+        "i": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        ".": {
+        "x": {
             "row": 2,
             "col": 0,
-            "finger": "LP"
-        },
-        "/": {
-            "row": 2,
-            "col": 1,
             "finger": "LR"
         },
-        ",": {
+        "p": {
             "row": 2,
-            "col": 2,
+            "col": 1,
             "finger": "LM"
         },
-        "q": {
+        "c": {
+            "row": 2,
+            "col": 2,
+            "finger": "LI"
+        },
+        "w": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "j": {
+        "v": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "q": {
             "row": 2,
             "col": 5,
             "finger": "RI"
@@ -138,17 +138,17 @@
             "col": 6,
             "finger": "RI"
         },
-        "m": {
+        "'": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "g": {
+        "/": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "'": {
+        ".": {
             "row": 2,
             "col": 9,
             "finger": "RP"
