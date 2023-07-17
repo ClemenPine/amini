@@ -1,5 +1,5 @@
 {
-    "name": "lowx3-ynw",
+    "name": "lowx3-bestfss",
     "user": 195370812016951296,
     "board": "ortho",
     "keys": {
@@ -8,17 +8,17 @@
             "col": 0,
             "finger": "LP"
         },
-        ".": {
+        "y": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "f": {
+        "c": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "p": {
+        "w": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -38,7 +38,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "y": {
+        "f": {
             "row": 0,
             "col": 7,
             "finger": "RM"
@@ -103,17 +103,17 @@
             "col": 9,
             "finger": "RP"
         },
-        "z": {
+        ",": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        ",": {
+        ".": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "c": {
+        "v": {
             "row": 2,
             "col": 2,
             "finger": "LM"
@@ -123,7 +123,7 @@
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "p": {
             "row": 2,
             "col": 4,
             "finger": "LI"
@@ -138,17 +138,17 @@
             "col": 6,
             "finger": "RI"
         },
-        "w": {
+        "z": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "/": {
+        ";": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "'": {
+        "/": {
             "row": 2,
             "col": 9,
             "finger": "RP"
