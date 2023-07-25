@@ -1,129 +1,129 @@
 {
-    "name": "digirati",
-    "user": 943720217450786816,
+    "name": "newt",
+    "user": 252155920157507584,
     "board": "ortho",
     "keys": {
-        ",": {
+        "x": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "o": {
+        "m": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "u": {
+        "v": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "r": {
+        "l": {
             "row": 0,
             "col": 3,
             "finger": "LI"
-        },
-        "/": {
-            "row": 0,
-            "col": 4,
-            "finger": "LI"
-        },
-        "q": {
-            "row": 0,
-            "col": 5,
-            "finger": "RI"
-        },
-        "f": {
-            "row": 0,
-            "col": 6,
-            "finger": "RI"
         },
         "d": {
             "row": 0,
+            "col": 4,
+            "finger": "LI"
+        },
+        "z": {
+            "row": 0,
+            "col": 5,
+            "finger": "RI"
+        },
+        "y": {
+            "row": 0,
+            "col": 6,
+            "finger": "RI"
+        },
+        "h": {
+            "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "g": {
+        ".": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "p": {
+        ";": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "i": {
+        "b": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "a": {
+        "f": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "e": {
+        "p": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "n": {
+        "s": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "j": {
+        "r": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        "a": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "h": {
+        "e": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "t": {
+        "o": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "s": {
+        "u": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "c": {
+        ",": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        ".": {
+        "n": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        ";": {
+        "g": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "=": {
+        "w": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "x": {
+        "t": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "-": {
+        "c": {
             "row": 2,
             "col": 4,
             "finger": "LI"
@@ -133,35 +133,25 @@
             "col": 5,
             "finger": "RI"
         },
-        "v": {
+        "i": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "m": {
+        "j": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "w": {
+        "q": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "z": {
+        "'": {
             "row": 2,
             "col": 9,
             "finger": "RP"
-        },
-        "l": {
-            "row": 3,
-            "col": 0,
-            "finger": "LT"
-        },
-        "y": {
-            "row": 3,
-            "col": 5,
-            "finger": "LT"
         }
     },
     "free": []
