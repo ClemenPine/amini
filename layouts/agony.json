@@ -1,9 +1,9 @@
 {
-    "name": "xenia-E",
+    "name": "agony",
     "user": 627912342092382228,
     "board": "ortho",
     "keys": {
-        "/": {
+        "'": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -28,27 +28,27 @@
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "w": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "f": {
+        "b": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "d": {
+        "l": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "v": {
+        "y": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "g": {
+        "v": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -78,17 +78,17 @@
             "col": 4,
             "finger": "LI"
         },
-        "y": {
+        "c": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "h": {
+        "d": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "t": {
+        "h": {
             "row": 1,
             "col": 7,
             "finger": "RM"
@@ -98,12 +98,12 @@
             "col": 8,
             "finger": "RR"
         },
-        "c": {
+        "t": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        "'": {
+        "/": {
             "row": 1,
             "col": 10,
             "finger": "RP"
@@ -123,7 +123,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "l": {
+        "j": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -133,7 +133,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "g": {
             "row": 2,
             "col": 5,
             "finger": "RI"
@@ -148,12 +148,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "b": {
+        "f": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "w": {
+        "k": {
             "row": 2,
             "col": 9,
             "finger": "RP"
