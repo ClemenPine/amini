@@ -1,5 +1,5 @@
 {
-    "name": "rolly4-rn",
+    "name": "rolly4-hr",
     "user": 328195824238723072,
     "board": "angle",
     "keys": {
@@ -88,12 +88,12 @@
             "col": 6,
             "finger": "RI"
         },
-        "h": {
+        "n": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "n": {
+        "h": {
             "row": 1,
             "col": 8,
             "finger": "RR"
