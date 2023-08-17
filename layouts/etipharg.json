@@ -1,5 +1,5 @@
 {
-    "name": "ieahstrn",
+    "name": "etipharg",
     "user": 647672655012429854,
     "board": "angle",
     "keys": {
@@ -8,12 +8,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "o": {
+        "u": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "u": {
+        "o": {
             "row": 0,
             "col": 2,
             "finger": "LM"
