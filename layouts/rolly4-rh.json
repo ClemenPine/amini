@@ -1,49 +1,49 @@
 {
-    "name": "ylem-real",
-    "user": 943720217450786816,
-    "board": "ortho",
+    "name": "rolly4-rh",
+    "user": 328195824238723072,
+    "board": "angle",
     "keys": {
-        "-": {
+        "y": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "f": {
+        "o": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "n": {
+        "u": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "d": {
+        "f": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "k": {
+        "j": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "q": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "g": {
+        "m": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "o": {
+        "h": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "u": {
+        "p": {
             "row": 0,
             "col": 8,
             "finger": "RR"
@@ -53,97 +53,102 @@
             "col": 9,
             "finger": "RP"
         },
-        "r": {
+        "i": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "s": {
+        "a": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "h": {
+        "e": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "t": {
+        "s": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "x": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "k": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "c": {
+        "t": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "a": {
+        "r": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "e": {
+        "n": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "i": {
+        "c": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        "x": {
+        "'": {
+            "row": 1,
+            "col": 10,
+            "finger": "RP"
+        },
+        ";": {
             "row": 2,
             "col": 0,
-            "finger": "LP"
-        },
-        "z": {
-            "row": 2,
-            "col": 1,
             "finger": "LR"
         },
-        "b": {
+        "\"": {
             "row": 2,
-            "col": 2,
+            "col": 1,
             "finger": "LM"
         },
-        "m": {
+        "w": {
+            "row": 2,
+            "col": 2,
+            "finger": "LI"
+        },
+        "g": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "q": {
+        "z": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "'": {
+        "v": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "w": {
+        "d": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        ";": {
+        "l": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "/": {
+        "b": {
             "row": 2,
             "col": 8,
             "finger": "RR"
@@ -152,16 +157,6 @@
             "row": 2,
             "col": 9,
             "finger": "RP"
-        },
-        "l": {
-            "row": 3,
-            "col": 0,
-            "finger": "LT"
-        },
-        "y": {
-            "row": 3,
-            "col": 4,
-            "finger": "LT"
         }
     },
     "free": []
