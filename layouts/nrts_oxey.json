@@ -1,9 +1,9 @@
 {
     "name": "nrts_oxey",
     "user": 239371209202991105,
-    "board": "angle",
+    "board": "ortho",
     "keys": {
-        "b": {
+        "q": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -23,17 +23,17 @@
             "col": 3,
             "finger": "LI"
         },
-        "j": {
+        "v": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "z": {
+        "'": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "p": {
+        "f": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        ",": {
+        "j": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -106,39 +106,39 @@
         "x": {
             "row": 2,
             "col": 0,
+            "finger": "LP"
+        },
+        "z": {
+            "row": 2,
+            "col": 1,
             "finger": "LR"
         },
         "m": {
             "row": 2,
-            "col": 1,
+            "col": 2,
             "finger": "LM"
         },
         "c": {
             "row": 2,
-            "col": 2,
-            "finger": "LI"
-        },
-        "v": {
-            "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "q": {
+        "b": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "p": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "f": {
+        "k": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "'": {
+        ".": {
             "row": 2,
             "col": 7,
             "finger": "RM"
@@ -148,7 +148,7 @@
             "col": 8,
             "finger": "RR"
         },
-        ".": {
+        ",": {
             "row": 2,
             "col": 9,
             "finger": "RP"
