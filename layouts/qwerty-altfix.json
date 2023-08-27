@@ -1,7 +1,7 @@
 {
     "name": "qwerty-altfix",
     "user": 195370812016951296,
-    "board": "ortho",
+    "board": "stagger",
     "keys": {
         "q": {
             "row": 0,
@@ -33,7 +33,7 @@
             "col": 5,
             "finger": "RI"
         },
-        "k": {
+        "l": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -51,6 +51,21 @@
         "p": {
             "row": 0,
             "col": 9,
+            "finger": "RP"
+        },
+        "[": {
+            "row": 0,
+            "col": 10,
+            "finger": "RP"
+        },
+        "]": {
+            "row": 0,
+            "col": 11,
+            "finger": "RP"
+        },
+        "\\": {
+            "row": 0,
+            "col": 12,
             "finger": "RP"
         },
         "a": {
@@ -83,7 +98,7 @@
             "col": 5,
             "finger": "RI"
         },
-        "l": {
+        "j": {
             "row": 1,
             "col": 6,
             "finger": "RI"
@@ -93,7 +108,7 @@
             "col": 7,
             "finger": "RM"
         },
-        "j": {
+        "k": {
             "row": 1,
             "col": 8,
             "finger": "RR"
