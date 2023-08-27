@@ -24,7 +24,7 @@ def exec(message: Message):
     ll['keys'] = dict(sorted(ll['keys'].items(), key=lambda k: (k[1]['row'], k[1]['col'])))
     name = ll['name']
 
-    if not memory.remove(name, id=message.author.id):
+    if not memory.remove(name.lower(), id=message.author.id):
         return f'Error: you don\'t own the layout {name}'
     if not memory.add(ll):
         return 'Error: something went wrong re-adding the layout. This shouldn\'t happen, please yell at semi.'

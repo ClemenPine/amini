@@ -64,7 +64,8 @@ if __name__ == "__main__":
             for corpus_file in os.scandir('corpora'):
                 corpus = corpus_file.name.split(".json")[0]
                 print(f"Layout: {name}, Corpus: {corpus}")
-                
+
+                # get(name, corpus)
                 data = cache_get(name)
                 update(name, cache_fill(name, data, corpus))
 

@@ -13,10 +13,21 @@ def exec(message: Message):
     user_name = authors.get_name(user).lower()
     corpus = corpora.get_corpus(user)
     # Check current user
-    # if user_name not in ADMINS:
-        # return 'Unauthorized'
+    # if user_name in ADMINS:
+        # length = 100
+    # else:
+        # length = 15
 
-    stat = parser.get_arg(message).lower()
+    length = 15
+
+    args = [item.lower() for item in  parser.get_args(message)]
+    stat = args[0]
+
+    if len(args) > 1:
+        start = int(args[1])
+    else:
+        start = 0
+
     if stat == '':
         return '```\n' + \
             'Supported rank stats:\n' + \
@@ -106,17 +117,21 @@ def exec(message: Message):
 
     sorted_results = sorted(results.items(), key=lambda x:x[1][stat])
     if reverse:
-        sorted_results = reversed(sorted_results)
+        sorted_results = list(reversed(sorted_results))
 
     if percent: 
         return '```\n' + f'{corpus.upper()}\n' + '\n'.join(
-            [f'{result[stat]:.2%} -- {name}' for name, result
+            [f'{index+start}: {value}' for index, value
+                in enumerate([f'{result[stat]:.2%} -- {name}' for name, result
                 in sorted_results
-                if result[stat] > 0.001][:15]
+                if result[stat] > 0.001][start:start+length % len(sorted_results)])
+            ]
             ) + '```'
     else:
         return '```\n' + f'{corpus.upper()}\n' + '\n'.join(
-            [f'{result[stat]:.3} -- {name}' for name, result
+            [f'{index+start}: {value}' for index, value
+                in enumerate([f'{result[stat]:.3} -- {name}' for name, result
                 in sorted_results
-                if result[stat] > 0.001][:15]
+                if result[stat] > 0.001][start:start+length % len(sorted_results)])
+            ]
             ) + '```'
