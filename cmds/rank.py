@@ -31,7 +31,7 @@ def exec(message: Message):
     if stat == '':
         return '```\n' + \
             'Supported rank stats:\n' + \
-            'alt sfb sfs red oneh inroll outroll roll inrollratio outrollratio intotal outtotal total' + \
+            'alt sfb sfs red oneh inroll outroll roll inrollratio outrollratio intotal outtotal rolltal' + \
             '```'
     results = {}
     reverse = False
@@ -123,8 +123,8 @@ def exec(message: Message):
                         stat: stats["roll-out"] + stats["oneh-out"]
                     }
                     reverse = True
-                case 'total'
-                    stat = 'total'
+                case 'rolltal' | 'rolltotal'
+                    stat = 'rolltal'
                     results[name] = {
                         stat: stats["roll-in"] + stats["oneh-in"] + stats["roll-out"] + stats["oneh-out"]
                     }
