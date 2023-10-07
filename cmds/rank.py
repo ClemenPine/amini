@@ -31,7 +31,7 @@ def exec(message: Message):
     if stat == '':
         return '```\n' + \
             'Supported rank stats:\n' + \
-            'alt sfb sfs red oneh inroll outroll roll inrollratio outrollratio intotal outtotal rolltal' + \
+            'alt sfb sfs red oneh inroll outroll roll inrollratio outrollratio inrolltal outrolltal rolltal' + \
             '```'
     results = {}
     reverse = False
@@ -111,14 +111,14 @@ def exec(message: Message):
                     }
                     reverse = True
                     percent = False
-                case 'intotal' | 'intotals' | 'in-total' | 'in':
-                    stat = 'total-in'
+                case 'inrolltal' | 'inrolltals' | 'in-rolltal' | 'in':
+                    stat = 'rolltal-in'
                     results[name] = {
                         stat: stats["roll-in"] + stats["oneh-in"]
                     }
                     reverse = True
-                case 'outtotal' | 'outtotals' | 'out-total' | 'out':
-                    stat = 'total-out'
+                case 'outrolltal' | 'outrolltals' | 'out-rolltal' | 'out':
+                    stat = 'rolltal-out'
                     results[name] = {
                         stat: stats["roll-out"] + stats["oneh-out"]
                     }
