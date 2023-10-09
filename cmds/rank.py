@@ -111,19 +111,19 @@ def exec(message: Message):
                     }
                     reverse = True
                     percent = False
-                case 'inrolltal' | 'inrolltals' | 'in-rolltal' | 'in':
-                    stat = 'rolltal-in'
+                case 'inrolltal' | 'inrolltals':
+                    stat = 'inrolltal'
                     results[name] = {
                         stat: stats["roll-in"] + stats["oneh-in"]
                     }
                     reverse = True
-                case 'outrolltal' | 'outrolltals' | 'out-rolltal' | 'out':
-                    stat = 'rolltal-out'
+                case 'outrolltal' | 'outrolltals':
+                    stat = 'outrolltal'
                     results[name] = {
                         stat: stats["roll-out"] + stats["oneh-out"]
                     }
                     reverse = True
-                case 'rolltal' | 'rolltals' | 'rolltotal'
+                case 'rolltal' | 'rolltals' | 'rolltotal':
                     stat = 'rolltal'
                     results[name] = {
                         stat: stats["roll-in"] + stats["oneh-in"] + stats["roll-out"] + stats["oneh-out"]
