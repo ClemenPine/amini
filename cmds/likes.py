@@ -9,7 +9,7 @@ def exec(message: Message):
         likes: dict[str, list[int]] = json.load(f)
 
     lines = []
-    for layout, ids in likes.items():
+    for layout, ids in sorted(likes.items(), key=lambda l: l[0].lower()):
         if id in ids:
             lines.append(f' - {layout}')
 
