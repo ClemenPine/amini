@@ -20,8 +20,8 @@ def exec(message: Message):
 
     length = 15
 
-    args = [item.lower() for item in  parser.get_args(message)]
-    stat = args[0]
+    args = [item.lower() for item in parser.get_args(message)]
+    stat = args[0] if len(args) > 0 else ''
 
     if len(args) > 1:
         start = int(args[1])
