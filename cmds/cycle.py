@@ -1,26 +1,21 @@
 from discord import Message
 
 from util import layout, memory, parser
+from util.consts import JSON
 
 def exec(message: Message):
     args = parser.get_args(message)
+    name = args[0]
+    cycles = args[1:]
 
-    ll = memory.find(args[0])
+    ll = memory.find(name)
     if not ll:
-        return f'Error: couldn\'t find any layout named `{args[0]}`'
+        return f'Error: couldn\'t find any layout named `{name}`'
 
-    if not all(x in ll['keys'] for x in ''.join(args[1:])):
-        return f'Error: cannot swap letters that aren\'t in the layout'
-
-    for cycle in args[1:]:
-        if len(set(cycle)) != len(cycle):
-            return f'Error: cannot use duplicate letters in cycle command'
-
-        cmap = dict(zip(cycle, cycle[1:] + cycle[0]))
-        keymap = {k: ll['keys'][k] for k in cycle}
-
-        for key, val in cmap.items():
-            ll['keys'][key] = keymap[val]
+    try:
+        modify(ll, cycles)
+    except ValueError as e:
+        return str(e)
 
     ll['name'] += ' (modified)'
 
@@ -31,3 +26,17 @@ def use():
 
 def desc():
     return 'cycle a layout\'s letters around'
+
+def modify(ll: JSON, cycles: list[str]) -> None:
+    if not all(x in ll['keys'] for x in ''.join(cycles)):
+        raise ValueError('Error: cannot swap letters that aren\'t in the layout')
+
+    for cycle in cycles:
+        if len(set(cycle)) != len(cycle):
+            raise ValueError('Error: cannot use duplicate letters in cycle command')
+
+        cmap = dict(zip(cycle, cycle[1:] + cycle[0]))
+        keymap = {k: ll['keys'][k] for k in cycle}
+
+        for key, val in cmap.items():
+            ll['keys'][key] = keymap[val]
