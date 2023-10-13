@@ -21,24 +21,30 @@ def exec(message: Message):
 
     length = 15
 
-    try:
-        kwargs = __Parser.get_kwargs(parser.get_arg(message))
-    except ValueError:
-        return 'Error: Invalid starting index'
-    stat = kwargs['stat_name']
-    start = kwargs['start_index']
-    sort_asc = kwargs['min']
-    sort_desc = kwargs['max']
-    if sort_asc and sort_desc:
-        return 'Error: Cannot rank ascending and descending altogether'
-    use_override_reverse = sort_asc or sort_desc
-    override_reverse = sort_desc
-
+    kwargs = parser.get_kwargs(message, list[str], min=bool, max=bool)
+    args = kwargs['args']
+    stat = args[0] if len(args) > 0 else ''
     if stat == '':
         return '```\n' + \
             'Supported rank stats:\n' + \
             'alt sfb sfs red oneh inroll outroll roll inrollratio outrollratio inrolltal outrolltal rolltal' + \
             '```'
+
+    start = args[1] if len(args) > 1 else 0
+    sort_asc = kwargs['min']
+    sort_desc = kwargs['max']
+
+    try:
+        start = int(start)
+    except ValueError:
+        return 'Error: Invalid starting index'
+
+    if sort_asc and sort_desc:
+        return 'Error: Cannot rank ascending and descending altogether'
+
+    use_override_reverse = sort_asc or sort_desc
+    override_reverse = sort_desc
+
     results = {}
     reverse = False
     percent = True
@@ -160,25 +166,4 @@ def exec(message: Message):
                 if result[stat] > 0.001][start:start+length % len(sorted_results)])
             ]
             ) + '```'
-
-class __Parser:
-    parser = argparse.ArgumentParser()
-    parser.add_argument('start_index', nargs='?', default=0)
-    kw_parser = argparse.ArgumentParser()
-    kw_parser.add_argument('--min', action='store_true')
-    kw_parser.add_argument('--max', action='store_true')
-
-    @classmethod
-    def get_kwargs(cls, command: str) -> dict[str | int | bool]:
-        command: list[str] = command.lower().split()
-        if not command:
-            return {"stat_name": "", "start_index": 0, "min": False, "max": False}
-        stat = command[0]
-        if len(command) == 1:
-            return {"stat_name": stat, "start_index": 0, "min": False, "max": False}
-        if len(command) > 1:
-            args, remaining = cls.parser.parse_known_args(command[1:])
-            args.start_index = int(args.start_index)
-            kwargs, unknown = cls.kw_parser.parse_known_args(remaining)
-            return {"stat_name": stat} | vars(args) | vars(kwargs)
 
