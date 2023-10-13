@@ -8,7 +8,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "h": {
+        "u": {
             "row": 0,
             "col": 1,
             "finger": "LR"
@@ -18,7 +18,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "x": {
+        "o": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "q": {
+        "k": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -58,7 +58,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "u": {
+        "h": {
             "row": 1,
             "col": 1,
             "finger": "LR"
@@ -98,7 +98,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "k": {
+        "b": {
             "row": 1,
             "col": 9,
             "finger": "RP"
@@ -123,12 +123,12 @@
             "col": 2,
             "finger": "LM"
         },
-        "o": {
+        ".": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        ".": {
+        "x": {
             "row": 2,
             "col": 4,
             "finger": "LI"
@@ -153,7 +153,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "b": {
+        "q": {
             "row": 2,
             "col": 9,
             "finger": "RP"
