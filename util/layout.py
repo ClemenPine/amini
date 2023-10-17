@@ -1,6 +1,6 @@
 import json
 
-from util import analyzer, authors, corpora
+from util import analyzer, authors, corpora, links
 from util.consts import *
 from util.returns import *
 
@@ -73,6 +73,10 @@ def to_string(ll: JSON, id: int):
     else:
         like_string = 'likes'
 
+    external_link = links.get_link(ll['name'].lower())
+    if external_link:
+        external_link = f'<{external_link}>'
+
     res = (
         f'```\n'
         f'{ll["name"]} ({author}) ({likes} {like_string})\n'
@@ -95,6 +99,7 @@ def to_string(ll: JSON, id: int):
         '\n'
         f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}'
         f'```\n'
+        f'{external_link}\n'
     )
 
     return res
