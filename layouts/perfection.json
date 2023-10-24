@@ -1,124 +1,124 @@
 {
-    "name": "freya_owo",
-    "user": 347489972070252545,
+    "name": "perfection",
+    "user": 795884452844666891,
     "board": "ortho",
     "keys": {
-        ".": {
+        "z": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "c": {
+        "y": {
             "row": 0,
             "col": 1,
             "finger": "LR"
-        },
-        "u": {
-            "row": 0,
-            "col": 2,
-            "finger": "LM"
-        },
-        "g": {
-            "row": 0,
-            "col": 3,
-            "finger": "LI"
-        },
-        "k": {
-            "row": 0,
-            "col": 4,
-            "finger": "LI"
-        },
-        "j": {
-            "row": 0,
-            "col": 5,
-            "finger": "RI"
-        },
-        "h": {
-            "row": 0,
-            "col": 6,
-            "finger": "RI"
-        },
-        "l": {
-            "row": 0,
-            "col": 7,
-            "finger": "RM"
         },
         "x": {
             "row": 0,
+            "col": 2,
+            "finger": "LM"
+        },
+        "w": {
+            "row": 0,
+            "col": 3,
+            "finger": "LI"
+        },
+        "v": {
+            "row": 0,
+            "col": 4,
+            "finger": "LI"
+        },
+        "u": {
+            "row": 0,
+            "col": 5,
+            "finger": "RI"
+        },
+        "t": {
+            "row": 0,
+            "col": 6,
+            "finger": "RI"
+        },
+        "s": {
+            "row": 0,
+            "col": 7,
+            "finger": "RM"
+        },
+        "r": {
+            "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "z": {
+        "q": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "i": {
+        "p": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "s": {
+        "o": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "e": {
+        "n": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "t": {
+        "m": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "p": {
+        "l": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "m": {
+        "k": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "n": {
+        "j": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "r": {
+        "i": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "a": {
+        "h": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "o": {
+        "g": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        ",": {
+        "f": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "f": {
+        "e": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "-": {
+        "d": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "d": {
+        "c": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -128,27 +128,27 @@
             "col": 4,
             "finger": "LI"
         },
-        "y": {
+        "a": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "v": {
+        ",": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "w": {
+        ".": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "'": {
+        ";": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "q": {
+        "'": {
             "row": 2,
             "col": 9,
             "finger": "RP"
