@@ -8,12 +8,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "g": {
+        "w": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "w": {
+        "g": {
             "row": 0,
             "col": 2,
             "finger": "LM"
