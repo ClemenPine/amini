@@ -67,7 +67,7 @@ class GetFingerStats:
             if ' ' in trigram:
                 continue
 
-            fingers = [ll['keys'][x]['finger'] for x in trigram if x in ll['keys']]
+            fingers = [ll['keys'][x]['finger'] for x in trigram.lower() if x in ll['keys']]
 
             if get_usage:
                 for finger in fingers:
