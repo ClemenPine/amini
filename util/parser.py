@@ -55,7 +55,7 @@ def get_kwargs(message: Message,
     # ensure all positional
     kwargs_start_index = 0
     for i, word in enumerate(command):
-        if word.startswith('--') and word.removeprefix('--') in cmd_kwargs:
+        if word.startswith('--') and word.removeprefix('--').lower() in cmd_kwargs:
             kwargs_start_index = i
             break
         args += ' ' + word
@@ -79,12 +79,12 @@ def get_kwargs(message: Message,
     prev_word = ''
     in_list = False
     for word in command[kwargs_start_index:]:
-        if word.removeprefix('--') not in cmd_kwargs:
+        if word.removeprefix('--').lower() not in cmd_kwargs:
             if in_list:
                 temp_list.append(word)
             continue
 
-        word = word.removeprefix('--')
+        word = word.removeprefix('--').lower()
         kw_type = cmd_kwargs.get(word, None)
         if in_list and kw_type is not None:  # encountered next keyword
             parsed_kwargs[prev_word] = temp_list.copy()
