@@ -74,8 +74,6 @@ def to_string(ll: JSON, id: int):
         like_string = 'likes'
 
     external_link = links.get_link(ll['name'].lower())
-    if external_link:
-        external_link = f'<{external_link}>'
 
     res = (
         f'```\n'
