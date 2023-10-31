@@ -1,6 +1,6 @@
 {
-    "name": "idea",
-    "user": 252155920157507584,
+    "name": "krai-old",
+    "user": 627912342092382228,
     "board": "ortho",
     "keys": {
         "j": {
@@ -18,7 +18,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "w": {
+        "r": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -28,7 +28,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "v": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -43,12 +43,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "c": {
+        "b": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "x": {
+        "w": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -73,7 +73,7 @@
             "col": 3,
             "finger": "LI"
         },
-        "p": {
+        "x": {
             "row": 1,
             "col": 4,
             "finger": "LI"
@@ -98,9 +98,14 @@
             "col": 8,
             "finger": "RR"
         },
-        "r": {
+        "c": {
             "row": 1,
             "col": 9,
+            "finger": "RP"
+        },
+        "'": {
+            "row": 1,
+            "col": 10,
             "finger": "RP"
         },
         "/": {
@@ -118,22 +123,22 @@
             "col": 2,
             "finger": "LM"
         },
-        "b": {
+        ";": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        ";": {
+        "z": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "k": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "f": {
+        "p": {
             "row": 2,
             "col": 6,
             "finger": "RI"
@@ -143,12 +148,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "g": {
+        "f": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "z": {
+        "g": {
             "row": 2,
             "col": 9,
             "finger": "RP"
