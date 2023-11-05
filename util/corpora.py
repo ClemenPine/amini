@@ -35,7 +35,8 @@ def words(id: int = 0):
     return words_
 
 def get_corpus(id: int):
-    prefs = load_json('corpora.json')
+    with open('corpora.json', 'r') as f:
+        prefs = json.load(f)
 
     if str(id) in prefs:
         file = prefs[str(id)]
