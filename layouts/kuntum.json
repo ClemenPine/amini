@@ -138,12 +138,12 @@
             "col": 6,
             "finger": "RI"
         },
-        "q": {
+        "/": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "/": {
+        "q": {
             "row": 2,
             "col": 8,
             "finger": "RR"
