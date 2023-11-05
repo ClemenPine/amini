@@ -3,6 +3,8 @@ from discord import Message
 from util import layout, memory, parser
 from util.consts import JSON
 
+RESTRICTED = False
+
 def exec(message: Message):
     name = parser.get_arg(message)
     ll: JSON = memory.find(name.lower())

@@ -6,6 +6,8 @@ from util.consts import JSON
 
 from typing import Final
 
+RESTRICTED = False
+
 LEFT_HAND = ['LI', 'LM', 'LR', 'LP']
 RIGHT_HAND = ['RI', 'RM', 'RR', 'RP']
 THUMBS = ['LT', 'RT', 'TB']
