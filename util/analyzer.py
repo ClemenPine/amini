@@ -1,16 +1,19 @@
 import json
 from typing import Dict
 
+with open('table.json', 'r') as f:
+    TABLE: Dict[str, str] = json.load(f)
+
 def use(ll, grams: Dict[str, str]):
     fingers = {}
     
     for gram, count in grams.items():
-        if not gram in ll['keys']:
+        if gram not in ll['keys']:
             continue
 
         finger = ll['keys'][gram]['finger']
         
-        if not finger in fingers:
+        if finger not in fingers:
             fingers[finger] = 0
 
         fingers[finger] += count
@@ -21,7 +24,6 @@ def use(ll, grams: Dict[str, str]):
 
     fingers['LH'] = sum(fingers[x] for x in fingers if x[0] in 'L')
     fingers['RH'] = sum(fingers[x] for x in fingers if x[0] in 'RT')
-
 
     # fingers['LH'] = (
     #     fingers['LI'] + 
@@ -38,7 +40,6 @@ def use(ll, grams: Dict[str, str]):
     # )
 
     return fingers
-
 
 
 def trigrams(ll, grams: Dict[str, int]):
@@ -69,8 +70,5 @@ def trigrams(ll, grams: Dict[str, int]):
     return counts
 
 
-def get_table(file: str='table.json'):
-    with open(file, 'r') as f:
-        table = json.load(f)
-
-    return table
+def get_table():
+    return TABLE
