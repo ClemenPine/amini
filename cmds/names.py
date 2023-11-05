@@ -4,6 +4,8 @@ from discord import Message
 
 from util import parser
 
+TABLE: dict[str, dict[str, str]] = {}
+
 def exec(message: Message):
     table = get_table()
 
@@ -39,17 +41,18 @@ def desc():
     return 'get name suggestions for a layout'
 
 def get_table():
-    table = {}
+    if TABLE:
+        return TABLE
 
     with open('freq.json', 'r') as f:
-        words = json.load(f)
+        words: dict[str, str] = json.load(f)
 
     for word, freq in words.items():
         code = jf.match_rating_codex(word)
 
-        if not code in table:
-            table[code] = {}
+        if code not in TABLE:
+            TABLE[code] = {}
 
-        table[code][word] = freq
+        TABLE[code][word] = freq
 
-    return table
+    return TABLE
