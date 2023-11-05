@@ -46,19 +46,19 @@ def trigrams(ll, grams: Dict[str, int]):
     table = get_table()
 
     counts = {x: 0 for x in list(table.values()) + ['sfR', 'unknown']}
-    keys = ll['keys']
+    fingers = {x: ll['keys'][x]['finger'] for x in ll['keys']}
 
     for gram, count in grams.items():
         if ' ' in gram:
             continue
 
-        key = '-'.join(keys[x]['finger'] for x in gram if x in keys)
-        key = key.replace('TB', 'RT')
+        finger_combo = '-'.join(fingers[x] for x in gram if x in fingers)
+        finger_combo = finger_combo.replace('TB', 'RT')
 
         if gram[0] == gram[1] or gram[1] == gram[2] or gram[0] == gram[2]:
             gram_type = 'sfR'
         else:
-            gram_type = table.get(key, 'unknown')
+            gram_type = table.get(finger_combo, 'unknown')
 
         counts[gram_type] += count
 
