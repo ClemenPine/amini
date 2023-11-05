@@ -1,156 +1,121 @@
 import os
-import json
-import logging
 
 from discord import Message
-from util import parser, corpora, analyzer, authors, cache
-from admins import ADMINS
+from util import parser, corpora, cache
+
+from typing import Final
 
 RESTRICTED = False
 
+class GetLayoutStats:
+    __slots__ = ('stats', 'operator', 'reverse', 'percent')
+
+    def __init__(self, *stats: str, operator='+', reverse=False, percent=True):
+        self.stats: tuple[str] = stats
+        self.operator = operator
+        self.reverse = reverse
+        self.percent = percent
+
+    def __call__(self, cached_stats: dict[str, float]):
+        if self.stats[0] == 'sfb':
+            return cached_stats[self.stats[0]] / 2
+        if len(self.stats) == 1:
+            return cached_stats[self.stats[0]]
+        if self.operator == '/':
+            return cached_stats[self.stats[0]] / cached_stats[self.stats[1]]
+        return sum(cached_stats[stat] for stat in self.stats)
+
+STATS: Final[dict[str, GetLayoutStats]] = {
+    'alt': GetLayoutStats('alternate', reverse=True),
+    'sfb': GetLayoutStats('sfb'),
+    'sfs': GetLayoutStats('dsfb', 'dsfb-red', 'dsfb-alt', operator='+'),
+    'red': GetLayoutStats('redirect'),
+    'oneh': GetLayoutStats('oneh-in', 'oneh-out', operator='+', reverse=True),
+    'inroll': GetLayoutStats('roll-in', reverse=True),
+    'outroll': GetLayoutStats('roll-out', reverse=True),
+    'roll': GetLayoutStats('roll-in', 'roll-out', operator='+', reverse=True),
+    'inrollratio': GetLayoutStats('roll-in', 'roll-out', operator='/', reverse=True, percent=False),
+    'outrollratio': GetLayoutStats('roll-out', 'roll-in', operator='/', reverse=True, percent=False),
+    'inrolltal': GetLayoutStats('roll-in', 'oneh-in', operator='+', reverse=True),
+    'outrolltal': GetLayoutStats('roll-out', 'oneh-out', operator='+', reverse=True),
+    'rolltal': GetLayoutStats('roll-in', 'oneh-in', 'roll-out', 'oneh-out', operator='+', reverse=True)
+}
+
+STATS_ALIAS: Final[dict[str, str]] = {
+    'alts': 'alt', 'alternate': 'alt',
+    'sfbs': 'sfb',
+    'dsfb': 'sfs', 'dsfbs': 'sfs',
+    'redirect': 'red', 'redirects': 'red',
+    'onehand': 'oneh', 'onehands': 'oneh',
+    'inrolls': 'inroll', 'roll-in': 'inroll',
+    'outrolls': 'outroll', 'roll-out': 'outroll',
+    'rolls': 'roll', 'roll-total': 'roll',
+    'roll-in-ratio': 'inrollratio',
+    'roll-out-ratio': 'outrollratio',
+    'inrolltals': 'inrolltal',
+    'outrolltals': 'outrolltal',
+    'rolltals': 'rolltal', 'rolltotal': 'rolltal'
+}
+
 def exec(message: Message):
     user = message.author.id
-    user_name = authors.get_name(user).lower()
     corpus = corpora.get_corpus(user)
-    # Check current user
-    # if user_name in ADMINS:
-        # length = 100
-    # else:
-        # length = 15
 
     length = 15
 
-    args = [item.lower() for item in parser.get_args(message)]
+    kwargs = parser.get_kwargs(message, list[str], min=bool, max=bool)
+    args = kwargs['args']
     stat = args[0] if len(args) > 0 else ''
-
-    if len(args) > 1:
-        start = int(args[1])
-    else:
-        start = 0
-
     if stat == '':
         return '```\n' + \
             'Supported rank stats:\n' + \
             'alt sfb sfs red oneh inroll outroll roll inrollratio outrollratio inrolltal outrolltal rolltal' + \
             '```'
-    results = {}
-    reverse = False
-    percent = True
-    # trigram = corpora.ngrams(3, id=message.author.id)
+
+    start = args[1] if len(args) > 1 else 0
+    sort_asc = kwargs['min']
+    sort_desc = kwargs['max']
+
+    try:
+        start = int(start)
+    except ValueError:
+        return 'Error: Invalid starting index'
+
+    if sort_asc and sort_desc:
+        return 'Error: Cannot rank ascending and descending altogether'
+
+    use_override_reverse = sort_asc or sort_desc
+    override_reverse = sort_desc
+
+    results: list[tuple[float, str]] = []
+
+    if stat not in STATS:
+        if stat not in STATS_ALIAS:
+            return f'{stat} not supported'
+        stat = STATS_ALIAS[stat]
+
+    get_layout_stats = STATS[stat]
+    reverse: bool = get_layout_stats.reverse
+    percent: bool = get_layout_stats.percent
+
     for file in os.scandir('cache'):
-        # print(f'Opening: {file.name}')
-        # with open(f'layouts/{file.name}', 'r') as f:
-        #     data = json.load(f)
-
-        # name = data['name']
-
-        # stats = analyzer.trigrams(data, trigram)
-
-        name = file.name.split(".json")[0]
-        stats = cache.get(name, corpus)
-
-        # print(f"Name: {name}, Corpus: {corpus}")
+        name: str = file.name.split(".json")[0]
+        cached_stats: dict[str, float] = cache.get(name, corpus)
         try:
-            match stat:
-                case 'alt' | 'alts' | 'alternate':
-                    stat = 'alt'
-                    results[name] = {
-                        stat: stats["alternate"]
-                    }
-                    reverse = True
-                case 'sfb' | 'sfbs':
-                    stat = 'sfb'
-                    results[name] = {
-                        stat: stats["sfb"] / 2
-                    }
-                case 'sfs' | 'dsfb' | 'dsfbs':
-                    stat = 'sfs'
-                    results[name] = {
-                        stat: stats["dsfb-red"] + stats["dsfb-alt"]
-                    }
-                case 'red' | 'redirect' | 'redirects':
-                    stat = 'redirect'
-                    results[name] = {
-                        stat: stats["redirect"] + stats["bad-redirect"]
-                    }
-                case 'oneh' | 'onehand' | 'onehands':
-                    stat = 'onehand'
-                    results[name] = {
-                        stat: stats["oneh-in"] + stats["oneh-out"]
-                    }
-                    reverse = True
-                case 'inroll' | 'inrolls' | 'roll-in':
-                    stat = 'roll-in'
-                    results[name] = {
-                        stat: stats["roll-in"]
-                    }
-                    reverse = True
-                case 'outroll' | 'outrolls' | 'roll-out':
-                    stat = 'roll-out'
-                    results[name] = {
-                        stat: stats["roll-out"]
-                    }
-                    reverse = True
-                case 'roll' | 'rolls' | 'roll-total':
-                    stat = 'roll-total'
-                    results[name] = {
-                        stat: stats["roll-in"] + stats["roll-out"]
-                    }
-                    reverse = True
-                case 'inrollratio' | 'roll-in-ratio':
-                    stat = 'roll-in-ratio'
-                    results[name] = {
-                        stat: stats["roll-in"] / stats["roll-out"]
-                    }
-                    reverse = True
-                    percent = False
-                case 'outrollratio' | 'roll-out-ratio':
-                    stat = 'roll-out-ratio'
-                    results[name] = {
-                        stat: stats["roll-out"] / stats["roll-in"]
-                    }
-                    reverse = True
-                    percent = False
-                case 'inrolltal' | 'inrolltals':
-                    stat = 'inrolltal'
-                    results[name] = {
-                        stat: stats["roll-in"] + stats["oneh-in"]
-                    }
-                    reverse = True
-                case 'outrolltal' | 'outrolltals':
-                    stat = 'outrolltal'
-                    results[name] = {
-                        stat: stats["roll-out"] + stats["oneh-out"]
-                    }
-                    reverse = True
-                case 'rolltal' | 'rolltals' | 'rolltotal':
-                    stat = 'rolltal'
-                    results[name] = {
-                        stat: stats["roll-in"] + stats["oneh-in"] + stats["roll-out"] + stats["oneh-out"]
-                    }
-                    reverse = True
-                case _:
-                    return f'{stat} not supported'
+            if (value := get_layout_stats(cached_stats)) > 0.001:
+                results.append((value, name))
         except:
             print(f"{name}: Error computing {stat}")
 
-    sorted_results = sorted(results.items(), key=lambda x:x[1][stat])
-    if reverse:
-        sorted_results = list(reversed(sorted_results))
+    if use_override_reverse:
+        reverse = override_reverse
 
-    if percent: 
-        return '```\n' + f'{corpus.upper()}\n' + '\n'.join(
-            [f'{index+start}: {value}' for index, value
-                in enumerate([f'{result[stat]:.2%} -- {name}' for name, result
-                in sorted_results
-                if result[stat] > 0.001][start:start+length % len(sorted_results)])
-            ]
-            ) + '```'
-    else:
-        return '```\n' + f'{corpus.upper()}\n' + '\n'.join(
-            [f'{index+start}: {value}' for index, value
-                in enumerate([f'{result[stat]:.3} -- {name}' for name, result
-                in sorted_results
-                if result[stat] > 0.001][start:start+length % len(sorted_results)])
-            ]
-            ) + '```'
+    results.sort(key=lambda x: x[0], reverse=reverse)
+    results = results[start: start + length]
+
+    value_formatter = '.2%' if percent else '.3'
+
+    return '```\n' + f'{corpus.upper()}\n' + '\n'.join(
+        f'{index}: {value:{value_formatter}} -- {name}'
+        for index, (value, name) in enumerate(results, start=start)
+        ) + '```'
