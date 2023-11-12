@@ -1,5 +1,5 @@
 {
-    "name": "baikaltest",
+    "name": "baikaltesttest",
     "user": 252155920157507584,
     "board": "ortho",
     "keys": {
@@ -28,27 +28,27 @@
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        "k": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "p": {
+        "b": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "m": {
+        "p": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "x": {
+        "c": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "g": {
+        "m": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -73,7 +73,7 @@
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "x": {
             "row": 1,
             "col": 4,
             "finger": "LI"
@@ -133,7 +133,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "z": {
             "row": 2,
             "col": 5,
             "finger": "RI"
@@ -143,7 +143,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "w": {
+        "g": {
             "row": 2,
             "col": 7,
             "finger": "RM"
@@ -153,7 +153,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "c": {
+        "w": {
             "row": 2,
             "col": 9,
             "finger": "RP"
