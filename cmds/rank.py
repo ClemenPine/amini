@@ -29,7 +29,7 @@ STATS: Final[dict[str, GetLayoutStats]] = {
     'alt': GetLayoutStats('alternate', reverse=True),
     'sfb': GetLayoutStats('sfb'),
     'sfs': GetLayoutStats('dsfb', 'dsfb-red', 'dsfb-alt', operator='+'),
-    'red': GetLayoutStats('redirect'),
+    'red': GetLayoutStats('redirect', 'bad-redirect', operator='+'),
     'oneh': GetLayoutStats('oneh-in', 'oneh-out', operator='+', reverse=True),
     'inroll': GetLayoutStats('roll-in', reverse=True),
     'outroll': GetLayoutStats('roll-out', reverse=True),
