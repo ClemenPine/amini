@@ -29,7 +29,7 @@ def get_kwargs(message: Message,
     """
     - message: user's message list[str]
     - arg type: str or list[str]
-    - kwargs: arguments with `--` prefix
+    - kwargs: arguments with `--` prefix (or '—', '––')
     - example:
         `get_kwargs(Message, min=bool, max=bool)`
     - return:
@@ -48,14 +48,14 @@ def get_kwargs(message: Message,
         cmd_kwargs.pop('args')  # reserved, no 'args' in kwargs
 
     args: str | list[str] = ''
-    if command[0].startswith('--'):
+    if starts_with_kw_prefix(command[0]):
         args = command[0]
         command.pop(0)
 
     # ensure all positional
     kwargs_start_index = 0
     for i, word in enumerate(command):
-        if word.startswith('--') and word.removeprefix('--').lower() in cmd_kwargs:
+        if starts_with_kw_prefix(word) and remove_kw_prefix(word).lower() in cmd_kwargs:
             kwargs_start_index = i
             break
         args += ' ' + word
@@ -79,12 +79,13 @@ def get_kwargs(message: Message,
     prev_word = ''
     in_list = False
     for word in command[kwargs_start_index:]:
-        if word.removeprefix('--').lower() not in cmd_kwargs:
+        word = remove_kw_prefix(word).lower()
+
+        if word not in cmd_kwargs:
             if in_list:
                 temp_list.append(word)
             continue
 
-        word = word.removeprefix('--').lower()
         kw_type = cmd_kwargs.get(word, None)
         if in_list and kw_type is not None:  # encountered next keyword
             parsed_kwargs[prev_word] = temp_list.copy()
@@ -100,3 +101,12 @@ def get_kwargs(message: Message,
         parsed_kwargs[prev_word] = temp_list
 
     return parsed_kwargs
+
+# checks double hyphen, em dash, double en dash
+def starts_with_kw_prefix(word: str) -> bool:
+    return any(word.startswith(prefix) for prefix in ('--', '—', '––'))
+
+def remove_kw_prefix(word: str) -> str:
+    for prefix in ('--', '—', '––'):
+        word = word.removeprefix(prefix)
+    return word
