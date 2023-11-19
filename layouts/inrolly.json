@@ -18,7 +18,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "#": {
+        "q": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -108,12 +108,12 @@
             "col": 10,
             "finger": "RP"
         },
-        "q": {
+        "\"": {
             "row": 2,
             "col": 0,
             "finger": "LR"
         },
-        "\"": {
+        "-": {
             "row": 2,
             "col": 1,
             "finger": "LM"
