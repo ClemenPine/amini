@@ -10,7 +10,7 @@ def exec(message: Message):
     old_ll_name = args[1] if len(args) > 1 else ''
 
     if not new_ll_name:
-        return 'compare [new_layout] [old_layout] (new - old)'
+        return '`compare [new_layout] [old_layout] (new - old)`'
     if not old_ll_name:
         return f'Error: missing old layout name'
 
