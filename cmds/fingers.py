@@ -1,7 +1,7 @@
 import json
 
 from discord import Message
-from util import analyzer, authors, corpora, memory, parser
+from util import analyzer, authors, corpora, layout, memory, parser
 from util.consts import JSON
 
 from typing import Final
@@ -110,42 +110,6 @@ def get_trigram_type(fingers: list[str], trigram: str) -> str:
         gram_type = 'unknown'
     return gram_type
 
-# get the pretty print string of the layout
-def get_matrix_str(ll: JSON) -> str:
-    max_width = max(x['col'] for x in ll['keys'].values()) + 1
-    max_height = max(x['row'] for x in ll['keys'].values()) + 1
-
-    matrix = [[' '] * max_width for _ in range(max_height)]
-
-    for char, info in ll['keys'].items():
-        row = info['row']
-        col = info['col']
-
-        matrix[row][col] = char
-
-    for i, row in enumerate(matrix):
-        for j, _ in enumerate(row):
-            char = matrix[i][j]
-
-            if j == 0:
-                matrix[i][j] = '  ' + char
-            elif j == 4:
-                matrix[i][j] += ' '
-
-    if ll['board'] == 'stagger':
-        matrix[1][0] = ' ' + matrix[1][0]
-        matrix[2][0] = '  ' + matrix[2][0]
-    elif ll['board'] == 'angle':
-        matrix[2][0] = ' ' + matrix[2][0]
-    elif ll['board'] == 'mini':
-        matrix[2][0] = '  ' + matrix[2][0]
-
-    if len(matrix) > 3:
-        indent = 6 if ll['keys'][matrix[3][0].strip()]['finger'] == 'LT' else 13
-        matrix[3][0] = ' ' * indent + matrix[3][0]
-
-    return '\n'.join(' '.join(x) for x in matrix)
-
 
 STATS: Final[dict[str, GetFingerStats]] = {
     'usage': GetFingerStats('usage'),
@@ -226,7 +190,7 @@ def exec(message: Message):
         like_string = 'likes'
 
     output = [f'```\n{ll["name"]} ({stat}) ({author}) ({likes} {like_string})',
-              get_matrix_str(ll),
+              layout.get_matrix_str(ll),
               f'\n{corpus.upper()}:']
 
     for lfinger, rfinger in zip(LEFT_HAND, RIGHT_HAND):
