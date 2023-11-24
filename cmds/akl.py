@@ -41,6 +41,7 @@ LAYOUT_ROLES: list[str] = [
     'Canary',
     'Sturdy',
     'Nrts Haei',
+    'Recurva',
 ]
 
 def exec(bot: Client):
