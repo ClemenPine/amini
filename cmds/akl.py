@@ -59,7 +59,7 @@ def exec(bot: Client):
 
     res = ['```',
            '--- AKL STATS ---',
-           'Most used layouts:']
+           'Layout role count:']
     res.extend(f'    {role_name:<15} ({count} users)' for (role_name, count) in sorted_role_counts)
     res.append('```')
     return '\n'.join(res)
