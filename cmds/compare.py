@@ -2,6 +2,8 @@ from discord import Message
 
 from util import analyzer, corpora, layout, parser, memory
 
+RESTRICTED = False
+
 def exec(message: Message):
     args = parser.get_args(message)
     new_ll_name = args[0] if len(args) > 0 else ''
