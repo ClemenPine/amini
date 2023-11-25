@@ -1,5 +1,5 @@
 {
-    "name": "LittleToe",
+    "name": "littletoe",
     "user": 252155920157507584,
     "board": "angle",
     "keys": {
@@ -38,7 +38,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "a": {
+        "o": {
             "row": 0,
             "col": 7,
             "finger": "RM"
@@ -78,7 +78,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        "k": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -88,7 +88,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "o": {
+        "a": {
             "row": 1,
             "col": 7,
             "finger": "RM"
@@ -133,7 +133,7 @@
             "col": 5,
             "finger": "RI"
         },
-        "k": {
+        "b": {
             "row": 2,
             "col": 6,
             "finger": "RI"
