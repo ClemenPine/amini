@@ -110,7 +110,7 @@ def get_trigram_type(fingers: list[str], trigram: str) -> str:
         gram_type = 'unknown'
     return gram_type
 
-def get_sfb_or_shb(fingers_or_hands: list[str], fingers: list[str]) -> list[str]:
+def get_sfb_or_shb_fingers(fingers_or_hands: list[str], fingers: list[str]) -> list[str]:
     for pos0, pos1 in ((0, 1), (0, 2), (1, 2)):
         if fingers_or_hands[pos0] == fingers_or_hands[pos1]:
             return [fingers[pos0], fingers[pos1]]
@@ -119,10 +119,10 @@ def get_involved_fingers(stat: str, fingers: list[str]) -> list[str]:
     if len(fingers) < 3:
         return fingers
     if 'sf' in stat:
-        return get_sfb_or_shb(fingers, fingers)
+        return get_sfb_or_shb_fingers(fingers, fingers)
     if 'roll' in stat:
         hands = [x[0] for x in fingers]
-        return get_sfb_or_shb(hands, fingers)
+        return get_sfb_or_shb_fingers(hands, fingers)
     return fingers
 
 STATS: Final[dict[str, GetFingerStats]] = {
