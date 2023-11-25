@@ -4,6 +4,7 @@ from util import analyzer, authors, corpora, links
 from util.consts import *
 from util.returns import *
 
+
 def check_name(name: str):
     if name[0] == '_':
         return Error('names cannot start with an underscore')
@@ -17,13 +18,12 @@ def check_name(name: str):
 
     return Success()
 
-def to_string(ll: JSON, id: int):
-    author = authors.get_name(ll['user'])
 
+def get_matrix(ll: JSON) -> list[list[str]]:
     max_width = max(x['col'] for x in ll['keys'].values()) + 1
     max_height = max(x['row'] for x in ll['keys'].values()) + 1
 
-    matrix = [[' ']*max_width for _ in range(max_height)]
+    matrix = [[' '] * max_width for _ in range(max_height)]
 
     for char, info in ll['keys'].items():
         row = info['row']
@@ -52,13 +52,41 @@ def to_string(ll: JSON, id: int):
         indent = 6 if ll['keys'][matrix[3][0].strip()]['finger'] == 'LT' else 13
         matrix[3][0] = ' ' * indent + matrix[3][0]
 
+    return matrix
+
+
+def get_matrix_str(ll: JSON) -> str:
+    return '\n'.join(' '.join(x) for x in get_matrix(ll))
+
+
+def stats_str(stats: JSON, use: JSON) -> str:
+    return (f' {"Alt:":>5} {stats["alternate"]:>6.2%}\n'
+            f' {"Rol:":>5} {stats["roll-in"] + stats["roll-out"]:>6.2%}'
+            f'   (In/Out: {stats["roll-in"]:>6.2%} | {stats["roll-out"]:>6.2%})\n'
+            # f'   (In: {stats["roll-in"]:>6.2%} Out: {stats["roll-out"]:>6.2%})\n'
+            f' {"One:":>5} {stats["oneh-in"] + stats["oneh-out"]:>6.2%}'
+            f'   (In/Out: {stats["oneh-in"]:>6.2%} | {stats["oneh-out"]:>6.2%})\n'
+            # f'   (In: {stats["oneh-in"]:>6.2%} Out: {stats["oneh-out"]:>6.2%})\n'
+            f' {"Red:":>5} {stats["redirect"] + stats["bad-redirect"]:>6.2%}'
+            f'   (Bad: {stats["bad-redirect"]:>9.2%})\n'
+            '\n'
+            f'  SFB: {stats["sfb"] / 2:.2%}\n'
+            f'  SFS: {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}'
+            f'    (Red/Alt: {stats["dsfb-red"]:>5.2%} | {stats["dsfb-alt"]:>5.2%})\n'
+            '\n'
+            f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}')
+
+
+def to_string(ll: JSON, id: int):
+    author = authors.get_name(ll['user'])
+
     monogram = corpora.ngrams(1, id=id)
     trigram = corpora.ngrams(3, id=id)
 
+    matrix_str = get_matrix_str(ll)
+
     stats = analyzer.trigrams(ll, trigram)
     use = analyzer.use(ll, monogram)
-
-    matrix_str = '\n'.join(' '.join(x) for x in matrix)
 
     with open('likes.json', 'r') as f:
         likes = json.load(f)
@@ -81,21 +109,7 @@ def to_string(ll: JSON, id: int):
         f'{matrix_str}\n'
         f'\n'
         f'{corpora.get_corpus(id).upper()}:\n'
-        f' {"Alt:":>5} {stats["alternate"]:>6.2%}\n'
-        f' {"Rol:":>5} {stats["roll-in"] + stats["roll-out"]:>6.2%}'
-        f'   (In/Out: {stats["roll-in"]:>6.2%} | {stats["roll-out"]:>6.2%})\n'
-        # f'   (In: {stats["roll-in"]:>6.2%} Out: {stats["roll-out"]:>6.2%})\n'
-        f' {"One:":>5} {stats["oneh-in"] + stats["oneh-out"]:>6.2%}'
-        f'   (In/Out: {stats["oneh-in"]:>6.2%} | {stats["oneh-out"]:>6.2%})\n'
-        # f'   (In: {stats["oneh-in"]:>6.2%} Out: {stats["oneh-out"]:>6.2%})\n'
-        f' {"Red:":>5} {stats["redirect"] + stats["bad-redirect"]:>6.2%}'
-        f'   (Bad: {stats["bad-redirect"]:>9.2%})\n'
-        '\n'
-        f'  SFB: {stats["sfb"] / 2:.2%}\n'
-        f'  SFS: {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}'
-        f'    (Red/Alt: {stats["dsfb-red"]:>5.2%} | {stats["dsfb-alt"]:>5.2%})\n'
-        '\n'
-        f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}'
+        f'{stats_str(stats, use)}'
         f'```\n'
         f'{external_link}\n'
     )
