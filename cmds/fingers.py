@@ -31,69 +31,70 @@ class Fingers(dict[str, float]):
                 self[finger] /= other_or_num[finger]
         return self
 
-class GetFingerStats:
-    __slots__ = ("__stats", "__operator")
 
-    def __init__(self, *stats: str, operator='+'):
+class GetFingerStats:
+    def __init__(self, *stats: str):
         self.__stats: Final[tuple[str]] = stats
-        self.__operator: Final[str] = operator
 
     def __call__(self, ll: JSON, trigrams: JSON) -> Fingers[str, float]:
         # Get the first stat
-        fingers_usage: Fingers[str, float] = self.get_fingers_usage(ll, trigrams, stat=self.__stats[0])
+        fingers_usage: Fingers[str, float] = get_fingers_usage(ll, trigrams, stat=self.__stats[0])
 
         # Gets only 1 stat
         if len(self.__stats) == 1:
             return fingers_usage
 
-        # Ratio of two stats: stat[0] / stat[1]
-        if self.__operator == '/':
-            fingers_usage /= self.get_fingers_usage(ll, trigrams, stat=self.__stats[1])
-            return fingers_usage
-
         # Other: sum of all stats
         for stat in self.__stats[1:]:
-            fingers_usage += self.get_fingers_usage(ll, trigrams, stat=stat)
+            fingers_usage += get_fingers_usage(ll, trigrams, stat=stat)
         return fingers_usage
 
-    @staticmethod
-    def get_fingers_usage(ll: JSON, trigrams: JSON, *, stat: str) -> Fingers[str, float]:
-        fingers_usage: Fingers[str, float] = Fingers.fromkeys(FINGERS, 0)  # NoQA: `fromkeys` returns `Fingers`
-        get_usage = stat == 'usage'
-        get_sfb = stat == 'sfb'
-        get_sfr = stat == 'sfr'
 
-        total = 0
+def get_fingers_usage(ll: JSON, trigrams: JSON, *, stat: str) -> Fingers[str, float]:
+    """
+    gets the usage by finger
+    - same finger ngrams: sfbs only
+    - rolls (in/out): shbs only
+    - other trigrams: all 3 fingers
+    note: difference between the sum `fingers` command stats and the `view` command:
+    - `fingers` also considers upper case letters
+    - `fingers usage` ignores unknown trigrams
+    """
 
-        for trigram, freq in trigrams.items():
-            if ' ' in trigram:
-                continue
+    fingers_usage: Fingers[str, float] = Fingers.fromkeys(FINGERS, 0)  # NoQA: `fromkeys` returns `Fingers`
+    get_usage = stat == 'usage'
+    get_sfb = stat == 'sfb'
 
-            fingers = [ll['keys'][x]['finger'] for x in trigram.lower() if x in ll['keys']]
+    total = 0
 
-            if get_usage:
-                for finger in fingers:
-                    fingers_usage[finger] += freq / len(fingers)
-                if fingers:
-                    total += freq  # Ignore unused keys
+    for trigram, freq in trigrams.items():
+        if ' ' in trigram:
+            continue
 
-            else:
-                trigram_type = get_trigram_type(fingers, trigram)
-                if trigram_type == stat:
-                    for finger in fingers:
-                        fingers_usage[finger] += freq / len(fingers)
+        fingers_temp = (ll['keys'][x]['finger'] for x in trigram.lower() if x in ll['keys'])
+        fingers_temp = ('RT' if x == 'TB' else x for x in fingers_temp)
+        fingers: list[str] = list(fingers_temp)
 
-                # Sfr: ignore unknown sfr
-                # actual sfr (util.analyzer.trigrams() -> {}['sfR'] includes unknowns)
-                if not get_sfr or get_sfr and fingers:
-                    total += freq
+        if get_usage:
+            for finger in fingers:
+                fingers_usage[finger] += freq / len(fingers)
+            if fingers:
+                total += freq
 
-        fingers_usage /= total
+        else:
+            trigram_type = get_trigram_type(fingers, trigram)
+            if trigram_type == stat:
+                involved_fingers = get_involved_fingers(stat, fingers)
+                for finger in involved_fingers:
+                    fingers_usage[finger] += freq / len(involved_fingers)
 
-        if get_sfb:
-            fingers_usage /= 2
+            total += freq
 
-        return fingers_usage
+    if get_sfb:
+        total *= 2
+    fingers_usage /= total
+
+    return fingers_usage
 
 
 def is_sfr(trigram: str) -> bool:
@@ -101,7 +102,6 @@ def is_sfr(trigram: str) -> bool:
 
 def get_trigram_type(fingers: list[str], trigram: str) -> str:
     key = '-'.join(fingers)
-    key = key.replace('TB', 'RT')
     if is_sfr(trigram):
         gram_type = 'sfR'
     elif key in TABLE:
@@ -110,23 +110,35 @@ def get_trigram_type(fingers: list[str], trigram: str) -> str:
         gram_type = 'unknown'
     return gram_type
 
+def get_sfb_or_shb_fingers(fingers_or_hands: list[str], fingers: list[str]) -> list[str]:
+    for pos0, pos1 in ((0, 1), (0, 2), (1, 2)):
+        if fingers_or_hands[pos0] == fingers_or_hands[pos1]:
+            return [fingers[pos0], fingers[pos1]]
+
+def get_involved_fingers(stat: str, fingers: list[str]) -> list[str]:
+    if len(fingers) < 3:
+        return fingers
+    if 'sf' in stat:
+        return get_sfb_or_shb_fingers(fingers, fingers)
+    if 'roll' in stat:
+        hands = [x[0] for x in fingers]
+        return get_sfb_or_shb_fingers(hands, fingers)
+    return fingers
 
 STATS: Final[dict[str, GetFingerStats]] = {
     'usage': GetFingerStats('usage'),
     'alt': GetFingerStats('alternate'),
     'sfb': GetFingerStats('sfb'),
-    'sfs': GetFingerStats('dsfb', 'dsfb-red', 'dsfb-alt', operator='+'),
+    'sfs': GetFingerStats('dsfb', 'dsfb-red', 'dsfb-alt'),
     'sfr': GetFingerStats('sfR'),
-    'red': GetFingerStats('redirect'),
-    'oneh': GetFingerStats('oneh-in', 'oneh-out', operator='+'),
+    'red': GetFingerStats('redirect', 'bad-redirect'),
+    'oneh': GetFingerStats('oneh-in', 'oneh-out'),
     'inroll': GetFingerStats('roll-in'),
     'outroll': GetFingerStats('roll-out'),
-    'roll': GetFingerStats('roll-in', 'roll-out', operator='+'),
-    'inrollratio': GetFingerStats('roll-in', 'roll-out', operator='/'),
-    'outrollratio': GetFingerStats('roll-out', 'roll-in', operator='/'),
-    'inrolltal': GetFingerStats('roll-in', 'oneh-in', operator='+'),
-    'outrolltal': GetFingerStats('roll-out', 'oneh-out', operator='+'),
-    'rolltal': GetFingerStats('roll-in', 'oneh-in', 'roll-out', 'oneh-out', operator='+')
+    'roll': GetFingerStats('roll-in', 'roll-out'),
+    'inrolltal': GetFingerStats('roll-in', 'oneh-in'),
+    'outrolltal': GetFingerStats('roll-out', 'oneh-out'),
+    'rolltal': GetFingerStats('roll-in', 'oneh-in', 'roll-out', 'oneh-out')
 }
 
 STATS_ALIAS: Final[dict[str, str]] = {
@@ -140,8 +152,6 @@ STATS_ALIAS: Final[dict[str, str]] = {
     'inrolls': 'inroll', 'roll-in': 'inroll',
     'outrolls': 'outroll', 'roll-out': 'outroll',
     'rolls': 'roll', 'roll-total': 'roll',
-    'roll-in-ratio': 'inrollratio',
-    'roll-out-ratio': 'outrollratio',
     'inrolltals': 'inrolltal',
     'outrolltals': 'outrolltal',
     'rolltals': 'rolltal', 'rolltotal': 'rolltal'
@@ -156,7 +166,8 @@ def exec(message: Message):
         return f'```\nSupported rank stats:\n{" ".join(STATS)}```'
 
     name = args[0] if len(args) > 0 else ''
-    stat = args[1] if len(args) > 1 else ''
+    stat_input = args[1] if len(args) > 1 else ''
+    stat = stat_input
     ll = memory.find(name.lower())
 
     corpus: str = corpora.get_corpus(id=user)
@@ -172,7 +183,7 @@ def exec(message: Message):
         get_finger_stats = STATS.get(stat, None)
 
     if get_finger_stats is None:
-        return f'Error: {stat} not supported'
+        return f'Error: {stat_input} not supported'
 
     finger_stats = get_finger_stats(ll, trigrams)
 
