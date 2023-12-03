@@ -17,6 +17,7 @@ commands = [x.replace('/', '.')[5:-3] for x in glob.glob('cmds/*.py')]
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 
 bot = discord.Client(intents=intents)
 
@@ -82,6 +83,9 @@ async def on_message(message: discord.Message):
         reply = 'Try `!cmini help`'
     elif command in ["gh", "github"]:
         reply = "<https://github.com/Apsu/cmini>"
+    elif command == "akl":
+        mod = import_module('cmds.akl')
+        reply = mod.exec(bot)
     elif command == "member":
         mod = import_module('cmds.member')
         reply = mod.exec(message, bot)
