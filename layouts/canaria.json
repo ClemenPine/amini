@@ -1,7 +1,7 @@
 {
     "name": "canaria",
     "user": 781783105090355201,
-    "board": "stagger",
+    "board": "angle",
     "keys": {
         "w": {
             "row": 0,
@@ -111,17 +111,17 @@
         "x": {
             "row": 2,
             "col": 0,
-            "finger": "LP"
+            "finger": "LR"
         },
         "v": {
             "row": 2,
             "col": 1,
-            "finger": "LR"
+            "finger": "LM"
         },
         "d": {
             "row": 2,
             "col": 2,
-            "finger": "LM"
+            "finger": "LI"
         },
         "g": {
             "row": 2,

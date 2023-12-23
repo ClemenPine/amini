@@ -1,44 +1,44 @@
 {
     "name": "taipo",
-    "user": 252155920157507584,
+    "user": 1085579430623199292,
     "board": "ortho",
     "keys": {
-        "\ud835\ude9b": {
+        "r": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "\ud835\ude9c": {
+        "s": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "\ud835\ude97": {
+        "n": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "\ud835\ude92": {
+        "i": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "i": {
+        "\ud835\ude92": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "n": {
+        "\ud835\ude97": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "s": {
+        "\ud835\ude9c": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "r": {
+        "\ud835\ude9b": {
             "row": 0,
             "col": 9,
             "finger": "RP"
