@@ -60,8 +60,7 @@ def get_matrix_str(ll: JSON) -> str:
 
 
 def stats_str(stats: JSON, use: JSON) -> str:
-    return (f' {"Alt:":>5} {stats["alt-in"] + stats["alt-out"]:>6.2%}'
-            f'   (In/Out: {stats["alt-in"]:>6.2%} | {stats["alt-out"]:>6.2%})\n'
+    return (f' {"Alt:":>5} {stats["alternate"]:>6.2%}\n'
             f' {"Rol:":>5} {stats["roll-in"] + stats["roll-out"]:>6.2%}'
             f'   (In/Out: {stats["roll-in"]:>6.2%} | {stats["roll-out"]:>6.2%})\n'
             # f'   (In: {stats["roll-in"]:>6.2%} Out: {stats["roll-out"]:>6.2%})\n'
