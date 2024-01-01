@@ -7,21 +7,22 @@ from util import parser
 
 # RESTRICTED = True
 
-FINGERS = ['LI', 'LM', 'LR', 'LP', 'RI', 'RM', 'RR', 'RP']
+FINGERS = ['LI', 'LM', 'LR', 'LP', 'RI', 'RM', 'RR', 'RP', 'LT', 'RT']
 FINGER_ALIASES = {
     'index': {'LI', 'RI'},
     'middle': {'LM', 'RM'},
     'ring': {'LR', 'RR'},
     'pinky': {'LP', 'RP'},
+    'thumb': {'LT', "RT'"},
     'lh': {'LI', 'LM', 'LR', 'LP'},
     'rh': {'RI', 'RM', 'RR', 'RP'},
 }
 
 def exec(message: Message):
     kwargs: dict[str, str | bool] = parser.get_kwargs(message, str,
-                                                      li=bool, lm=bool, lr=bool, lp=bool,
-                                                      ri=bool, rm=bool, rr=bool, rp=bool,
-                                                      index=bool, middle=bool, ring=bool, pinky=bool,
+                                                      li=bool, lm=bool, lr=bool, lp=bool, lt=bool,
+                                                      ri=bool, rm=bool, rr=bool, rp=bool, rt=bool,
+                                                      index=bool, middle=bool, ring=bool, pinky=bool, thumb=bool,
                                                       lh=bool, rh=bool
                                                       )
 
@@ -30,7 +31,7 @@ def exec(message: Message):
         return '```\n' \
                'search [sfb/column] [--fingers]\n' \
                'Supported fingers: \n' \
-               'li, lm, lr, lp, ri, rm, rr, rp, index, middle, ring, pinky, lh, rh\n' \
+               'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, index, middle, ring, pinky, thumb, lh, rh\n' \
                '```'
 
     # Add fingers to the set
