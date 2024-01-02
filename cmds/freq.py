@@ -16,7 +16,7 @@ def exec(message: Message):
 		return "Please provide at least 1 ngram between 1-3 chars"
 
 	if len(query) > 5:
-		return "Please provide no more than 6 ngrams"
+		return "Please provide no more than 5 ngrams"
 
 	ngrams = corpora.ngrams(ntype, id=id)
 	corpus = corpora.get_corpus(id)
