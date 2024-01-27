@@ -1,9 +1,9 @@
 {
-    "name": "Maks-ExD",
+    "name": "maks-exd",
     "user": 657688933001330718,
     "board": "ortho",
     "keys": {
-        ";": {
+        "'": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -23,12 +23,12 @@
             "col": 3,
             "finger": "LI"
         },
-        ".": {
+        ";": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        "z": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -43,12 +43,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "j": {
+        "d": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "z": {
+        "w": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "g": {
+        "k": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "w": {
+        "v": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -93,12 +93,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "r": {
+        "h": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "h": {
+        "r": {
             "row": 1,
             "col": 9,
             "finger": "RP"
@@ -108,7 +108,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "'": {
+        "-": {
             "row": 2,
             "col": 1,
             "finger": "LR"
@@ -118,17 +118,17 @@
             "col": 2,
             "finger": "LM"
         },
-        "d": {
+        "g": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "k": {
+        "q": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "j": {
             "row": 2,
             "col": 5,
             "finger": "RI"
@@ -143,12 +143,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "x": {
+        "b": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "q": {
+        "x": {
             "row": 2,
             "col": 9,
             "finger": "RP"
@@ -156,7 +156,7 @@
         "e": {
             "row": 3,
             "col": 0,
-            "finger": "TB"
+            "finger": "LT"
         }
     },
     "free": []
