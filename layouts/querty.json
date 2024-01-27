@@ -1,7 +1,7 @@
 {
     "name": "querty",
-    "user": 744037679565373531,
-    "board": "ortho",
+    "user": 1193475322327334982,
+    "board": "stagger",
     "keys": {
         "q": {
             "row": 0,
@@ -51,6 +51,21 @@
         "p": {
             "row": 0,
             "col": 9,
+            "finger": "RP"
+        },
+        "[": {
+            "row": 0,
+            "col": 10,
+            "finger": "RP"
+        },
+        "]": {
+            "row": 0,
+            "col": 11,
+            "finger": "RP"
+        },
+        "\\": {
+            "row": 0,
+            "col": 12,
             "finger": "RP"
         },
         "a": {

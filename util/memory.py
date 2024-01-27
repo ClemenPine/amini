@@ -3,7 +3,9 @@ import json
 import glob
 from jellyfish import damerau_levenshtein_distance as lev
 
+from util import authors
 from util.consts import JSON
+from admins import ADMINS
 
 def add(data: JSON) -> bool:
     file = f'layouts/{data["name"].lower()}.json'
@@ -16,8 +18,14 @@ def add(data: JSON) -> bool:
 
     return True
 
+def update(data: JSON):
+    file = f'layouts/{data["name"].lower()}.json'
 
-def remove(name: str, *, id: int) -> bool:
+    with open(file, 'w') as f:
+        f.write(json.dumps(data, indent=4))
+
+
+def remove(name: str, *, id: int, admin: bool = False) -> bool:
     file = f'layouts/{name}.json'
 
     if not os.path.exists(file):
@@ -26,7 +34,7 @@ def remove(name: str, *, id: int) -> bool:
     with open(file, 'r') as f:
         data = json.load(f)
 
-    check = (data['user'] == id)
+    check = (data['user'] == id) or admin
 
     if check:
         os.remove(file)

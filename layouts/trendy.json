@@ -1,7 +1,7 @@
 {
     "name": "trendy",
-    "user": 1013160355465281627,
-    "board": "ortho",
+    "user": 328195824238723072,
+    "board": "angle",
     "keys": {
         "k": {
             "row": 0,
@@ -23,12 +23,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "'": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "x": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        ",": {
+        "q": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -73,7 +73,7 @@
             "col": 3,
             "finger": "LI"
         },
-        "c": {
+        "b": {
             "row": 1,
             "col": 4,
             "finger": "LI"
@@ -103,27 +103,27 @@
             "col": 9,
             "finger": "RP"
         },
-        "q": {
+        "j": {
             "row": 2,
             "col": 0,
-            "finger": "LP"
-        },
-        "x": {
-            "row": 2,
-            "col": 1,
             "finger": "LR"
         },
         "m": {
             "row": 2,
-            "col": 2,
+            "col": 1,
             "finger": "LM"
+        },
+        "c": {
+            "row": 2,
+            "col": 2,
+            "finger": "LI"
         },
         "p": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "b": {
+        "z": {
             "row": 2,
             "col": 4,
             "finger": "LI"
@@ -143,12 +143,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "'": {
+        "-": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        ";": {
+        ",": {
             "row": 2,
             "col": 9,
             "finger": "RP"

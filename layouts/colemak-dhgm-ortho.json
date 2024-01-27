@@ -14,7 +14,7 @@
             "finger": "LR"
         },
         "c": {
-            "row": 0,
+            "row": 2,
             "col": 2,
             "finger": "LM"
         },
@@ -114,7 +114,7 @@
             "finger": "LR"
         },
         "f": {
-            "row": 2,
+            "row": 0,
             "col": 2,
             "finger": "LM"
         },

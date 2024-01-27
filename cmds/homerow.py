@@ -1,33 +1,48 @@
 import glob
 import json
 import random
-from discord import Message
+import re
 
+from discord import Message, ChannelType
 from util import parser
 
 def exec(message: Message):
-    rows = parser.get_args(message)
-
+    row = ''.join(parser.get_args(message))
     lines = []
     for file in glob.glob('layouts/*.json'):
         with open(file, 'r') as f:
             ll = json.load(f)
 
-        homerow = ''.join(k for k in ll['keys'] if ll['keys'][k]['row'] == 1)
-        if all(
-            row in homerow or
-            row in homerow[::-1] for row in rows
-        ):
-            lines.append(ll['name'])
+        keys = sorted(ll['keys'].items(), key=lambda k: (k[1]['row'], k[1]['col']))
+        homerow = ''.join(k for k,v in keys if v['row'] == 1)
 
-    if len(lines) < 25:
+        if row.startswith('"') and row.endswith('"'):
+            pattern = re.compile(row.strip('"').replace('.', '\.').replace('_', '.'))
+            if pattern.search(homerow) or pattern.search("".join(reversed(homerow))):
+                lines.append(ll['name'])
+        else:
+            if all(i in homerow for i in row):
+                lines.append(ll['name'])
+
+    is_dm = message.channel.type == ChannelType.private
+
+    if is_dm:
         res = lines
+        res_len = len(lines)
     else:
-        res = random.sample(lines, k=25)
+        if len(lines) < 20:
+            res = lines
+            res_len = len(lines)
+            if res_len < 1:
+                return "No matches found"
+        else:
+            res = random.sample(lines, k=20)
+            res_len = 20
 
     res = list(sorted(res, key=lambda x: x.lower()))
+    note = "" if is_dm else f", here are {res_len} of them"
 
-    return '\n'.join([f'I found {len(lines)} matches, here are a few', '```'] + res + ['```'])
+    return '\n'.join([f'I found {len(lines)} matches{note}', '```'] + res + ['```'])
 
 
 def use():

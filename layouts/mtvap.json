@@ -58,6 +58,11 @@
             "col": 10,
             "finger": "RP"
         },
+        "=": {
+            "row": 0,
+            "col": 11,
+            "finger": "RP"
+        },
         "i": {
             "row": 1,
             "col": 0,

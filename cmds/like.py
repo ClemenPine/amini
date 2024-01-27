@@ -12,7 +12,7 @@ def exec(message: Message):
     ll = memory.find(name)
 
     if ll['name'] == 'QWERTY':
-        return 'You can\'t like Qwerty'
+        return 'You can\'t like Qwerty :yellow_circle:'
 
     with open('likes.json', 'r') as f:
         likes = json.load(f)

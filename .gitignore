@@ -1,9 +1,11 @@
 __pycache__/
-logs/
 openai/
 minigames/
+statcache/
 
 token.txt
 openai.txt
 suggestions.txt
-corpora.json
+pat.txt
+
+admins.py

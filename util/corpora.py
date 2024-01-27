@@ -3,13 +3,20 @@ import json
 CORPUS = 'mt-quotes'
 NGRAMS = ['monograms', 'bigrams', 'trigrams']
 
-def ngrams(n: int, *, id: int=0):
-    file = get_corpus(id)
-    path = f'cache/{file}/{NGRAMS[n - 1]}.json'
+LOADED: dict[str, dict] = {}
 
+def load_json(path: str) -> dict:
+    if path in LOADED:
+        return LOADED[path]
     with open(path, 'r') as f:
-        grams = json.load(f)
+        d: dict = json.load(f)
+        LOADED[path] = d
+        return d
 
+def ngrams(n: int, *, id: int = 0):
+    file = get_corpus(id)
+    path = f'corpora/{file}/{NGRAMS[n - 1]}.json'
+    grams = load_json(path)
     return grams
 
 def monograms():
@@ -21,12 +28,11 @@ def bigrams():
 def trigrams():
     return ngrams(3)
 
-def words(id: int=0):
+def words(id: int = 0):
     file = get_corpus(id)
-    with open(f'cache/{file}/words.json') as f:
-        words = json.load(f)
-
-    return words
+    path = f'corpora/{file}/words.json'
+    words_ = load_json(path)
+    return words_
 
 def get_corpus(id: int):
     with open('corpora.json', 'r') as f:

@@ -1,7 +1,7 @@
 {
     "name": "seht-drai",
     "user": 444585600318701568,
-    "board": "ortho",
+    "board": "angle",
     "keys": {
         "f": {
             "row": 0,
@@ -29,9 +29,9 @@
             "finger": "LI"
         },
         ";": {
-            "row": 0,
-            "col": 5,
-            "finger": "RI"
+            "row": 2,
+            "col": 0,
+            "finger": "LR"
         },
         "g": {
             "row": 0,
@@ -78,10 +78,10 @@
             "col": 4,
             "finger": "LI"
         },
-        "q": {
-            "row": 1,
-            "col": 5,
-            "finger": "RI"
+        "z": {
+            "row": 2,
+            "col": 4,
+            "finger": "LI"
         },
         "d": {
             "row": 1,
@@ -103,30 +103,35 @@
             "col": 9,
             "finger": "RP"
         },
-        "z": {
-            "row": 2,
-            "col": 0,
-            "finger": "LP"
+        ".": {
+            "row": 1,
+            "col": 10,
+            "finger": "RP"
         },
         "'": {
-            "row": 2,
-            "col": 1,
-            "finger": "LR"
+            "row": 1,
+            "col": 5,
+            "finger": "RI"
         },
         "m": {
             "row": 2,
-            "col": 2,
+            "col": 1,
             "finger": "LM"
         },
         "p": {
             "row": 2,
-            "col": 3,
+            "col": 2,
             "finger": "LI"
         },
         "w": {
             "row": 2,
-            "col": 4,
+            "col": 3,
             "finger": "LI"
+        },
+        "q": {
+            "row": 0,
+            "col": 5,
+            "finger": "RI"
         },
         "y": {
             "row": 2,
@@ -143,7 +148,7 @@
             "col": 7,
             "finger": "RM"
         },
-        ".": {
+        "/": {
             "row": 2,
             "col": 8,
             "finger": "RR"

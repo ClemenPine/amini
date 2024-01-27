@@ -3,27 +3,21 @@ from itertools import zip_longest
 
 from util import authors, layout, memory, parser
 from util.consts import *
+from util.returns import *
 
 def exec(message: Message):
     name, string = parser.get_layout(message)
 
-    if '~' in string:
-        return '`~` has been disabled'
+    # if '~' in string:
+    #     return '`~` has been disabled'
 
-    if name[0] == '_':
-        return 'Error: names cannot start with an underscore'
-
-    if len(name) < 3:
-        return 'Error: names must be at least 3 characters long'
-
-    if not set(name).issubset(NAME_SET):
-        disallowed = list(set(name).difference(NAME_SET))
-        return f'Error: names cannot contain `{disallowed[0]}`'
+    if not (ret := layout.check_name(name)):
+        return ret.msg
 
     rows = string.split('\n')
 
     # calculate amount of leading whitespace for each row
-    spaces = [] 
+    spaces = []
     for row in rows:
         size = len(row) - len(row.lstrip())
         spaces.append(size)
@@ -31,6 +25,8 @@ def exec(message: Message):
     # Determine board type with leading whitespace
     if spaces[0] < spaces[1] < spaces[2]:
         board = 'stagger'
+    elif spaces[0] == spaces[1] and spaces[2] > 1:
+        board = 'mini'
     elif spaces[0] == spaces[1] < spaces[2]:
         board = 'angle'
     elif spaces[0] == spaces[1] == spaces[2]:
@@ -50,7 +46,7 @@ def exec(message: Message):
         if all(x == ' ' for x in col): # column gap detected
             gap = True
             continue
-        
+
         if not gap: # no gap between letters
             return f'Error: missing gap before column `{col}`'
 
@@ -76,7 +72,10 @@ def exec(message: Message):
             if i < 3:
                 finger = fmap[min(j, len(fmap) - 1)]
             else:
-                finger = 'TB' # thumb row
+                if spaces[3] > 8:
+                    finger = 'RT'
+                else:
+                    finger = 'LT'
 
             data = {
                 'row': i,
@@ -89,10 +88,6 @@ def exec(message: Message):
                 continue
 
             keymap[char] = data
-
-    # must include all letters except one
-    if len(LETTERS) - len(list(x for x in keymap if x in LETTERS)) > len(free): 
-        return 'Error: missing a required letter in layout definition'
 
     data = {
         'name': name,
@@ -119,7 +114,7 @@ def desc():
 def is_rows_valid(string: str, *, board: str) -> bool:
     rows = string.split('\n')
 
-    if board in ['ortho']:
+    if board in ['ortho', 'mini']:
         max_rows = 4
     else:
         max_rows = 3

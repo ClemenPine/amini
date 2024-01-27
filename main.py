@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import glob
 import logging
 import discord
@@ -5,70 +7,112 @@ import datetime
 from importlib import import_module
 
 from cmds import help
+from util.consts import TRIGGERS
+from util import authors
+from admins import ADMINS
 
-AMINI_CHANNEL = 1063291226243207268
+CMINI_CHANNEL = 1063291226243207268
 
 commands = [x.replace('/', '.')[5:-3] for x in glob.glob('cmds/*.py')]
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 
 bot = discord.Client(intents=intents)
 
+logger = logging.getLogger('discord')
+
+#### MAINTENANCE MODE ####
+maintenance_mode = False
+
+def maintenance_check(mode, message):
+    if mode and authors.get_name(message.author.id).lower() in ADMINS:
+        return True
+    elif not mode:
+        return True
+    return False
+
+
 @bot.event
 async def on_ready():
-    logging.info(f'Logged in as {bot.user}')
+    logger.info(f'Logged in as {bot.user}')
 
 @bot.event
 async def on_message(message: discord.Message):
     args = message.content.split()
 
+    # Is in a DM?
+    is_dm = isinstance(message.channel, discord.channel.DMChannel)
+
+    # Restricted command?
+    restricted = message.channel.id != CMINI_CHANNEL and not is_dm
+
+    # Ignore other bots
     if message.author.bot:
         return
 
-    if not args or args[0] != '!amini':
+    # Empty message
+    if not args:
         return
 
-    restricted = (
-        message.channel.id != AMINI_CHANNEL and
-        not isinstance(message.channel, discord.channel.DMChannel)
-    )
+    # Get command
+    if is_dm:
+        command = args[0].lower()
+    else:
+        # Check triggers
+        if args[0] not in TRIGGERS:
+            return
 
-    logging.info(f'{message.author.name}: {message.content}')
-    
-    command = args[1].lower()
-
-    if len(args) < 2:
-        reply = 'Try `!amini help`'
-    elif command in commands:
-        mod = import_module(f'cmds.{command}')
-
-        if not restricted or hasattr(mod, 'RESTRICTED') and not mod.RESTRICTED:
-            reply = mod.exec(message)
+        # Get command if any
+        if len(args) > 1:
+            command = args[1].lower()
         else:
-            reply = f'please use this command in <#{AMINI_CHANNEL}> or in a dm'
+            command = None
 
-    elif command == 'dm':
-        channel = await bot.create_dm(message.author)
-        await channel.send(help.exec(message))
+    logger.info(f'{message.author.name}: {message.content}')
 
-        reply = f'Sent :)'
+    global maintenance_mode
+
+    # Make these commands DM-only regardless of channel
+    if command in ["xkb"]:
+        restricted = True
+
+    # Trigger only
+    if not command:
+        reply = 'Try `!cmini help`'
+    elif command in ["gh", "github"]:
+        reply = "<https://github.com/Apsu/cmini>"
+    elif command == "akl":
+        mod = import_module('cmds.akl')
+        reply = mod.exec(bot)
+    elif command == "member":
+        mod = import_module('cmds.member')
+        reply = mod.exec(message, bot)
+    elif command in ["maintenance", "1984"]:
+        mod = import_module('cmds.maintenance')
+        mode, reply = mod.exec(message, maintenance_mode)
+        if mode != None:
+            maintenance_mode = mode
+
+    # Check commands
+    elif command in commands and maintenance_check(maintenance_mode, message):
+        mod = import_module(f'cmds.{command}')
+        reply = mod.exec(message)
+
+        if restricted and (mod.RESTRICTED if hasattr(mod, 'RESTRICTED') else True):
+            channel = await bot.create_dm(message.author)
+            await channel.send(reply)
+            return
+    # Command not found
     else:
         reply = f'Error: {command} is not an available command'
 
-    logging.info(f'AMINI: {reply}')
     await message.channel.send(reply, reference=message)
 
 
 def main():
     date = datetime.datetime.now()
-
-    logging.basicConfig(
-        filename=f'logs/{date.strftime("%Y-%m-%d_%I:%M%p")}.log',
-        encoding='utf-8',
-        format='%(asctime)s %(message)s',
-        level=logging.DEBUG
-    )
 
     with open('token.txt', 'r') as f:
         token = f.read()

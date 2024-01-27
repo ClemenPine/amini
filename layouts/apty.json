@@ -4,9 +4,9 @@
     "board": "ortho",
     "keys": {
         "j": {
-            "row": 0,
-            "col": 0,
-            "finger": "LP"
+            "row": 2,
+            "col": 5,
+            "finger": "RI"
         },
         "g": {
             "row": 0,
@@ -129,9 +129,9 @@
             "finger": "LI"
         },
         "w": {
-            "row": 2,
-            "col": 5,
-            "finger": "RI"
+            "row": 0,
+            "col": 0,
+            "finger": "LP"
         },
         "f": {
             "row": 2,

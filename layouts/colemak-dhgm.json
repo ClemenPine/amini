@@ -13,7 +13,7 @@
             "col": 1,
             "finger": "LR"
         },
-        "c": {
+        "f": {
             "row": 0,
             "col": 2,
             "finger": "LM"
@@ -103,12 +103,12 @@
             "col": 9,
             "finger": "RP"
         },
-        "v": {
+        "x": {
             "row": 2,
             "col": 0,
             "finger": "LR"
         },
-        "f": {
+        "c": {
             "row": 2,
             "col": 1,
             "finger": "LM"
@@ -123,7 +123,7 @@
             "col": 3,
             "finger": "LI"
         },
-        "x": {
+        "v": {
             "row": 2,
             "col": 4,
             "finger": "LI"
