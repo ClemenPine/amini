@@ -1,8 +1,6 @@
 from discord import Message
 
 from util import layout, memory, parser
-from util.consts import JSON
-
 from core.keyboard import Layout
 
 RESTRICTED = False

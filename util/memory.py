@@ -3,10 +3,6 @@ import json
 import glob
 from jellyfish import damerau_levenshtein_distance as lev
 
-from util import authors
-from util.consts import JSON
-from admins import ADMINS
-
 from core.keyboard import Layout, Position
 
 def add(ll: Layout) -> bool:

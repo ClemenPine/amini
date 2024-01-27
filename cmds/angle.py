@@ -1,15 +1,13 @@
 from discord import Message
 
 from util import layout, memory, parser
-from util.consts import JSON
-
 from core.keyboard import Layout
 
 RESTRICTED = False
 
 def exec(message: Message):
     name = parser.get_arg(message)
-    ll: JSON = memory.find(name.lower())
+    ll = memory.find(name.lower())
 
     if not ll:
         return f'Error: couldn\'t find any layout named `{name}`'

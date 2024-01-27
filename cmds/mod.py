@@ -2,7 +2,7 @@ from discord import Message
 from importlib import import_module
 
 from util import layout, memory, parser
-from util.consts import JSON
+from core.keyboard import Layout
 
 RESTRICTED = False
 
@@ -56,7 +56,7 @@ def use():
 def desc():
     return 'see the stats of a layout with chained modifications'
 
-def __modify_layout(ll: JSON, mode: str, *args):
+def __modify_layout(ll: Layout, mode: str, *args):
     mod = import_module(f'cmds.{mode}')
     mod.modify(ll, *args)
 

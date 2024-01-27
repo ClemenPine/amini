@@ -4,6 +4,7 @@ from discord import Message
 from util import analyzer, authors, corpora, layout, memory, parser
 from util.consts import JSON
 from util.analyzer import TABLE
+from core.keyboard import Layout
 
 from typing import Final
 
@@ -35,7 +36,7 @@ class GetFingerStats:
     def __init__(self, *stats: str):
         self.__stats: Final[tuple[str]] = stats
 
-    def __call__(self, ll: JSON, trigrams: JSON) -> Fingers[str, float]:
+    def __call__(self, ll: Layout, trigrams: JSON) -> Fingers[str, float]:
         # Get the first stat
         fingers_usage: Fingers[str, float] = get_fingers_usage(ll, trigrams, stat=self.__stats[0])
 
@@ -49,7 +50,7 @@ class GetFingerStats:
         return fingers_usage
 
 
-def get_fingers_usage(ll: JSON, trigrams: JSON, *, stat: str) -> Fingers[str, float]:
+def get_fingers_usage(ll: Layout, trigrams: JSON, *, stat: str) -> Fingers[str, float]:
     """
     gets the usage by finger
     - same finger ngrams: sfbs only

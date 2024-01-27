@@ -1,7 +1,7 @@
 from discord import Message
 
 from util import layout, memory, parser
-from util.consts import JSON
+from core.keyboard import Layout
 
 def exec(message: Message):
     args = parser.get_args(message)
@@ -27,7 +27,7 @@ def use():
 def desc():
     return 'cycle a layout\'s letters around'
 
-def modify(ll: JSON, cycles: list[str]) -> None:
+def modify(ll: Layout, cycles: list[str]) -> None:
     if not all(x in ll.keys for x in ''.join(cycles)):
         raise ValueError('Error: cannot swap letters that aren\'t in the layout')
 
