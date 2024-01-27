@@ -69,6 +69,8 @@ def stats_str(stats: JSON, use: JSON) -> str:
             f' {"One:":>5} {stats["oneh-in"] + stats["oneh-out"]:>6.2%}'
             f'   (In/Out: {stats["oneh-in"]:>6.2%} | {stats["oneh-out"]:>6.2%})\n'
             # f'   (In: {stats["oneh-in"]:>6.2%} Out: {stats["oneh-out"]:>6.2%})\n'
+            f' {"Rtl:":>5} {stats["roll-in"] + stats["roll-out"] + stats["oneh-in"] + stats["oneh-out"]:>6.2%}'
+            f'   (In/Out: {stats["roll-in"] + stats["oneh-in"]:>6.2%} | {stats["roll-out"] + stats["oneh-out"]:>6.2%})\n'
             f' {"Red:":>5} {stats["redirect"] + stats["bad-redirect"]:>6.2%}'
             f'   (Bad: {stats["bad-redirect"]:>9.2%})\n'
             '\n'

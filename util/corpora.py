@@ -8,7 +8,7 @@ LOADED: dict[str, dict] = {}
 def load_json(path: str) -> dict:
     if path in LOADED:
         return LOADED[path]
-    with open(path, 'r') as f:
+    with open(path, 'r', encoding='utf-8') as f:
         d: dict = json.load(f)
         LOADED[path] = d
         return d

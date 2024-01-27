@@ -1,5 +1,5 @@
 {
-    "name": "Maks-Ex",
+    "name": "maks-ex",
     "user": 657688933001330718,
     "board": "ortho",
     "keys": {
@@ -23,7 +23,7 @@
             "col": 3,
             "finger": "LI"
         },
-        ".": {
+        "5": {
             "row": 0,
             "col": 4,
             "finger": "LI"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "z": {
+        "6": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -93,12 +93,12 @@
             "col": 7,
             "finger": "RM"
         },
-        "r": {
+        "h": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "h": {
+        "r": {
             "row": 1,
             "col": 9,
             "finger": "RP"
@@ -156,7 +156,7 @@
         "e": {
             "row": 3,
             "col": 0,
-            "finger": "TB"
+            "finger": "LT"
         }
     },
     "free": []
