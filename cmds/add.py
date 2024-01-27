@@ -8,9 +8,6 @@ from util.returns import *
 def exec(message: Message):
     name, string = parser.get_layout(message)
 
-    # if '~' in string:
-    #     return '`~` has been disabled'
-
     if not (ret := layout.check_name(name)):
         return ret.msg
 

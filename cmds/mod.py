@@ -28,9 +28,6 @@ def exec(message: Message):
         return kw_tips.replace(' ' * 16, '').strip()
 
     ll = memory.find(layout_name.lower())
-
-    if not ll:
-        return f'Error: could not find layout `{layout_name}`'
     
     if kwargs['angle'] and kwargs['unangle']:
         kwargs['angle'] = False  # `--angle --unangle` defaults to unanglemodded
@@ -49,7 +46,7 @@ def exec(message: Message):
     except ValueError as e:
         return str(e)
 
-    ll['name'] += ' (modified)'
+    ll.name += ' (modified)'
 
     return layout.to_string(ll, id=message.author.id)
 

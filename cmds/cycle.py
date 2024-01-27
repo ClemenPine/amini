@@ -17,7 +17,7 @@ def exec(message: Message):
     except ValueError as e:
         return str(e)
 
-    ll['name'] += ' (modified)'
+    ll.name += ' (modified)'
 
     return layout.to_string(ll, id=message.author.id)
 
@@ -28,7 +28,7 @@ def desc():
     return 'cycle a layout\'s letters around'
 
 def modify(ll: JSON, cycles: list[str]) -> None:
-    if not all(x in ll['keys'] for x in ''.join(cycles)):
+    if not all(x in ll.keys for x in ''.join(cycles)):
         raise ValueError('Error: cannot swap letters that aren\'t in the layout')
 
     for cycle in cycles:
@@ -36,7 +36,7 @@ def modify(ll: JSON, cycles: list[str]) -> None:
             raise ValueError('Error: cannot use duplicate letters in cycle command')
 
         cmap = dict(zip(cycle, cycle[1:] + cycle[0]))
-        keymap = {k: ll['keys'][k] for k in cycle}
+        keymap = {k: ll.keys[k] for k in cycle}
 
         for key, val in cmap.items():
-            ll['keys'][key] = keymap[val]
+            ll.keys[key] = keymap[val]

@@ -3,6 +3,7 @@ import json
 from discord import Message
 from util import analyzer, authors, corpora, layout, memory, parser
 from util.consts import JSON
+from util.analyzer import TABLE
 
 from typing import Final
 
@@ -12,8 +13,6 @@ LEFT_HAND = ['LI', 'LM', 'LR', 'LP']
 RIGHT_HAND = ['RI', 'RM', 'RR', 'RP']
 THUMBS = ['LT', 'RT', 'TB']
 FINGERS = LEFT_HAND + RIGHT_HAND + THUMBS
-TABLE: JSON = analyzer.get_table()
-
 class Fingers(dict[str, float]):
     def __iadd__(self, other: dict[str, float]):
         for finger in self:
@@ -71,7 +70,7 @@ def get_fingers_usage(ll: JSON, trigrams: JSON, *, stat: str) -> Fingers[str, fl
         if ' ' in trigram:
             continue
 
-        fingers_temp = (ll['keys'][x]['finger'] for x in trigram.lower() if x in ll['keys'])
+        fingers_temp = (ll.keys[x].finger for x in trigram.lower() if x in ll.keys)
         fingers_temp = ('RT' if x == 'TB' else x for x in fingers_temp)
         fingers: list[str] = list(fingers_temp)
 
@@ -171,7 +170,7 @@ def exec(message: Message):
     ll = memory.find(name.lower())
 
     corpus: str = corpora.get_corpus(id=user)
-    author: str = authors.get_name(ll['user'])
+    author: str = authors.get_name(ll.user)
 
     if not ll:
         return f'Error: could not find layout `{name}`'
@@ -190,8 +189,8 @@ def exec(message: Message):
     with open('likes.json', 'r') as f:
         likes = json.load(f)
 
-    if ll['name'] in likes:
-        likes = len(likes[ll['name']])
+    if ll.name in likes:
+        likes = len(likes[ll.name])
     else:
         likes = 0
 
@@ -200,7 +199,7 @@ def exec(message: Message):
     else:
         like_string = 'likes'
 
-    output = [f'```\n{ll["name"]} ({stat}) ({author}) ({likes} {like_string})',
+    output = [f'```\n{ll.name} ({stat}) ({author}) ({likes} {like_string})',
               layout.get_matrix_str(ll),
               f'\n{corpus.upper()}:']
 

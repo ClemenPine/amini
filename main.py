@@ -3,10 +3,8 @@
 import glob
 import logging
 import discord
-import datetime
 from importlib import import_module
 
-from cmds import help
 from util.consts import TRIGGERS
 from util import authors
 from admins import ADMINS
@@ -112,13 +110,10 @@ async def on_message(message: discord.Message):
 
 
 def main():
-    date = datetime.datetime.now()
-
     with open('token.txt', 'r') as f:
         token = f.read()
 
     bot.run(token)
-
 
 if __name__ == '__main__':
     main()

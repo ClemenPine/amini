@@ -36,7 +36,7 @@ def exec(message: Message):
     corpus_name = corpora.get_corpus(user_id).upper()
 
     return f'```\n' \
-           f'{new_ll["name"]}(new) - {old_ll["name"]}(old)\n' \
+           f'{new_ll.name}(new) - {old_ll.name}(old)\n' \
            f'\n' \
            f'{corpus_name}:\n' \
            f'{layout.stats_str(new_stats, new_use)}' \

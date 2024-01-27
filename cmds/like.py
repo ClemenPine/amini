@@ -11,24 +11,24 @@ def exec(message: Message):
 
     ll = memory.find(name)
 
-    if ll['name'] == 'QWERTY':
+    if ll.name == 'QWERTY':
         return 'You can\'t like Qwerty :yellow_circle:'
 
     with open('likes.json', 'r') as f:
         likes = json.load(f)
 
-    if not ll['name'] in likes:
-        likes[ll['name']] = []
+    if not ll.name in likes:
+        likes[ll.name] = []
 
-    if id in likes[ll['name']]:
+    if id in likes[ll.name]:
         return 'You\'ve already liked this layout'
 
-    likes[ll['name']].append(id)
+    likes[ll.name].append(id)
 
     with open('likes.json', 'w') as f:
         f.write(json.dumps(likes, indent=4))
 
-    return f'You liked {ll["name"]}. (Now at {len(likes[ll["name"]])} likes)'
+    return f'You liked {ll.name}. (Now at {len(likes[ll.name])} likes)'
 
 def use():
     return 'like [layout name]'

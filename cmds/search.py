@@ -3,7 +3,7 @@ import glob
 import random
 from discord import Message, ChannelType
 
-from util import parser
+from util import parser, memory
 
 # RESTRICTED = True
 
@@ -43,18 +43,17 @@ def exec(message: Message):
 
     res: list[str] = []
     for file in glob.glob('layouts/*.json'):
-        with open(file, 'r') as f:
-            ll = json.load(f)
+        ll = memory.parse_file(file)
 
-        if not all(x in ll['keys'] for x in sfb):
+        if not all(x in ll.keys for x in sfb):
             continue
 
-        fingers = set(ll['keys'][x]['finger'] for x in sfb)
+        fingers = set(ll.keys[x].finger for x in sfb)
 
         if len(fingers) == 1:
             # any finger or in constrained fingers
             if not sfb_fingers or fingers.issubset(sfb_fingers):
-                res.append(ll['name'])
+                res.append(ll.name)
 
     random.shuffle(res)
 

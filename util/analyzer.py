@@ -1,17 +1,19 @@
 import json
 from typing import Dict
 
+from core.keyboard import Layout
+
 with open('table.json', 'r') as f:
     TABLE: Dict[str, str] = json.load(f)
 
-def use(ll, grams: Dict[str, str]):
+def use(ll: Layout, grams: Dict[str, str]):
     fingers = {}
     
     for gram, count in grams.items():
-        if gram not in ll['keys']:
+        if gram not in ll.keys:
             continue
 
-        finger = ll['keys'][gram]['finger']
+        finger = ll.keys[gram].finger
         
         if finger not in fingers:
             fingers[finger] = 0
@@ -25,28 +27,12 @@ def use(ll, grams: Dict[str, str]):
     fingers['LH'] = sum(fingers[x] for x in fingers if x[0] in 'L')
     fingers['RH'] = sum(fingers[x] for x in fingers if x[0] in 'RT')
 
-    # fingers['LH'] = (
-    #     fingers['LI'] + 
-    #     fingers['LM'] + 
-    #     fingers['LR'] +
-    #     fingers['LP']
-    # )
-
-    # fingers['RH'] = (
-    #     fingers['RI'] + 
-    #     fingers['RM'] + 
-    #     fingers['RR'] +
-    #     fingers['RP']
-    # )
-
     return fingers
 
 
-def trigrams(ll, grams: Dict[str, int]):
-    table = get_table()
-
-    counts = {x: 0 for x in list(table.values()) + ['sfR', 'unknown']}
-    fingers = {x: ll['keys'][x]['finger'] for x in ll['keys']}
+def trigrams(ll: Layout, grams: Dict[str, int]):
+    counts = {x: 0 for x in list(TABLE.values()) + ['sfR', 'unknown']}
+    fingers = {x: ll.keys[x].finger for x in ll.keys}
 
     for gram, count in grams.items():
         if ' ' in gram:
@@ -58,7 +44,7 @@ def trigrams(ll, grams: Dict[str, int]):
         if gram[0] == gram[1] or gram[1] == gram[2] or gram[0] == gram[2]:
             gram_type = 'sfR'
         else:
-            gram_type = table.get(finger_combo, 'unknown')
+            gram_type = TABLE.get(finger_combo, 'unknown')
 
         counts[gram_type] += count
 
@@ -67,7 +53,3 @@ def trigrams(ll, grams: Dict[str, int]):
         counts[stat] /= total
 
     return counts
-
-
-def get_table():
-    return TABLE

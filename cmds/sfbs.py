@@ -14,12 +14,12 @@ def exec(message: Message):
         if len(set(gram)) != len(gram): # ignore repeats
             continue
 
-        fingers = [ll['keys'][x]['finger'] for x in gram if x in ll['keys']]
+        fingers = [ll.keys[x].finger for x in gram if x in ll.keys]
 
         if len(set(fingers)) != len(fingers):
             lines.append(f'{gram:<5} {count / total:.3%}')
 
-    return '\n'.join(['```', f'Top 10 {ll["name"]} SFBs:'] + lines[:10] + ['```'])
+    return '\n'.join(['```', f'Top 10 {ll.name} SFBs:'] + lines[:10] + ['```'])
 
 def use():
     return 'sfbs [layout name]'

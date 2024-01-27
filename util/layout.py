@@ -4,6 +4,8 @@ from util import analyzer, authors, corpora, links
 from util.consts import *
 from util.returns import *
 
+from core.keyboard import Layout
+
 
 def check_name(name: str):
     if name[0] == '_':
@@ -19,15 +21,15 @@ def check_name(name: str):
     return Success()
 
 
-def get_matrix(ll: JSON) -> list[list[str]]:
-    max_width = max(x['col'] for x in ll['keys'].values()) + 1
-    max_height = max(x['row'] for x in ll['keys'].values()) + 1
+def get_matrix(ll: Layout) -> list[list[str]]:
+    max_width = max(x.col for x in ll.keys.values()) + 1
+    max_height = max(x.row for x in ll.keys.values()) + 1
 
     matrix = [[' '] * max_width for _ in range(max_height)]
 
-    for char, info in ll['keys'].items():
-        row = info['row']
-        col = info['col']
+    for char, info in ll.keys.items():
+        row = info.row
+        col = info.col
 
         matrix[row][col] = char
 
@@ -40,22 +42,22 @@ def get_matrix(ll: JSON) -> list[list[str]]:
             elif j == 4:
                 matrix[i][j] += ' '
 
-    if ll['board'] == 'stagger':
+    if ll.board == 'stagger':
         matrix[1][0] = ' ' + matrix[1][0]
         matrix[2][0] = '  ' + matrix[2][0]
-    elif ll['board'] == 'angle':
+    elif ll.board == 'angle':
         matrix[2][0] = ' ' + matrix[2][0]
-    elif ll['board'] == 'mini':
+    elif ll.board == 'mini':
         matrix[2][0] = '  ' + matrix[2][0]
 
     if len(matrix) > 3:
-        indent = 6 if ll['keys'][matrix[3][0].strip()]['finger'] == 'LT' else 13
+        indent = 6 if ll.keys[matrix[3][0].strip()].finger == 'LT' else 13
         matrix[3][0] = ' ' * indent + matrix[3][0]
 
     return matrix
 
 
-def get_matrix_str(ll: JSON) -> str:
+def get_matrix_str(ll: Layout) -> str:
     return '\n'.join(' '.join(x) for x in get_matrix(ll))
 
 
@@ -77,8 +79,8 @@ def stats_str(stats: JSON, use: JSON) -> str:
             f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}')
 
 
-def to_string(ll: JSON, id: int):
-    author = authors.get_name(ll['user'])
+def to_string(ll: Layout, id: int):
+    author = authors.get_name(ll.user)
 
     monogram = corpora.ngrams(1, id=id)
     trigram = corpora.ngrams(3, id=id)
@@ -91,8 +93,8 @@ def to_string(ll: JSON, id: int):
     with open('likes.json', 'r') as f:
         likes = json.load(f)
 
-    if ll['name'] in likes:
-        likes = len(likes[ll['name']])
+    if ll.name in likes:
+        likes = len(likes[ll.name])
     else:
         likes = 0
 
@@ -101,11 +103,11 @@ def to_string(ll: JSON, id: int):
     else:
         like_string = 'likes'
 
-    external_link = links.get_link(ll['name'].lower())
+    external_link = links.get_link(ll.name.lower())
 
     res = (
         f'```\n'
-        f'{ll["name"]} ({author}) ({likes} {like_string})\n'
+        f'{ll.name} ({author}) ({likes} {like_string})\n'
         f'{matrix_str}\n'
         f'\n'
         f'{corpora.get_corpus(id).upper()}:\n'

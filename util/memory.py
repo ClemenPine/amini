@@ -7,23 +7,19 @@ from util import authors
 from util.consts import JSON
 from admins import ADMINS
 
-def add(data: JSON) -> bool:
-    file = f'layouts/{data["name"].lower()}.json'
+from core.keyboard import Layout, Position
+
+def add(ll: Layout) -> bool:
+    file = f'layouts/{ll.name.lower()}.json'
 
     if os.path.exists(file):
         return False
 
     with open(file, 'w') as f:
-        f.write(json.dumps(data, indent=4))
+        f.write(json.dumps(vars(ll), indent=4, default=lambda o: o.__dict__))
 
     return True
-
-def update(data: JSON):
-    file = f'layouts/{data["name"].lower()}.json'
-
-    with open(file, 'w') as f:
-        f.write(json.dumps(data, indent=4))
-
+    
 
 def remove(name: str, *, id: int, admin: bool = False) -> bool:
     file = f'layouts/{name}.json'
@@ -42,19 +38,37 @@ def remove(name: str, *, id: int, admin: bool = False) -> bool:
     return check
 
 
-def get(name: str) -> JSON:
+def get(name: str) -> Layout | None:
     file = f'layouts/{name}.json'
 
     if not os.path.exists(file):
-        return {}
+        return None
 
+    return parse_file(file)
+
+
+def parse_file(file: str) -> Layout:
     with open(file, 'r') as f:
         data = json.load(f)
 
-    return data
+    keys = {
+        k: Position(
+            row=v["row"],
+            col=v["col"],
+            finger=v["finger"]
+        ) for k, v in data["keys"].items()
+    }
 
+    ll = Layout(
+        name=data["name"],
+        user=data["user"],
+        board=data["board"],
+        keys=keys,
+    )
 
-def find(name: str) -> JSON:
+    return ll
+
+def find(name: str) -> Layout:
     file = f'layouts/{name}.json'
 
     if not os.path.exists(file):
@@ -65,7 +79,4 @@ def find(name: str) -> JSON:
 
         file = f'layouts/{closest}.json'
 
-    with open(file, 'r') as f:
-        data = json.load(f)
-
-    return data
+    return parse_file(file)
