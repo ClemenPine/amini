@@ -1,6 +1,6 @@
 from discord import Message
 
-from util import corpora, memory, parser, analyzer
+from util import corpora, memory, parser
 from util.analyzer import TABLE
 
 def exec(message: Message):

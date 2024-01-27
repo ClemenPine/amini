@@ -1,13 +1,13 @@
 from discord import Message
 
 from util import layout, memory, parser
-from util.consts import JSON
+from core.keyboard import Layout
 
 RESTRICTED = False
 
 def exec(message: Message):
     name = parser.get_arg(message)
-    ll: JSON = memory.find(name.lower())
+    ll = memory.find(name.lower())
 
     if not ll:
         return f'Error: couldn\'t find any layout named `{name}`'
@@ -24,10 +24,10 @@ def exec(message: Message):
 
     return layout.to_string(ll, id=message.author.id) + "Successfully updated!"
 
-def modify(ll: JSON):
-    angle_mod = ll['board'] == 'angle'
+def modify(ll: Layout):
+    angle_mod = ll.board == 'angle'
 
-    for key in ll['keys'].values():
+    for key in ll.keys.values():
         if key['col'] >= 10:
             continue
 

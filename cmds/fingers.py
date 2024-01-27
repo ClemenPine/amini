@@ -1,7 +1,7 @@
 import json
 
 from discord import Message
-from util import analyzer, authors, corpora, layout, memory, parser
+from util import authors, corpora, layout, memory, parser
 from util.consts import JSON
 from util.analyzer import TABLE
 from core.keyboard import Layout
