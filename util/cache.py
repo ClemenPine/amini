@@ -18,7 +18,7 @@ def layout_get(name):
 
 def cache_fill(name, data, corpus):
     ll = layout_get(name)
-    with open(f'corpora/{corpus}/trigrams.json', 'r') as f:
+    with open(f'corpora/{corpus}/trigrams.json', 'r', encoding='utf-8') as f:
         trigrams = json.load(f)
 
     stats = analyzer.trigrams(ll, trigrams)
@@ -34,8 +34,8 @@ def cache_fill(name, data, corpus):
 
 
 def update(name, data):
-    with open(f'cache/{name}.json', "w") as f:
-        json.dump(data, f)
+    with open(f'cache/{name}.json', "w", encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False)
 
     return data
 
