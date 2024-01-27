@@ -2,7 +2,7 @@ import json
 import glob
 from discord import Message
 
-from util import authors, parser
+from util import authors, parser, memory
 
 def exec(message: Message):
     arg = parser.get_arg(message)
@@ -22,11 +22,10 @@ def exec(message: Message):
 
     layouts = []
     for file in glob.glob('layouts/*.json'):
-        with open(file, 'r') as f:
-            data = json.load(f)
+        ll = memory.parse_file(file)
 
-        if data['user'] == id:
-            layouts.append(data['name'])
+        if ll.user == id:
+            layouts.append(ll.name)
 
     lines += list(sorted(layouts))
     lines.append('```')

@@ -35,7 +35,7 @@ def exec(message: Message):
     if not memory.remove(old, id=id):
         return f'Error: you don\'t own a layout named `{old}`'
 
-    old_data['name'] = new
+    old_data.name = new
     memory.add(old_data)
 
     return f'`{old}` has been renamed to `{new}`'
