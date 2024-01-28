@@ -1,37 +1,59 @@
 import os
+import glob
 from discord import Message
 from importlib import import_module
-from more_itertools import windowed
+from more_itertools import divide
+
+from util import parser
 
 WIDTH = 6
 INDENT = '    '
 
 def exec(message: Message):
-    lines = ['Usage: `!cmini (command) [args]`']
-    lines.append('```')
+    command = parser.get_arg(message)
+    commands = sorted(x.replace('/', '.')[5:-3] for x in glob.glob('cmds/*.py'))
+    
+    if command:
+        if not command in commands:
+            return f"Unknown command `{command}`"
 
-    with os.scandir('cmds') as it:
-        entries = sorted(
-            [entry for entry in it
-            if not entry.is_symlink() and
-            entry.name.endswith('.py')],
-        key=lambda x:x.name)
+        mod = import_module(f'cmds.{command}')
 
-    for entry in entries:
-        file = entry.name
-        mod = import_module(f'cmds.{file[:-3]}')
-
-        if all(hasattr(mod, func) for func in ['exec', 'desc', 'use']):
+        if hasattr(mod, 'use'):
             use = mod.use()
-            desc = mod.desc().split()
+        else:
+            use = f"{command} [args]"
 
-            lines.append(use)
-            lines += [
-                INDENT + ' '.join(x) for x in windowed(
-                    desc, n=WIDTH, step=WIDTH, fillvalue=''
-                )
-            ]
+        if hasattr(mod, 'desc'):
+            desc = mod.desc()
+        else:
+            desc = "..."
 
-    lines.append('```')
+        return (
+            f'Help page for `{command}`:'
+            f'```\n'
+            f'{use}\n'
+            f'{desc}\n'
+            f'```'
+        )
 
-    return '\n'.join(lines)
+    else:
+        cmds = []
+        for cmd in commands:
+            mod = import_module(f'cmds.{cmd}')
+
+            if not all(hasattr(mod, x) for x in ['exec', 'desc', 'use']):
+                continue
+
+            cmds.append(cmd)
+
+        lines = ['Usage: `!cmini (command) [args]`']
+        lines.append('```')
+
+        cols = divide(2, cmds)
+        
+        for row in zip(*cols):
+            lines.append("".join(x.ljust(16) for x in row))
+
+        lines.append('```')
+        return '\n'.join(lines)
