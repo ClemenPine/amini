@@ -61,5 +61,5 @@ def exec(message: Message):
     if len(query) == 1 or all(item == query[0] or get_reverse(item) == query[0] for item in query):
         res.append('```')
     elif len(query) > 1:
-        res.extend([f'{" + ".join(total_ngrams)}: {total_freq:.2%}', '```'])
+        res.extend([f'{" ".join(total_ngrams)}: {total_freq:.2%}', '```'])
     return '\n'.join(res)
