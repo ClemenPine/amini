@@ -14,18 +14,18 @@ def exec(message: Message):
     with open('likes.json', 'r') as f:
         likes = json.load(f)
 
-    if not ll['name'] in likes:
-        likes[ll['name']] = []
+    if not ll.name in likes:
+        likes[ll.name] = []
 
-    if not id in likes[ll['name']]:
+    if not id in likes[ll.name]:
         return 'You\'ve already unliked this layout'
 
-    likes[ll['name']].remove(id)
+    likes[ll.name].remove(id)
 
     with open('likes.json', 'w') as f:
         f.write(json.dumps(likes, indent=4))
         
-    return f'You unliked {ll["name"]}. (Now at {len(likes[ll["name"]])} likes)'
+    return f'You unliked {ll.name}. (Now at {len(likes[ll.name])} likes)'
 
 def use():
     return 'unlike [layout name]'

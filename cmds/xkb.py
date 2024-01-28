@@ -59,9 +59,9 @@ def exec(message: Message):
     if not layout:
         return f'Error: could not find layout `{name}`'
                                  
-    xkb = xkb_header(layout['name'])
+    xkb = xkb_header(layout.name)
 
-    keys = layout['keys']
+    keys = layout.keys
                                  
     # Add number row
     xkb += xkb_format('TLDE', 'grave', 'asciitilde') # Tilde (`)
@@ -83,7 +83,7 @@ def exec(message: Message):
     for i in range(len(row_names)):
         xkb += '\n'
         for key, props in keys.items():
-            if props['row'] == row and props['col'] == col:
+            if props.row == row and props.col == col:
                 lowercase = get_lowercase(key) or key
                 uppercase = get_uppercase(key) or key.upper()
 

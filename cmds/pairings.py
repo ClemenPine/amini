@@ -3,7 +3,7 @@ import json
 from collections import Counter
 from discord import Message
 
-from util import parser
+from util import parser, memory
 
 def exec(message: Message):
     args = parser.get_args(message)
@@ -18,15 +18,14 @@ def exec(message: Message):
 
     counts = Counter()
     for file in glob.glob('layouts/*.json'):
-        with open(file, 'r') as f:
-            ll = json.load(f)
+        ll = memory.parse_file(file)
 
-        if not arg in ll['keys']:
+        if not arg in ll.keys:
             continue
 
-        finger = ll['keys'][arg]['finger']
+        finger = ll.keys[arg].finger
 
-        pairs = [x for x in ll['keys'] if ll['keys'][x]['finger'] == finger]
+        pairs = [x for x in ll.keys if ll.keys[x].finger == finger]
         counts.update(pairs)
 
     counts.pop(arg)

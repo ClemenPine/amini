@@ -2,7 +2,7 @@ from discord import Message
 from importlib import import_module
 
 from util import layout, memory, parser
-from util.consts import JSON
+from core.keyboard import Layout
 
 RESTRICTED = False
 
@@ -28,9 +28,6 @@ def exec(message: Message):
         return kw_tips.replace(' ' * 16, '').strip()
 
     ll = memory.find(layout_name.lower())
-
-    if not ll:
-        return f'Error: could not find layout `{layout_name}`'
     
     if kwargs['angle'] and kwargs['unangle']:
         kwargs['angle'] = False  # `--angle --unangle` defaults to unanglemodded
@@ -49,7 +46,7 @@ def exec(message: Message):
     except ValueError as e:
         return str(e)
 
-    ll['name'] += ' (modified)'
+    ll.name += ' (modified)'
 
     return layout.to_string(ll, id=message.author.id)
 
@@ -59,7 +56,7 @@ def use():
 def desc():
     return 'see the stats of a layout with chained modifications'
 
-def __modify_layout(ll: JSON, mode: str, *args):
+def __modify_layout(ll: Layout, mode: str, *args):
     mod = import_module(f'cmds.{mode}')
     mod.modify(ll, *args)
 

@@ -10,7 +10,7 @@ def exec(message: Message):
     name = args[0].lower()
     target = args[1].lower()
     ll = memory.get(name)
-    if ll == {}:
+    if not ll:
         return f'{name} not found'
 
     user = message.author.id
@@ -34,8 +34,8 @@ def exec(message: Message):
         else:
             temp_id = target
 
-        ll['user'] = temp_id
-        memory.update(ll)
+        ll.user = temp_id
+        memory.add(ll)
         return f'{name} has been assigned by {user_name} to {temp_name}'
     else:
         return f'Unauthorized'

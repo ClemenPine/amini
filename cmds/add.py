@@ -4,12 +4,10 @@ from itertools import zip_longest
 from util import authors, layout, memory, parser
 from util.consts import *
 from util.returns import *
+from core.keyboard import Layout, Position
 
 def exec(message: Message):
     name, string = parser.get_layout(message)
-
-    # if '~' in string:
-    #     return '`~` has been disabled'
 
     if not (ret := layout.check_name(name)):
         return ret.msg
@@ -53,7 +51,6 @@ def exec(message: Message):
         columns.append(col)
         gap = False
 
-    free = []
     keymap = {}
     for i, row in enumerate(zip(*columns)):
         for j, char in enumerate(row):
@@ -77,25 +74,23 @@ def exec(message: Message):
                 else:
                     finger = 'LT'
 
-            data = {
-                'row': i,
-                'col': j,
-                'finger': finger,
-            }
+            data = Position(
+                row=i,
+                col=j,
+                finger=finger,
+            )
 
             if char == FREE_CHAR: # free space
-                free.append(data)
                 continue
 
             keymap[char] = data
 
-    data = {
-        'name': name,
-        'user': message.author.id,
-        'board': board,
-        'keys': keymap,
-        'free': free,
-    }
+    data = Layout(
+        name=name,
+        user=message.author.id,
+        board=board,
+        keys=keymap,
+    )
 
     authors.update(message)
 

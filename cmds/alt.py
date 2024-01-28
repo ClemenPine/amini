@@ -89,8 +89,8 @@ def exec(message: Message):
         return f"Could not find layout: {name}"
 
     layout = {
-        k:(v["row"],v["col"] + 1 if v["row"] == 2 else v["col"])
-        for k, v in ll["keys"].items()
+        k:(v.row,v.col + 1 if v.row == 2 else v.col)
+        for k, v in ll.keys.items()
     }
 
     fingermap = FingerMap([

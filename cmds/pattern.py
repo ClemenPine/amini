@@ -31,13 +31,13 @@ def exec(message: Message):
             continue
 
         fingers = '-'.join(query)
-        key = '-'.join([ll['keys'][x]['finger'] for x in gram if x in ll['keys']])
+        key = '-'.join([ll.keys[x].finger for x in gram if x in ll.keys])
         
         if fingers in key:
             freq += count
             lines.append(f'{gram:<5} {count / total:.3%}')
 
-    return '\n'.join(['```', f'Top 10 {ll["name"]} Patterns for {fingers}:'] + lines[:10] +
+    return '\n'.join(['```', f'Top 10 {ll.name} Patterns for {fingers}:'] + lines[:10] +
                      [f'Total {freq / total:.3%}', '```'])
 
 def use():
