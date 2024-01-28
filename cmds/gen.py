@@ -4,6 +4,7 @@ from discord import Message
 from dataclasses import dataclass
 
 from util import layout
+from core.keyboard import Layout, Position
 
 FINGER_MAP = [
     'LP', 'LR', 'LM', 'LI', 'LI', 'RI', 'RI', 'RM', 'RR', 'RP',
@@ -21,7 +22,7 @@ with open('places.json', 'r') as f:
     PLACES = json.load(f)
 
 @dataclass
-class Layout:
+class Generator:
     matrix: list[str]
 
     def __init__(self):
@@ -74,14 +75,14 @@ def init_poss():
 
 
 def exec(message: Message):
-    ll = Layout()
+    ll = Generator()
     poss = init_poss()
     
     while poss:
         letter, indices = min(poss.items(), key=lambda x: len(x[1]))
 
         if not indices:
-            ll = Layout()
+            ll = Generator()
             poss = init_poss()
 
         idx = random.choice(list(indices))
@@ -106,17 +107,17 @@ def exec(message: Message):
         if key == '~':
             continue
 
-        keys[key] = {
-            'row': i // 10,
-            'col': i % 10,
-            'finger': FINGER_MAP[i]
-        }
+        keys[key] = Position(
+            row=i // 10,
+            col=i % 10,
+            finger=FINGER_MAP[i]
+        )
 
-    res = {
-        'name': 'generated',
-        'user': 1085579430623199292,
-        'board': 'ortho',
-        'keys': keys
-    }
+    res = Layout(
+        name='generated',
+        user=1085579430623199292,
+        board='ortho',
+        keys=keys
+    )
 
     return layout.to_string(res, id=message.author.id)
