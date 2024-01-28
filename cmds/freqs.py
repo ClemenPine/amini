@@ -56,10 +56,10 @@ def exec(message: Message):
             total_ngrams.append(f'{item}')
 
     if total_freq == 0:
-        return f'`{' '.join(query)}` not found in corpus `{corpus}`'
+        return f'`{" ".join(query)}` not found in corpus `{corpus}`'
 
     if len(query) == 1 or all(item == query[0] or get_reverse(item) == query[0] for item in query):
         res.append('```')
     elif len(query) > 1:
-        res.extend([f'{' + '.join(total_ngrams)}: {total_freq:.2%}', '```'])
+        res.extend([f'{" + ".join(total_ngrams)}: {total_freq:.2%}', '```'])
     return '\n'.join(res)
