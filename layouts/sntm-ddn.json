@@ -1,5 +1,5 @@
 {
-    "name": "sntm-fv",
+    "name": "sntm-ddn",
     "user": 252155920157507584,
     "board": "ortho",
     "keys": {
@@ -8,7 +8,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "p": {
+        "b": {
             "row": 0,
             "col": 1,
             "finger": "LR"
@@ -113,7 +113,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "b": {
+        "p": {
             "row": 2,
             "col": 1,
             "finger": "LR"
