@@ -52,12 +52,10 @@ def get_kwargs(message: Message,
         arg_index += 1
 
     # make default dict
-    parsed_kwargs: dict[str, str | bool | list[str]] = {'args': ''}
+    args = words[:arg_index]
+    parsed_kwargs: dict[str, str | bool | list[str]] = {'args': ' '.join(args) if arg_type == str else args}
     for kw_name, kw_type in cmd_kwargs.items():
         parsed_kwargs[kw_name] = False if kw_type == bool else []
-
-    args = words[:arg_index]
-    parsed_kwargs['args'] = ' '.join(args) if arg_type == str else args
 
     words = words[arg_index:]
     last_in_list = 0
@@ -65,7 +63,7 @@ def get_kwargs(message: Message,
     in_list = False
     for index, word in enumerate(words):
         if is_kwarg(cmd_kwargs, word):
-            word = remove_kw_prefix(word.lower())
+            word = remove_kw_prefix(word)
             kw_type = cmd_kwargs[word]
 
             # Encountered next keyword, stops previous list
@@ -93,10 +91,10 @@ def starts_with_kw_prefix(word: str) -> bool:
 def remove_kw_prefix(word: str) -> str:
     for prefix in ('--', '—', '––'):
         word = word.removeprefix(prefix)
-    return word
+    return word.lower()
 
 def is_kwarg(kwargs: dict[str, Type[bool | list]], word: str) -> bool:
     if not starts_with_kw_prefix(word):
         return False
     word = remove_kw_prefix(word)
-    return word.lower() in kwargs
+    return word in kwargs
