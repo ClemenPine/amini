@@ -1,6 +1,7 @@
 import json
 import glob
 import random
+from jellyfish import jaro_winkler_similarity as jw
 from discord import Message, ChannelType
 
 from util import parser, memory
@@ -17,22 +18,34 @@ FINGER_ALIASES = {
     'lh': {'LI', 'LM', 'LR', 'LP'},
     'rh': {'RI', 'RM', 'RR', 'RP'},
 }
+SIMILARITY_THRES = 0.7
 
 def exec(message: Message):
+    is_dm = message.channel.type is ChannelType.private
     kwargs: dict[str, str | bool] = parser.get_kwargs(message, str,
                                                       li=bool, lm=bool, lr=bool, lp=bool, lt=bool,
                                                       ri=bool, rm=bool, rr=bool, rp=bool, rt=bool,
                                                       index=bool, middle=bool, ring=bool, pinky=bool, thumb=bool,
-                                                      lh=bool, rh=bool
+                                                      lh=bool, rh=bool,
+                                                      name=list,
                                                       )
-
+    filter_name: str = "".join(kwargs['name'])
     sfb: str = kwargs['args']
-    if not sfb:
+    # No arguments
+    if not sfb and not filter_name:
         return '```\n' \
                'search [sfb/column] [--fingers]\n' \
                'Supported fingers: \n' \
-               'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, index, middle, ring, pinky, thumb, lh, rh\n' \
+               'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, index, middle, ring, pinky, thumb, lh, rh, name\n' \
                '```'
+    # Only filter by name
+    if not sfb:
+        res: list[str] = []
+        for file in glob.glob('layouts/*.json'):
+            name = memory.parse_file(file).name
+            if is_similar(filter_name, name):
+                res.append(name)
+        return return_message(res, is_dm)
 
     # Add fingers to the set
     sfb_fingers: set[str] = {finger for finger in FINGERS if kwargs[finger.lower()]}
@@ -51,44 +64,49 @@ def exec(message: Message):
 
         fingers = set(ll.keys[x].finger for x in sfb)
 
-        if len(fingers) == 1:
-            # any finger or in constrained fingers
-            if not sfb_fingers or fingers.issubset(sfb_fingers):
-                res.append(ll.name)
+        # not sfb
+        if len(fingers) != 1:
+            continue
+        # have finger constraints but finger is not in constrained fingers
+        if sfb_fingers and not fingers.issubset(sfb_fingers):
+            continue
+        # have name filter but name is not similar enough
+        if filter_name and not is_similar(filter_name, ll.name):
+            continue
+        res.append(ll.name)
 
+    return return_message(res, is_dm)
+
+def get_line_limit(res: list[str]) -> int:
+    # Find the max number of lines that fit in the message (only for DMs)
+    char_count = 0
+    line_limit = 0
+    for line in res:
+        char_count += len(line) + 1
+        if char_count > 1900:
+            break
+        line_limit += 1
+    return line_limit
+
+def return_message(res: list[str], is_dm: bool) -> str:
     random.shuffle(res)
-
-    res_len = min(len(res), 20)
+    res_len = get_line_limit(res) if is_dm else 20
     if res_len < 1:
         return 'No matches found'
-
-    is_dm = message.channel.type is ChannelType.private
-
-    # Find the max number of lines that fit in the message (only for DMs)
-    if is_dm:
-        char_count = 0
-        line_limit = 0
-        for line in res:
-            char_count += len(line) + 1
-            if char_count > 1900:
-                break
-            line_limit += 1
-        # set the new result length to the line limit
-        res_len = line_limit
-
     all_or_n = 'all' if res_len == len(res) else res_len
 
-    lines = [f'I found {len(res)} matches, here are {all_or_n} of them:']
-
-    lines.append('```')
+    lines = [f'I found {len(res)} matches, here are {all_or_n} of them:', '```']
     lines += list(sorted(res[:res_len], key=str.lower))
     lines.append('```')
 
     return '\n'.join(lines)
 
+def is_similar(s1: str, s2: str) -> bool:
+    return jw(s1, s2) > SIMILARITY_THRES
+
 
 def use():
-    return 'search [sfb/column] [--fingers]'
+    return 'search [sfb/column] [--fingers | --name]'
 
 
 def desc():
