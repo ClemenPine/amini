@@ -8,12 +8,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "o": {
+        "u": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "u": {
+        "o": {
             "row": 0,
             "col": 2,
             "finger": "LM"
@@ -58,12 +58,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "a": {
+        "e": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "e": {
+        "a": {
             "row": 1,
             "col": 2,
             "finger": "LM"
