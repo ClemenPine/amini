@@ -41,7 +41,7 @@ def exec(message: Message):
                      [f'Total {freq / total:.3%}', '```'])
 
 def use():
-    return 'pattern [finger string]'
+    return 'pattern [layout name] [finger string]'
 
 def desc():
     return 'see the most common pattern for a given finger string (e.g., RM LI or LP LR LM)'
