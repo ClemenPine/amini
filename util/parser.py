@@ -42,7 +42,7 @@ def get_kwargs(message: Message,
     message_as_list = message.content.split()
     command: list[str] = message_as_list[2:] if message_as_list[0] in TRIGGERS else message_as_list[1:]
     if not command:
-        return {'args': ['']} if arg_type == list else {'args': ''}
+        return {'args': ''} if arg_type == str else {'args': ['']}
 
     words: list[str] = command
     arg_index = 0
