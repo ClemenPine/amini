@@ -8,15 +8,15 @@ from util import parser, memory
 
 # RESTRICTED = True
 
-FINGERS = ['LI', 'LM', 'LR', 'LP', 'RI', 'RM', 'RR', 'RP', 'LT', 'RT']
+FINGERS = ['LI', 'LM', 'LR', 'LP', 'RI', 'RM', 'RR', 'RP', 'LT', 'RT', 'TB']
 FINGER_ALIASES = {
-    'index': {'LI', 'RI'},
+    'index':  {'LI', 'RI'},
     'middle': {'LM', 'RM'},
-    'ring': {'LR', 'RR'},
-    'pinky': {'LP', 'RP'},
-    'thumb': {'LT', "RT'"},
-    'lh': {'LI', 'LM', 'LR', 'LP'},
-    'rh': {'RI', 'RM', 'RR', 'RP'},
+    'ring':   {'LR', 'RR'},
+    'pinky':  {'LP', 'RP'},
+    'thumb':  {'LT', 'RT', 'TB'},
+    'lh': {'LI', 'LM', 'LR', 'LP', 'LT'},
+    'rh': {'RI', 'RM', 'RR', 'RP', 'RT', 'TB'},
 }
 SIMILARITY_THRES = 0.7
 
@@ -24,7 +24,7 @@ def exec(message: Message):
     is_dm = message.channel.type is ChannelType.private
     kwargs: dict[str, str | bool] = parser.get_kwargs(message, str,
                                                       li=bool, lm=bool, lr=bool, lp=bool, lt=bool,
-                                                      ri=bool, rm=bool, rr=bool, rp=bool, rt=bool,
+                                                      ri=bool, rm=bool, rr=bool, rp=bool, rt=bool, tb=bool,
                                                       index=bool, middle=bool, ring=bool, pinky=bool, thumb=bool,
                                                       lh=bool, rh=bool,
                                                       name=list,
@@ -36,7 +36,7 @@ def exec(message: Message):
         return '```\n' \
                'search [sfb/column] [--fingers]\n' \
                'Supported fingers: \n' \
-               'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, index, middle, ring, pinky, thumb, lh, rh, name\n' \
+               'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, tb, index, middle, ring, pinky, thumb, lh, rh, name\n' \
                '```'
     # Only filter by name
     if not sfb:
