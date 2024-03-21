@@ -25,7 +25,7 @@ def get_layout(message: Message) -> Tuple[str, str]:
 
 def get_kwargs(message: Message,
                arg_type: Type[str | list[str]],
-               **cmd_kwargs: Type[bool | list]) -> dict[str, str | bool | list[str]]:
+               **cmd_kwargs: Type[bool | list | str]) -> dict[str, str | bool | list[str]]:
     """
     - message: user's message list[str]
     - arg type: str or list[str]
@@ -41,8 +41,6 @@ def get_kwargs(message: Message,
     """
     message_as_list = message.content.split()
     command: list[str] = message_as_list[2:] if message_as_list[0] in TRIGGERS else message_as_list[1:]
-    if not command:
-        return {'args': ''} if arg_type == str else {'args': ['']}
 
     words: list[str] = command
     arg_index = 0
@@ -55,10 +53,13 @@ def get_kwargs(message: Message,
     args = words[:arg_index]
     parsed_kwargs: dict[str, str | bool | list[str]] = {'args': ' '.join(args) if arg_type == str else args}
     for kw_name, kw_type in cmd_kwargs.items():
-        parsed_kwargs[kw_name] = False if kw_type == bool else []
+        parsed_kwargs[kw_name] = (False if kw_type == bool
+                                  else [] if kw_type == list
+                                  else '')
 
     words = words[arg_index:]
     last_in_list = 0
+    last_kwarg_type = list
     last_list_kwarg = ''
     in_list = False
     for index, word in enumerate(words):
@@ -68,19 +69,22 @@ def get_kwargs(message: Message,
 
             # Encountered next keyword, stops previous list
             if in_list:
-                parsed_kwargs[last_list_kwarg] = words[last_in_list:index]
+                parsed_kwargs[last_list_kwarg] = (words[last_in_list:index] if last_kwarg_type == list
+                                                  else ' '.join(words[i] for i in range(last_in_list, index)))
 
-            in_list = kw_type == list
+            in_list = kw_type == list or kw_type == str
             parsed_kwargs[word] = [] if in_list else True
 
             # Starts a new list after kwarg
             if in_list:
+                last_kwarg_type = kw_type
                 last_list_kwarg = word
                 last_in_list = index + 1
 
     # Close the last list
     if in_list:
-        parsed_kwargs[last_list_kwarg] = words[last_in_list:]
+        parsed_kwargs[last_list_kwarg] = (words[last_in_list:] if last_kwarg_type == list
+                                          else ' '.join(words[i] for i in range(last_in_list, len(words))))
 
     return parsed_kwargs
 
