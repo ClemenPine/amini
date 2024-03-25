@@ -34,4 +34,9 @@ def exec(message: Message):
 	total = sum(ngrams.values())
 
 	return f"`{' '.join(query)}` occur in {count / total:.2%} of `{corpus}`"
-	
+
+def use():
+	return "freq [ngrams ...]"
+
+def desc():
+	return "see the frequency of ngrams"
