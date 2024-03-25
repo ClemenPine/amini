@@ -119,3 +119,9 @@ def exec(message: Message):
         f'{index}: {value:{value_formatter}} -- {name}'
         for index, (value, name) in enumerate(results, start=start)
         ) + '```'
+
+def use():
+    return 'rank [metric]'
+
+def desc():
+    return 'rank layouts based on a metric'
