@@ -25,80 +25,66 @@ def get_layout(message: Message) -> Tuple[str, str]:
 
 def get_kwargs(message: Message,
                arg_type: Type[str | list[str]],
-               **cmd_kwargs: Type[bool | list]) -> dict[str, str | bool | list[str]]:
+               **cmd_kwargs: Type[bool | list | str]) -> dict[str, str | bool | list[str]]:
     """
     - message: user's message list[str]
     - arg type: str or list[str]
-    - kwargs: arguments with `--` prefix (or '—', '––')
+    - kwargs: arguments with `--` prefix (or `—`, `––`)
+    - kwargs type: bool or list (of str)
     - example:
-        `get_kwargs(Message, min=bool, max=bool)`
-    - return:
-        `dict {'args': str or list[str], 'kwarg1': Any, 'kwarg2': ...}`
+        ```
+        # message.content == "this is args --flag this is ignored --text this is kwargs"
+        kwargs = get_kwargs(message, str, flag=bool, text=list)
+        assert kwargs == {"args": "this is args", "flag": True, "text": ["this", "is", "kwargs"]}
+        ```
+    - reserved names (CANNOT be kwarg names): `message`, `arg_type`, `args`
     """
     message_as_list = message.content.split()
     command: list[str] = message_as_list[2:] if message_as_list[0] in TRIGGERS else message_as_list[1:]
 
-    if not command:
-        if arg_type == list[str]:
-            return {'args': ['']}
-        else:
-            return {'args': ''}
-
-    if 'args' in cmd_kwargs:
-        cmd_kwargs.pop('args')  # reserved, no 'args' in kwargs
-
-    args: str | list[str] = ''
-    if starts_with_kw_prefix(command[0]):
-        args = command[0]
-        command.pop(0)
-
-    # ensure all positional
-    kwargs_start_index = 0
-    for i, word in enumerate(command):
-        if starts_with_kw_prefix(word) and remove_kw_prefix(word).lower() in cmd_kwargs:
-            kwargs_start_index = i
+    words: list[str] = command
+    arg_index = 0
+    for word in words:
+        if is_kwarg(cmd_kwargs, word):
             break
-        args += ' ' + word
-    args = args.strip()
-    if arg_type == list[str]:
-        args = args.split()
+        arg_index += 1
 
     # make default dict
-    parsed_kwargs = {'args': args}
+    args = words[:arg_index]
+    parsed_kwargs: dict[str, str | bool | list[str]] = {'args': ' '.join(args) if arg_type == str else args}
     for kw_name, kw_type in cmd_kwargs.items():
-        if kw_type == bool:
-            default = False
-        elif kw_type == list:
-            default = []
-        else:
-            default = None
-        parsed_kwargs[kw_name] = default
+        parsed_kwargs[kw_name] = (False if kw_type == bool
+                                  else [] if kw_type == list
+                                  else '')
 
-    # handle keyword
-    temp_list = []
-    prev_word = ''
+    words = words[arg_index:]
+    last_in_list = 0
+    last_kwarg_type = list
+    last_list_kwarg = ''
     in_list = False
-    for word in command[kwargs_start_index:]:
-        word = remove_kw_prefix(word).lower()
+    for index, word in enumerate(words):
+        if is_kwarg(cmd_kwargs, word):
+            word = remove_kw_prefix(word)
+            kw_type = cmd_kwargs[word]
 
-        if word not in cmd_kwargs:
+            # Encountered next keyword, stops previous list
             if in_list:
-                temp_list.append(word)
-            continue
+                parsed_kwargs[last_list_kwarg] = (words[last_in_list:index] if last_kwarg_type == list
+                                                  else ' '.join(words[i] for i in range(last_in_list, index)))
 
-        kw_type = cmd_kwargs.get(word, None)
-        if in_list and kw_type is not None:  # encountered next keyword
-            parsed_kwargs[prev_word] = temp_list.copy()
-            temp_list.clear()
-            in_list = False
-        if kw_type == bool:
-            parsed_kwargs[word] = True
-        if kw_type == list:
-            in_list = True
-            prev_word = word
+            in_list = kw_type == list or kw_type == str
+            parsed_kwargs[word] = [] if in_list else True
 
+            # Starts a new list after kwarg
+            if in_list:
+                last_kwarg_type = kw_type
+                last_list_kwarg = word
+                last_in_list = index + 1
+
+    # Close the last list
     if in_list:
-        parsed_kwargs[prev_word] = temp_list
+        parsed_kwargs[last_list_kwarg] = (words[last_in_list:] if last_kwarg_type == list
+                                          else ' '.join(words[i] for i in range(last_in_list, len(words))))
 
     return parsed_kwargs
 
@@ -109,4 +95,10 @@ def starts_with_kw_prefix(word: str) -> bool:
 def remove_kw_prefix(word: str) -> str:
     for prefix in ('--', '—', '––'):
         word = word.removeprefix(prefix)
-    return word
+    return word.lower()
+
+def is_kwarg(kwargs: dict[str, Type[bool | list]], word: str) -> bool:
+    if not starts_with_kw_prefix(word):
+        return False
+    word = remove_kw_prefix(word)
+    return word in kwargs

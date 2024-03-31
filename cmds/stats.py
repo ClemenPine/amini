@@ -22,7 +22,7 @@ def exec(message: Message):
         '```',
         '--- CMINI STATS ---',
         f'Layouts: {len(files)}',
-        f'Authors: {len(authors)}',
+        f'Authors: {len(set(authors.values()))}',
         '',
         f'Most liked layouts:',
     ]

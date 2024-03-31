@@ -61,6 +61,61 @@ def get_matrix_str(ll: Layout) -> str:
     return '\n'.join(' '.join(x) for x in get_matrix(ll))
 
 
+def get_fingermatrix(ll: Layout) -> list[list[str]]:
+    max_width = max(x.col for x in ll.keys.values()) + 1
+    max_height = max(x.row for x in ll.keys.values()) + 1
+
+    matrix = [[' '] * max_width for _ in range(max_height)]
+
+    for pos in ll.keys.values():
+        finger = pos.finger
+        replacements = {
+            'LP': '0',
+            'LR': '1',
+            'LM': '2',
+            'LI': '3',
+            'RI': '4',
+            'RM': '5',
+            'RR': '6',
+            'RP': '7', 
+            'LT': '8',
+            'RT': '9',
+            'TB': '9'
+        }
+        
+        for key, value in replacements.items():
+            finger = finger.replace(key, value)
+
+        matrix[pos.row][pos.col] = finger
+
+    for i, row in enumerate(matrix):
+        for j, _ in enumerate(row):
+            val = matrix[i][j]
+
+            if j == 0:
+                matrix[i][j] = '  ' + val
+            elif j == 4:
+                matrix[i][j] += ' '
+
+    if ll.board == 'stagger':
+        matrix[1][0] = ' ' + matrix[1][0]
+        matrix[2][0] = '  ' + matrix[2][0]
+    elif ll.board == 'angle':
+        matrix[2][0] = ' ' + matrix[2][0]
+    elif ll.board == 'mini':
+        matrix[2][0] = '  ' + matrix[2][0]
+
+    if len(matrix) > 3:
+        indent = 6 if matrix[3][0].strip() == '8' else 13
+        matrix[3][0] = ' ' * indent + matrix[3][0]
+
+    return matrix
+
+
+def get_fingermatrix_str(ll: Layout) -> str:
+    return '\n'.join(' '.join(x) for x in get_fingermatrix(ll))
+
+
 def stats_str(stats: JSON, use: JSON) -> str:
     return (f' {"Alt:":>5} {stats["alternate"]:>6.2%}\n'
             f' {"Rol:":>5} {stats["roll-in"] + stats["roll-out"]:>6.2%}'
