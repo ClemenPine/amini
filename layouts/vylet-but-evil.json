@@ -1,5 +1,5 @@
 {
-    "name": "vylet",
+    "name": "vylet-but-evil",
     "user": 119825772901957632,
     "board": "ortho",
     "keys": {
@@ -28,12 +28,12 @@
             "col": 4,
             "finger": "LI"
         },
-        "z": {
+        "x": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "l": {
+        "r": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -58,7 +58,7 @@
             "col": 10,
             "finger": "RP"
         },
-        "r": {
+        "l": {
             "row": 1,
             "col": 0,
             "finger": "LP"
@@ -138,12 +138,12 @@
             "col": 4,
             "finger": "LI"
         },
-        "x": {
+        "z": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "*": {
+        "/": {
             "row": 2,
             "col": 6,
             "finger": "RI"
