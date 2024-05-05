@@ -12,7 +12,7 @@ def use(ll: Layout, grams: Dict[str, str]):
     
     for gram, count in grams.items():
         gram = gram.lower()
-        
+
         if gram not in ll.keys:
             continue
 
@@ -39,7 +39,7 @@ def trigrams(ll: Layout, grams: Dict[str, int]):
 
     for gram, count in grams.items():
         gram = gram.lower()
-        
+
         if ' ' in gram:
             continue
 

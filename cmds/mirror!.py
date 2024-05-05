@@ -28,27 +28,27 @@ def modify(ll: Layout):
     angle_mod = ll.board == 'angle'
 
     for key in ll.keys.values():
-        if key['col'] >= 10:
+        if key.col >= 10:
             continue
 
-        if key['row'] != 3:
-            key['col'] = 9 - key['col']
+        if key.row != 3:
+            key.col = 9 - key.col
 
-        key['finger'] = __mirror_finger(key['finger'])
-        if angle_mod and key['row'] == 2:
+        key.finger = __mirror_finger(key.finger)
+        if angle_mod and key.row == 2:
             # We want to unangle the new right, angle the new left
             # but the columns were flipped earlier
             # original -> flipped -> angled/unangled
             # (L) xcvbz -> (R) zbvcx -> (R) bvcxz
             # (R) nm,./ -> (L) /.,mn -> (L) .,mn/
-            if key['col'] == 0:
-                key['col'] = 4
-                key['finger'] = 'LI'
-            elif key['col'] == 5:
-                key['col'] = 9
-                key['finger'] = 'RP'
+            if key.col == 0:
+                key.col = 4
+                key.finger = 'LI'
+            elif key.col == 5:
+                key.col = 9
+                key.finger = 'RP'
             else:
-                key['col'] -= 1
+                key.col -= 1
 
 
 def use():
