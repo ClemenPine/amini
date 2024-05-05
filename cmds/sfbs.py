@@ -11,6 +11,7 @@ def exec(message: Message):
 
     lines = []
     for gram, count in bigrams.items():
+        gram = gram.lower()
         if len(set(gram)) != len(gram): # ignore repeats
             continue
 
