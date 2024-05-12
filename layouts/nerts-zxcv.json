@@ -1,5 +1,5 @@
 {
-    "name": "Nerts-ZXCV",
+    "name": "nerts-zxcv",
     "user": 401316842083450881,
     "board": "ortho",
     "keys": {
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "'": {
+        ";": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -138,7 +138,7 @@
             "col": 6,
             "finger": "RI"
         },
-        ";": {
+        "'": {
             "row": 2,
             "col": 7,
             "finger": "RM"
@@ -153,6 +153,5 @@
             "col": 9,
             "finger": "RP"
         }
-    },
-    "free": []
+    }
 }

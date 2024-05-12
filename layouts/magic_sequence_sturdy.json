@@ -1,9 +1,9 @@
 {
-    "name": "magic_sturdy",
+    "name": "magic_sequence_sturdy",
     "user": 677630020696408090,
     "board": "ortho",
     "keys": {
-        "v": {
+        "b": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -28,7 +28,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        "j": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -103,7 +103,12 @@
             "col": 9,
             "finger": "RP"
         },
-        "x": {
+        "'": {
+            "row": 1,
+            "col": 10,
+            "finger": "RP"
+        },
+        "v": {
             "row": 2,
             "col": 0,
             "finger": "LP"
@@ -113,7 +118,7 @@
             "col": 1,
             "finger": "LR"
         },
-        "j": {
+        "x": {
             "row": 2,
             "col": 2,
             "finger": "LM"
@@ -138,12 +143,12 @@
             "col": 6,
             "finger": "RI"
         },
-        ";": {
+        "-": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "'": {
+        "?": {
             "row": 2,
             "col": 8,
             "finger": "RR"
