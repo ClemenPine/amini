@@ -1,9 +1,9 @@
 {
-    "name": "reddd",
+    "name": "rec",
     "user": 717068268031967263,
     "board": "ortho",
     "keys": {
-        "z": {
+        "f": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -18,22 +18,22 @@
             "col": 2,
             "finger": "LM"
         },
-        "w": {
+        "l": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "|": {
+        "q": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "q": {
+        "v": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "j": {
+        "y": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -68,22 +68,22 @@
             "col": 2,
             "finger": "LM"
         },
-        "c": {
+        "h": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "j": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "m": {
+        "w": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "h": {
+        "c": {
             "row": 1,
             "col": 6,
             "finger": "RI"
@@ -103,7 +103,7 @@
             "col": 9,
             "finger": "RP"
         },
-        "f": {
+        "z": {
             "row": 2,
             "col": 0,
             "finger": "LP"
@@ -118,22 +118,22 @@
             "col": 2,
             "finger": "LM"
         },
-        "g": {
+        "m": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "y": {
+        "|": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        ";": {
+        "_": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "l": {
+        "g": {
             "row": 2,
             "col": 6,
             "finger": "RI"
