@@ -1,0 +1,127 @@
+{
+    "name": "meowing",
+    "user": 1207294104950542337,
+    "board": "ortho",
+    "keys": {
+        ":": {
+            "row": 0,
+            "col": 0,
+            "finger": "LP"
+        },
+        "3": {
+            "row": 0,
+            "col": 1,
+            "finger": "LR"
+        },
+        "\u02d0": {
+            "row": 0,
+            "col": 2,
+            "finger": "LM"
+        },
+        "\u0292": {
+            "row": 0,
+            "col": 3,
+            "finger": "LI"
+        },
+        "\u02f8": {
+            "row": 0,
+            "col": 5,
+            "finger": "RI"
+        },
+        "\u021d": {
+            "row": 0,
+            "col": 6,
+            "finger": "RI"
+        },
+        "\u0589": {
+            "row": 0,
+            "col": 7,
+            "finger": "RM"
+        },
+        "\u0437": {
+            "row": 0,
+            "col": 8,
+            "finger": "RR"
+        },
+        "\uff1a": {
+            "row": 1,
+            "col": 0,
+            "finger": "LP"
+        },
+        "\u04e1": {
+            "row": 1,
+            "col": 1,
+            "finger": "LR"
+        },
+        "\ufe30": {
+            "row": 1,
+            "col": 2,
+            "finger": "LM"
+        },
+        "\ud835\udfd1": {
+            "row": 1,
+            "col": 3,
+            "finger": "LI"
+        },
+        "\u16ec": {
+            "row": 1,
+            "col": 5,
+            "finger": "RI"
+        },
+        "\ua76b": {
+            "row": 1,
+            "col": 6,
+            "finger": "RI"
+        },
+        "\u205a": {
+            "row": 1,
+            "col": 7,
+            "finger": "RM"
+        },
+        "\u025c": {
+            "row": 1,
+            "col": 8,
+            "finger": "RR"
+        },
+        ";": {
+            "row": 2,
+            "col": 0,
+            "finger": "LP"
+        },
+        "\uff13": {
+            "row": 2,
+            "col": 1,
+            "finger": "LR"
+        },
+        "\ua789": {
+            "row": 2,
+            "col": 2,
+            "finger": "LM"
+        },
+        "\ud835\udff9": {
+            "row": 2,
+            "col": 3,
+            "finger": "LI"
+        },
+        "\ua4fd": {
+            "row": 2,
+            "col": 5,
+            "finger": "RI"
+        },
+        "\ud835\udfe5": {
+            "row": 2,
+            "col": 6,
+            "finger": "RI"
+        },
+        "\u2236": {
+            "row": 2,
+            "col": 7,
+            "finger": "RM"
+        },
+        "\ud835\udfdb": {
+            "row": 2,
+            "col": 8,
+            "finger": "RR"
+        }
+    }
+}

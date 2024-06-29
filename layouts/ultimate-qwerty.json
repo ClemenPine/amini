@@ -1,0 +1,37 @@
+{
+    "name": "ultimate-qwerty",
+    "user": 1048625800469028915,
+    "board": "ortho",
+    "keys": {
+        "q": {
+            "row": 0,
+            "col": 0,
+            "finger": "LP"
+        },
+        "r": {
+            "row": 0,
+            "col": 1,
+            "finger": "LR"
+        },
+        "w": {
+            "row": 1,
+            "col": 0,
+            "finger": "LP"
+        },
+        "t": {
+            "row": 1,
+            "col": 1,
+            "finger": "LR"
+        },
+        "e": {
+            "row": 2,
+            "col": 0,
+            "finger": "LP"
+        },
+        "y": {
+            "row": 2,
+            "col": 1,
+            "finger": "LR"
+        }
+    }
+}

@@ -37,6 +37,7 @@ def exec(message: Message):
 
     return f'```\n' \
            f'{new_ll.name}(new) - {old_ll.name}(old)\n' \
+           f'{layout.get_commonmatrix_str(old_ll, new_ll)}\n' \
            f'\n' \
            f'{corpus_name}:\n' \
            f'{layout.stats_str(new_stats, new_use)}' \

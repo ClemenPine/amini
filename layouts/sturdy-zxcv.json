@@ -1,5 +1,5 @@
 {
-    "name": "sturdy-ZXCV",
+    "name": "sturdy-zxcv",
     "user": 401316842083450881,
     "board": "ortho",
     "keys": {
@@ -153,6 +153,5 @@
             "col": 9,
             "finger": "RP"
         }
-    },
-    "free": []
+    }
 }
