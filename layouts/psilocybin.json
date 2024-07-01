@@ -88,7 +88,7 @@
             "col": 5,
             "finger": "RI"
         },
-        "*": {
+        "\u269d": {
             "row": 1,
             "col": 6,
             "finger": "RI"
@@ -156,6 +156,11 @@
         ",": {
             "row": 3,
             "col": 0,
+            "finger": "RT"
+        },
+        "\u2b21": {
+            "row": 3,
+            "col": 1,
             "finger": "RT"
         }
     }

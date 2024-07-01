@@ -18,7 +18,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "\u2144": {
+        "'": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -28,12 +28,12 @@
             "col": 4,
             "finger": "LI"
         },
-        "y": {
+        "w": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "w": {
+        "p": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -78,7 +78,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "g": {
+        "y": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -133,12 +133,12 @@
             "col": 5,
             "finger": "RI"
         },
-        "p": {
+        "g": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "'": {
+        "_": {
             "row": 2,
             "col": 7,
             "finger": "RM"
@@ -153,14 +153,9 @@
             "col": 9,
             "finger": "RP"
         },
-        "|": {
-            "row": 3,
-            "col": 0,
-            "finger": "LT"
-        },
         "r": {
             "row": 3,
-            "col": 1,
+            "col": 0,
             "finger": "LT"
         }
     }

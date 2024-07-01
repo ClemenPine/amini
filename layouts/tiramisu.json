@@ -53,11 +53,6 @@
             "col": 9,
             "finger": "RP"
         },
-        "-": {
-            "row": 0,
-            "col": 10,
-            "finger": "RP"
-        },
         "i": {
             "row": 1,
             "col": 0,
@@ -106,11 +101,6 @@
         "u": {
             "row": 1,
             "col": 9,
-            "finger": "RP"
-        },
-        "/": {
-            "row": 1,
-            "col": 10,
             "finger": "RP"
         },
         "j": {
@@ -163,6 +153,5 @@
             "col": 9,
             "finger": "RP"
         }
-    },
-    "free": []
+    }
 }
