@@ -3,7 +3,7 @@
     "user": 717068268031967263,
     "board": "ortho",
     "keys": {
-        "f": {
+        "z": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -13,12 +13,12 @@
             "col": 1,
             "finger": "LR"
         },
-        "l": {
+        "k": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "k": {
+        "j": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -53,12 +53,12 @@
             "col": 1,
             "finger": "LR"
         },
-        "h": {
+        "t": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "t": {
+        "h": {
             "row": 1,
             "col": 3,
             "finger": "LI"
@@ -93,7 +93,7 @@
             "col": 9,
             "finger": "RP"
         },
-        "z": {
+        "f": {
             "row": 2,
             "col": 0,
             "finger": "LP"
@@ -103,12 +103,12 @@
             "col": 1,
             "finger": "LR"
         },
-        "j": {
+        "d": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "d": {
+        "l": {
             "row": 2,
             "col": 3,
             "finger": "LI"
