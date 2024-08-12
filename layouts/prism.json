@@ -1,19 +1,19 @@
 {
     "name": "prism",
     "user": 252155920157507584,
-    "board": "angle",
+    "board": "ortho",
     "keys": {
-        "f": {
+        "b": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "l": {
+        "r": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "h": {
+        "l": {
             "row": 0,
             "col": 2,
             "finger": "LM"
@@ -33,7 +33,7 @@
             "col": 5,
             "finger": "RI"
         },
-        "x": {
+        "j": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -58,12 +58,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "r": {
+        "n": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "n": {
+        "h": {
             "row": 1,
             "col": 2,
             "finger": "LM"
@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "b": {
+        "y": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "y": {
+        "p": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -103,27 +103,27 @@
             "col": 9,
             "finger": "RP"
         },
-        "j": {
+        "z": {
             "row": 2,
             "col": 0,
+            "finger": "LP"
+        },
+        "x": {
+            "row": 2,
+            "col": 1,
             "finger": "LR"
         },
         "m": {
             "row": 2,
-            "col": 1,
-            "finger": "LM"
-        },
-        "p": {
-            "row": 2,
             "col": 2,
-            "finger": "LI"
+            "finger": "LM"
         },
         "c": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "f": {
             "row": 2,
             "col": 4,
             "finger": "LI"

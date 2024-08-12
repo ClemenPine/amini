@@ -48,17 +48,17 @@
             "col": 8,
             "finger": "RR"
         },
-        "\u00e7": {
+        "y": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "y": {
+        "z": {
             "row": 0,
             "col": 10,
             "finger": "RP"
         },
-        "z": {
+        "k": {
             "row": 0,
             "col": 11,
             "finger": "RP"
@@ -128,7 +128,7 @@
             "col": 11,
             "finger": "RP"
         },
-        "k": {
+        "\u00e7": {
             "row": 2,
             "col": 0,
             "finger": "LP"
