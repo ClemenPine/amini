@@ -1,14 +1,14 @@
 {
-    "name": "cyan",
+    "name": "Cyan",
     "user": 657688933001330718,
     "board": "ortho",
     "keys": {
-        "y": {
+        "w": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "w": {
+        "y": {
             "row": 0,
             "col": 1,
             "finger": "LR"

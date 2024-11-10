@@ -151,12 +151,12 @@
         "r": {
             "row": 3,
             "col": 0,
-            "finger": "LT"
+            "finger": "RT"
         },
         "q": {
             "row": 3,
             "col": 1,
-            "finger": "LT"
+            "finger": "RT"
         }
     }
 }
