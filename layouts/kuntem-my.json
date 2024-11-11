@@ -1,5 +1,5 @@
 {
-    "name": "kuntem-pm",
+    "name": "kuntem-my",
     "user": 1235943621803511901,
     "board": "angle",
     "keys": {
@@ -28,12 +28,12 @@
             "col": 4,
             "finger": "LI"
         },
-        "'": {
+        "j": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "w": {
+        "g": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "j": {
+        "q": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "m": {
+        "f": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "p": {
+        "w": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -113,7 +113,7 @@
             "col": 1,
             "finger": "LM"
         },
-        "f": {
+        "p": {
             "row": 2,
             "col": 2,
             "finger": "LI"
@@ -123,17 +123,17 @@
             "col": 3,
             "finger": "LI"
         },
-        "q": {
+        "'": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "g": {
+        "y": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "y": {
+        "m": {
             "row": 2,
             "col": 6,
             "finger": "RI"
