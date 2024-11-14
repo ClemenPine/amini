@@ -1,5 +1,5 @@
 {
-    "name": "cetus",
+    "name": "Cetus",
     "user": 657688933001330718,
     "board": "ortho",
     "keys": {
@@ -68,7 +68,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "b": {
+        "d": {
             "row": 1,
             "col": 3,
             "finger": "LI"
@@ -103,7 +103,7 @@
             "col": 9,
             "finger": "RP"
         },
-        "'": {
+        ";": {
             "row": 2,
             "col": 0,
             "finger": "LP"
@@ -118,7 +118,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "d": {
+        "b": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -143,7 +143,7 @@
             "col": 7,
             "finger": "RM"
         },
-        ";": {
+        "'": {
             "row": 2,
             "col": 8,
             "finger": "RR"
