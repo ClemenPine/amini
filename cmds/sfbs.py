@@ -10,6 +10,7 @@ def exec(message: Message):
     total = sum(bigrams.values())
 
     lines = []
+    sfb_total = 0
     for gram, count in bigrams.items():
         gram = gram.lower()
         if len(set(gram)) != len(gram): # ignore repeats
@@ -19,6 +20,9 @@ def exec(message: Message):
 
         if len(set(fingers)) != len(fingers):
             lines.append(f'{gram:<5} {count / total:.3%}')
+            sfb_total += count
+
+    lines.append(f"Total: {sfb_total / total: .3%}")
 
     return '\n'.join(['```', f'Top 10 {ll.name} SFBs:'] + lines[:10] + ['```'])
 
