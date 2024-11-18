@@ -22,9 +22,12 @@ def exec(message: Message):
             lines.append(f'{gram:<5} {count / total:.3%}')
             sfb_total += count
 
+        if len(lines) == 10:
+            break
+
     lines.append(f"Total: {sfb_total / total: .3%}")
 
-    return '\n'.join(['```', f'Top 10 {ll.name} SFBs:'] + lines[:10] + ['```'])
+    return '\n'.join(['```', f'Top 10 {ll.name} SFBs:'] + lines + ['```'])
 
 def use():
     return 'sfbs [layout name]'
