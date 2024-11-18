@@ -26,7 +26,7 @@ def exec(message: Message):
 
     return '\n'.join(['```', f'Top 10 {ll.name} SFBs:'] +
                      [f'{gram:<6} {count / total:.3%}' for (gram, count), i in zip(sfbs, range(10))] +
-                     [f'Total: {sfb_total / total: .3%}', '```'])
+                     [f'Total: {sfb_total / total:.3%}', '```'])
 
 def use():
     return 'sfbs [layout name]'
