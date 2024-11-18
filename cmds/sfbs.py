@@ -10,6 +10,7 @@ def exec(message: Message):
     total = sum(bigrams.values())
 
     lines = []
+    sfbs = {}
     sfb_total = 0
     for gram, count in bigrams.items():
         gram = gram.lower()
@@ -19,15 +20,17 @@ def exec(message: Message):
         fingers = [ll.keys[x].finger for x in gram if x in ll.keys]
 
         if len(set(fingers)) != len(fingers):
-            lines.append(f'{gram:<5} {count / total:.3%}')
+            sfbs[gram] = sfbs.get(gram, 0) + count
             sfb_total += count
 
-        if len(lines) == 10:
-            break
+    sfbs = sorted(sfbs.items(), key=lambda x: x[1], reverse=True)
 
-    lines.append(f"Total: {sfb_total / total: .3%}")
+    for (gram, count), i in zip(sfbs, range(10))
+        lines.append(f'{gram:<6} {count / total:.3%}')
 
-    return '\n'.join(['```', f'Top 10 {ll.name} SFBs:'] + lines + ['```'])
+    return '\n'.join(['```', f'Top 10 {ll.name} SFBs:'] +
+                     lines +
+                     [f'Total: {sfb_total / total: .3%}', '```'])
 
 def use():
     return 'sfbs [layout name]'
