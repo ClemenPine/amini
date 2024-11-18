@@ -1,9 +1,9 @@
 {
     "name": "yugen",
     "user": 377291081542533121,
-    "board": "ortho",
+    "board": "angle",
     "keys": {
-        ";": {
+        "'": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -73,7 +73,7 @@
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "z": {
             "row": 1,
             "col": 4,
             "finger": "LI"
@@ -104,26 +104,31 @@
             "finger": "RP"
         },
         ",": {
-            "row": 2,
-            "col": 0,
-            "finger": "LP"
-        },
-        "/": {
-            "row": 2,
-            "col": 1,
-            "finger": "LR"
+            "row": 1,
+            "col": 10,
+            "finger": "RP"
         },
         ".": {
             "row": 2,
-            "col": 2,
+            "col": 0,
+            "finger": "LR"
+        },
+        ";": {
+            "row": 2,
+            "col": 1,
             "finger": "LM"
+        },
+        "v": {
+            "row": 2,
+            "col": 2,
+            "finger": "LI"
         },
         "y": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "/": {
             "row": 2,
             "col": 4,
             "finger": "LI"
