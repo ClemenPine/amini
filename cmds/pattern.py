@@ -1,5 +1,6 @@
 from discord import Message
 from util import corpora, memory, parser
+from functools import reduce
 
 def exec(message: Message):
     args = parser.get_args(message)
@@ -18,34 +19,38 @@ def exec(message: Message):
     ll = memory.find(name)
     if not ll:
         return f'Error: couldn\'t find any layout named `{name}`'
-    
-    allowed_fingers = set(["LI", "LM", "LR", "LP", "RI", "RM", "RR", "RP", "LT", "RT", "TB"])
+
+    allowed_fingers = set(["LI", "LM", "LR", "LP", "RI", "RM", "RR", "RP", "LT", "RT", "TB", "_"])
 
     if not all(finger in allowed_fingers for finger in query):
         return "Please provide valid finger values (e.g., LI)"
-    
+
     ngrams = corpora.ngrams(len(query), id=message.author.id)
     freq = 0
     total = sum(ngrams.values())
-    lines = []
-    
+    ngrams = {}
+
     for gram, count in ngrams.items():
         gram = gram.lower()
         if len(set(gram)) != len(gram):
             continue
 
-        fingers = '-'.join(query)
-        key = '-'.join([ll.keys[x].finger for x in gram if x in ll.keys])
-        
-        if fingers in key:
+        fingers = [list(allowed_fingers) if finger == "_" else [finger.split("|")] for finger in query]
+        keys = [ll.keys[x].finger for x in gram if x in ll.keys]
+
+        if (reduce(lambda a, i: a and i[0] in i[1],
+                   zip(keys, fingers),
+                   True)):
+            ngrams[gram] = ngrams.get(gram, 0) + count
             freq += count
-            lines.append(f'{gram:<5} {count / total:.3%}')
+
+    ngrams = sorted(ngrams.items(), key=lambda x: x[1], reverse=True)
 
     return '\n'.join([
         '```',
-        f'Top 10 {ll.name} Patterns for {fingers}:',
-        *lines[:10],
-        f'Total {freq / total:.3%}',
+        f'Top 10 {ll.name} Patterns for {'-'.join(query)}:'] +
+        [f'{gram:<6} {count / total:.3%}' for (gram, count), i in zip(ngrams, range(10))] +
+        [f'Total {freq / total:.3%}',
         '```'
     ])
 
