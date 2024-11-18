@@ -40,7 +40,7 @@ def exec(message: Message):
             ngrams[gram] = ngrams.get(gram, 0) + count
             freq += count
 
-    lines = [f'{gram:<6} {count / total:.3%}' for gram, count in sorted(ngrams.items(), reverse=True)[:10]]
+    lines = [f'{gram:<6} {count / total:.3%}' for gram, count in sorted(ngrams.items(), key=lambda x: x[1], reverse=True)[:10]]
 
     return '\n'.join([
         '```',
