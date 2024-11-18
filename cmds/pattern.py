@@ -3,7 +3,7 @@ from util import corpora, memory, parser
 
 def exec(message: Message):
     args = parser.get_args(message)
-    name, query = args[0], args[1:]
+    name, query = args[0], [arg.upper() for arg in args[1:]]
 
     if not name:
         return "Please provide a layout"
