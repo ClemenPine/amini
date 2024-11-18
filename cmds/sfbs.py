@@ -9,7 +9,6 @@ def exec(message: Message):
     bigrams = corpora.ngrams(2, id=message.author.id)
     total = sum(bigrams.values())
 
-    lines = []
     sfbs = {}
     sfb_total = 0
     for gram, count in bigrams.items():
@@ -25,11 +24,8 @@ def exec(message: Message):
 
     sfbs = sorted(sfbs.items(), key=lambda x: x[1], reverse=True)
 
-    for (gram, count), i in zip(sfbs, range(10))
-        lines.append(f'{gram:<6} {count / total:.3%}')
-
     return '\n'.join(['```', f'Top 10 {ll.name} SFBs:'] +
-                     lines +
+                     [f'{gram:<6} {count / total:.3%}' for (gram, count), i in zip(sfbs, range(10))] +
                      [f'Total: {sfb_total / total: .3%}', '```'])
 
 def use():
