@@ -1,6 +1,5 @@
 from discord import Message
 from util import corpora, memory, parser
-from functools import reduce
 
 def exec(message: Message):
     args = parser.get_args(message)
@@ -22,7 +21,8 @@ def exec(message: Message):
 
     allowed_fingers = set(["LI", "LM", "LR", "LP", "RI", "RM", "RR", "RP", "LT", "RT", "TB", "_"])
 
-    if not all(finger in allowed_fingers for finger in query):
+    # if not all(finger in allowed_fingers for finger in query):
+    if not all(all(finger in allowed_fingers for finger in '|'.split(node)) for node in query):
         return "Please provide valid finger values (e.g., LI)"
 
     ngrams = corpora.ngrams(len(query), id=message.author.id)
@@ -38,9 +38,7 @@ def exec(message: Message):
         fingers = [list(allowed_fingers) if finger == "_" else [finger.split("|")] for finger in query]
         keys = [ll.keys[x].finger for x in gram if x in ll.keys]
 
-        if (reduce(lambda a, i: a and i[0] in i[1],
-                   zip(keys, fingers),
-                   True)):
+        if all(key in finger for key, finger in zip(keys,fingers)):
             ngrams[gram] = ngrams.get(gram, 0) + count
             freq += count
 
