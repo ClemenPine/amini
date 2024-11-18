@@ -4,13 +4,12 @@ from util import corpora, memory, parser
 def exec(message: Message):
     args = parser.get_args(message)
     name, query = args[0], args[1:]
-    ntype = len(query[0]) if len(query) > 0 else None
 
     if not name:
         return "Please provide a layout"
 
-    if not query or ntype != 2:
-        return "Please provide valid finger values (e.g., LI)"
+    if not query:
+        return "Please provide finger values (e.g., LI, _, LI|RR)"
 
     if len(query) > len(corpora.NGRAMS):
         return "Please provide no more than 3 finger values"
@@ -19,11 +18,10 @@ def exec(message: Message):
     if not ll:
         return f'Error: couldn\'t find any layout named `{name}`'
 
-    allowed_fingers = set(["LI", "LM", "LR", "LP", "RI", "RM", "RR", "RP", "LT", "RT", "TB", "_"])
+    allowed_fingers = {"LI", "LM", "LR", "LP", "RI", "RM", "RR", "RP", "LT", "RT", "TB", "_"}
 
-    # if not all(finger in allowed_fingers for finger in query):
-    if not all(all(finger in allowed_fingers for finger in '|'.split(node)) for node in query):
-        return "Please provide valid finger values (e.g., LI)"
+    if not all(all(finger in allowed_fingers for finger in node.split('|')) for node in query):
+        return "Please provide valid finger values (e.g., LI, _, LI|RR)"
 
     ngrams = corpora.ngrams(len(query), id=message.author.id)
     freq = 0
@@ -47,7 +45,7 @@ def exec(message: Message):
     return '\n'.join([
         '```',
         f'Top 10 {ll.name} Patterns for {'-'.join(query)}:'] +
-        [f'{gram:<6} {count / total:.3%}' for (gram, count), i in zip(ngrams, range(10))] +
+        [f'{gram:<6} {count / total:.3%}' for (gram, count), _ in zip(ngrams, range(10))] +
         [f'Total {freq / total:.3%}',
         '```'
     ])
@@ -56,4 +54,4 @@ def use():
     return 'pattern [layout name] [finger string]'
 
 def desc():
-    return 'see the most common pattern for a given finger string (e.g., RM LI or LP LR LM)'
+    return 'see the most common pattern for a given finger string (e.g., RM LI|RR or LP _ LM)'
