@@ -26,7 +26,7 @@ def exec(message: Message):
     total = 0
     freq = 0
     ngrams = {}
-    fingers = [list(allowed_fingers) if finger == '_' else [finger.split('|')] for finger in query]
+    fingers = ['|'.join(allowed_fingers) if finger == '_' else finger for finger in query]
 
     for gram, count in corpora.ngrams(len(query), id=message.author.id).items():
         total += count
@@ -36,7 +36,7 @@ def exec(message: Message):
 
         keys = [ll.keys[x].finger for x in gram if x in ll.keys]
 
-        if all(key in finger for key, finger in zip(keys, fingers)):
+        if len(keys) == len(fingers) and all(key in finger for key, finger in zip(keys, fingers)):
             ngrams[gram] = ngrams.get(gram, 0) + count
             freq += count
 
