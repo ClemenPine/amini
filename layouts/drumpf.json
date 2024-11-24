@@ -38,7 +38,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "i": {
+        "y": {
             "row": 0,
             "col": 7,
             "finger": "RM"
@@ -138,7 +138,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "y": {
+        "i": {
             "row": 2,
             "col": 7,
             "finger": "RM"

@@ -61,7 +61,7 @@
         "]": {
             "row": 0,
             "col": 11,
-            "finger": "LP"
+            "finger": "LR"
         },
         "(": {
             "row": 0,
@@ -176,7 +176,7 @@
         "/": {
             "row": 2,
             "col": 9,
-            "finger": "LP"
+            "finger": "LR"
         }
     }
 }
