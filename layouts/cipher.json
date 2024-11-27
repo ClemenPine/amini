@@ -1,7 +1,7 @@
 {
     "name": "cipher",
     "user": 377291081542533121,
-    "board": "stagger",
+    "board": "angle",
     "keys": {
         "/": {
             "row": 0,
@@ -18,22 +18,22 @@
             "col": 2,
             "finger": "LM"
         },
-        "f": {
+        "w": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "p": {
+        "q": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "z": {
+        "j": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "q": {
+        "k": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "v": {
+        "y": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "g": {
+        "p": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -113,12 +113,12 @@
             "col": 1,
             "finger": "LM"
         },
-        "y": {
+        "c": {
             "row": 2,
             "col": 2,
             "finger": "LI"
         },
-        "w": {
+        "g": {
             "row": 2,
             "col": 3,
             "finger": "LI"
@@ -128,27 +128,27 @@
             "col": 4,
             "finger": "RI"
         },
-        "c": {
+        "d": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "d": {
+        "f": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "k": {
+        "v": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "j": {
+        "x": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "x": {
+        "z": {
             "row": 2,
             "col": 9,
             "finger": "RP"
