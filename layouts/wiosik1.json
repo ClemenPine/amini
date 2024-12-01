@@ -1,0 +1,162 @@
+{
+    "name": "wiosik1",
+    "user": 335456391617839106,
+    "board": "angle",
+    "keys": {
+        "\u3142": {
+            "row": 0,
+            "col": 0,
+            "finger": "LP"
+        },
+        "\u3137": {
+            "row": 0,
+            "col": 1,
+            "finger": "LR"
+        },
+        "\u3139": {
+            "row": 0,
+            "col": 2,
+            "finger": "LM"
+        },
+        "\u314e": {
+            "row": 0,
+            "col": 3,
+            "finger": "LI"
+        },
+        "\u314a": {
+            "row": 0,
+            "col": 4,
+            "finger": "LI"
+        },
+        ",": {
+            "row": 0,
+            "col": 5,
+            "finger": "RI"
+        },
+        "\u3138": {
+            "row": 0,
+            "col": 6,
+            "finger": "RI"
+        },
+        "\u3161": {
+            "row": 0,
+            "col": 7,
+            "finger": "RM"
+        },
+        "\u3154": {
+            "row": 0,
+            "col": 8,
+            "finger": "RR"
+        },
+        ";": {
+            "row": 0,
+            "col": 9,
+            "finger": "RP"
+        },
+        "\u3141": {
+            "row": 1,
+            "col": 0,
+            "finger": "LP"
+        },
+        "\u3131": {
+            "row": 1,
+            "col": 1,
+            "finger": "LR"
+        },
+        "\u3134": {
+            "row": 1,
+            "col": 2,
+            "finger": "LM"
+        },
+        "\u3145": {
+            "row": 1,
+            "col": 3,
+            "finger": "LI"
+        },
+        "\u3148": {
+            "row": 1,
+            "col": 4,
+            "finger": "LI"
+        },
+        ".": {
+            "row": 1,
+            "col": 5,
+            "finger": "RI"
+        },
+        "\u3147": {
+            "row": 1,
+            "col": 6,
+            "finger": "RI"
+        },
+        "\u3157": {
+            "row": 1,
+            "col": 7,
+            "finger": "RM"
+        },
+        "\u314f": {
+            "row": 1,
+            "col": 8,
+            "finger": "RR"
+        },
+        "\u3163": {
+            "row": 1,
+            "col": 9,
+            "finger": "RP"
+        },
+        "'": {
+            "row": 1,
+            "col": 10,
+            "finger": "RP"
+        },
+        "\u314b": {
+            "row": 2,
+            "col": 0,
+            "finger": "LR"
+        },
+        "\u3132": {
+            "row": 2,
+            "col": 1,
+            "finger": "LM"
+        },
+        "\u314d": {
+            "row": 2,
+            "col": 2,
+            "finger": "LI"
+        },
+        "\u3146": {
+            "row": 2,
+            "col": 3,
+            "finger": "LI"
+        },
+        "\u314c": {
+            "row": 2,
+            "col": 4,
+            "finger": "LI"
+        },
+        "\u3149": {
+            "row": 2,
+            "col": 5,
+            "finger": "RI"
+        },
+        "\u3143": {
+            "row": 2,
+            "col": 6,
+            "finger": "RI"
+        },
+        "\u315c": {
+            "row": 2,
+            "col": 7,
+            "finger": "RM"
+        },
+        "\u3153": {
+            "row": 2,
+            "col": 8,
+            "finger": "RR"
+        },
+        "\uff0f": {
+            "row": 2,
+            "col": 9,
+            "finger": "RP"
+        }
+    }
+}
