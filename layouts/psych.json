@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "'": {
+        "c": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "y": {
+        "d": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -123,12 +123,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "c": {
+        "'": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "d": {
+        "y": {
             "row": 2,
             "col": 5,
             "finger": "RI"
