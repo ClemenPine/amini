@@ -1,169 +1,159 @@
 {
-    "name": "jupiter_ortho",
-    "user": 1010618301895934034,
+    "name": "sturdymod",
+    "user": 226147757381910531,
     "board": "ortho",
     "keys": {
-        "\u044b": {
+        "f": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "\u0443": {
+        "m": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "\u0435": {
+        "l": {
             "row": 0,
             "col": 2,
             "finger": "LM"
         },
-        "\u0434": {
+        "c": {
             "row": 0,
             "col": 3,
             "finger": "LI"
         },
-        "\u0446": {
+        "w": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "\u0436": {
+        "j": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "\u044c": {
+        "y": {
             "row": 0,
             "col": 6,
             "finger": "RI"
         },
-        "\u043a": {
+        "o": {
             "row": 0,
             "col": 7,
             "finger": "RM"
         },
-        "\u043b": {
+        "u": {
             "row": 0,
             "col": 8,
             "finger": "RR"
         },
-        "\u0437": {
+        ",": {
             "row": 0,
             "col": 9,
             "finger": "RP"
         },
-        "\u0449": {
-            "row": 0,
-            "col": 10,
-            "finger": "RP"
-        },
-        "\u044a": {
-            "row": 0,
-            "col": 11,
-            "finger": "RP"
-        },
-        "\u0438": {
+        "s": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "\u043e": {
+        "t": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "\u0430": {
+        "r": {
             "row": 1,
             "col": 2,
             "finger": "LM"
         },
-        "\u0441": {
+        "d": {
             "row": 1,
             "col": 3,
             "finger": "LI"
         },
-        "\u0431": {
+        "p": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "\u043c": {
+        "b": {
             "row": 1,
             "col": 5,
             "finger": "RI"
         },
-        "\u0432": {
+        "n": {
             "row": 1,
             "col": 6,
             "finger": "RI"
         },
-        "\u043d": {
+        "a": {
             "row": 1,
             "col": 7,
             "finger": "RM"
         },
-        "\u0440": {
+        "e": {
             "row": 1,
             "col": 8,
             "finger": "RR"
         },
-        "\u0442": {
+        "i": {
             "row": 1,
             "col": 9,
             "finger": "RP"
         },
-        "\u0444": {
+        ";": {
             "row": 1,
             "col": 10,
             "finger": "RP"
         },
-        "\u0451": {
+        "v": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "\u044f": {
+        "k": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "\u044e": {
+        "q": {
             "row": 2,
             "col": 2,
             "finger": "LM"
         },
-        "\u0447": {
+        "g": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "\u044d": {
+        "z": {
             "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "\u0445": {
+        "x": {
             "row": 2,
             "col": 5,
             "finger": "RI"
         },
-        "\u0433": {
+        "h": {
             "row": 2,
             "col": 6,
             "finger": "RI"
         },
-        "\u043f": {
+        "'": {
             "row": 2,
             "col": 7,
             "finger": "RM"
         },
-        "\u0439": {
+        "/": {
             "row": 2,
             "col": 8,
             "finger": "RR"
         },
-        "\u0448": {
+        ".": {
             "row": 2,
             "col": 9,
             "finger": "RP"
