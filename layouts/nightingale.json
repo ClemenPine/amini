@@ -3,12 +3,12 @@
     "user": 657688933001330718,
     "board": "ortho",
     "keys": {
-        "f": {
+        "b": {
             "row": 0,
             "col": 0,
             "finger": "LP"
         },
-        "p": {
+        "f": {
             "row": 0,
             "col": 1,
             "finger": "LR"
@@ -53,12 +53,12 @@
             "col": 9,
             "finger": "RP"
         },
-        "s": {
+        "n": {
             "row": 1,
             "col": 0,
             "finger": "LP"
         },
-        "n": {
+        "s": {
             "row": 1,
             "col": 1,
             "finger": "LR"
@@ -108,7 +108,7 @@
             "col": 0,
             "finger": "LP"
         },
-        "b": {
+        "z": {
             "row": 2,
             "col": 1,
             "finger": "LR"
@@ -128,7 +128,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "z": {
+        "p": {
             "row": 2,
             "col": 5,
             "finger": "RI"
