@@ -8,12 +8,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "a": {
+        "o": {
             "row": 0,
             "col": 1,
             "finger": "LR"
         },
-        "x": {
+        "u": {
             "row": 0,
             "col": 2,
             "finger": "LM"
@@ -28,7 +28,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "v": {
+        "j": {
             "row": 0,
             "col": 5,
             "finger": "RI"
@@ -38,7 +38,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "u": {
+        "n": {
             "row": 0,
             "col": 7,
             "finger": "RM"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "r": {
+        "x": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -58,12 +58,12 @@
             "col": 0,
             "finger": "LP"
         },
-        "o": {
+        "a": {
             "row": 1,
             "col": 1,
             "finger": "LR"
         },
-        "_": {
+        "e": {
             "row": 1,
             "col": 2,
             "finger": "LM"
@@ -88,7 +88,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "e": {
+        "r": {
             "row": 1,
             "col": 7,
             "finger": "RM"
@@ -97,11 +97,6 @@
             "row": 1,
             "col": 8,
             "finger": "RR"
-        },
-        "n": {
-            "row": 1,
-            "col": 9,
-            "finger": "RP"
         },
         ",": {
             "row": 2,
@@ -113,7 +108,7 @@
             "col": 1,
             "finger": "LR"
         },
-        "q": {
+        "z": {
             "row": 2,
             "col": 2,
             "finger": "LM"
@@ -128,7 +123,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "j": {
+        "v": {
             "row": 2,
             "col": 5,
             "finger": "RI"
@@ -138,7 +133,7 @@
             "col": 6,
             "finger": "RI"
         },
-        "z": {
+        "l": {
             "row": 2,
             "col": 7,
             "finger": "RM"
@@ -148,7 +143,7 @@
             "col": 8,
             "finger": "RR"
         },
-        "l": {
+        "q": {
             "row": 2,
             "col": 9,
             "finger": "RP"
