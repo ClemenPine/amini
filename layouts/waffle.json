@@ -53,6 +53,11 @@
             "col": 9,
             "finger": "RP"
         },
+        ",": {
+            "row": 0,
+            "col": 10,
+            "finger": "RP"
+        },
         "t": {
             "row": 1,
             "col": 0,
@@ -101,11 +106,6 @@
         "i": {
             "row": 1,
             "col": 9,
-            "finger": "RP"
-        },
-        ",": {
-            "row": 1,
-            "col": 10,
             "finger": "RP"
         },
         "z": {
