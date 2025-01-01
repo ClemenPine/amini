@@ -47,12 +47,17 @@ def exec(message: Message):
 
     # Only filter by name
     if not sfb:
+        if filter_vowel:
+            return "The --vowel flag should be used with sfb arg(s)."
         res: list[str] = []
         for file in glob.glob('layouts/*.json'):
             name = memory.parse_file(file).name
             if is_similar(filter_name, name):
                 res.append(name)
-        return return_message(res, is_dm)
+        output = return_message(res, is_dm)
+        if filter_vowel:
+            return "The --vowel flag should be used with sfb arg(s).\n" + output
+        return output
 
     # Add fingers to the set
     sfb_fingers: set[str] = {finger for finger in FINGERS if kwargs[finger.lower()]}
