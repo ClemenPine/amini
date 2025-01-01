@@ -18,17 +18,19 @@ FINGER_ALIASES = {
     'rh': {'RI', 'RM', 'RR', 'RP', 'RT', 'TB'},
 }
 SIMILARITY_THRES = 0.7
+VOWELS = "eiauo"
 
 
 def exec(message: Message):
     is_dm = message.channel.type is ChannelType.private
-    kwargs: dict[str, str | bool]
+    kwargs: dict[str, str | bool | list[str]]
     kwargs, err = parser.get_kwargs(message, str,
                                     li=bool, lm=bool, lr=bool, lp=bool, lt=bool,
                                     ri=bool, rm=bool, rr=bool, rp=bool, rt=bool, tb=bool,
                                     index=bool, middle=bool, ring=bool, pinky=bool, thumb=bool,
                                     lh=bool, rh=bool,
                                     name=list,
+                                    vowel=list,
                                     )
     if err is not None:
         return (f'{str(err)}\n'
@@ -37,6 +39,7 @@ def exec(message: Message):
                 f'```')
 
     filter_name: str = "".join(kwargs['name'])
+    filter_vowel: str = "".join(kwargs['vowel'])
     sfb: str = kwargs['args']
     # No arguments
     if not sfb and not filter_name:
@@ -49,7 +52,10 @@ def exec(message: Message):
             name = memory.parse_file(file).name
             if is_similar(filter_name, name):
                 res.append(name)
-        return return_message(res, is_dm)
+        output = return_message(res, is_dm)
+        if filter_vowel:
+            return "The --vowel flag should be used with sfb arg(s).\n" + output
+        return output
 
     # Add fingers to the set
     sfb_fingers: set[str] = {finger for finger in FINGERS if kwargs[finger.lower()]}
@@ -77,6 +83,21 @@ def exec(message: Message):
         # have name filter but name is not similar enough
         if filter_name and not is_similar(filter_name, ll.name):
             continue
+
+        if filter_vowel:
+            # If the layout has all the vowels.
+            if not all(vow in ll.keys.keys() for vow in VOWELS):
+                continue
+
+            # If the layout has a vowel hand.
+            vow_hand = ll.keys[VOWELS[0]].finger[0]
+            if not all(ll.keys[vow].finger[0] == vow_hand for vow in VOWELS[1:]):
+                continue
+
+            # Check the param of --vowel.
+            if not all(ll.keys[char].finger[0] == vow_hand for char in filter_vowel):
+                continue
+
         res.append(ll.name)
 
     return return_message(res, is_dm)
@@ -113,7 +134,7 @@ def is_similar(s1: str, s2: str) -> bool:
 
 
 def use():
-    return ('search [sfb/column] [--fingers] [--name <name>]\n'
+    return ('search [sfb/column [--vowel <letters>]] [--fingers] [--name <name>]\n'
             'Supported fingers: \n'
             'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, tb, index, middle, ring, pinky, thumb, lh, rh, name\n')
 
