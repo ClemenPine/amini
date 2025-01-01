@@ -134,7 +134,7 @@ def is_similar(s1: str, s2: str) -> bool:
 
 
 def use():
-    return ('search [sfb/column] [--fingers] [--name <name>]\n'
+    return ('search [sfb/column [--vowel <letters>]] [--fingers] [--name <name>]\n'
             'Supported fingers: \n'
             'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, tb, index, middle, ring, pinky, thumb, lh, rh, name\n')
 
