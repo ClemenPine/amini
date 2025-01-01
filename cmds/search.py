@@ -47,8 +47,6 @@ def exec(message: Message):
 
     # Only filter by name
     if not sfb:
-        if filter_vowel:
-            return "The --vowel flag should be used with sfb arg(s)."
         res: list[str] = []
         for file in glob.glob('layouts/*.json'):
             name = memory.parse_file(file).name
