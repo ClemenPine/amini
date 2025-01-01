@@ -1,7 +1,7 @@
 {
     "name": "tachyon",
     "user": 377291081542533121,
-    "board": "angle",
+    "board": "stagger",
     "keys": {
         ";": {
             "row": 0,
@@ -18,7 +18,7 @@
             "col": 2,
             "finger": "LM"
         },
-        "y": {
+        "z": {
             "row": 0,
             "col": 3,
             "finger": "LI"
@@ -73,12 +73,12 @@
             "col": 3,
             "finger": "LI"
         },
-        "p": {
+        "x": {
             "row": 1,
             "col": 4,
             "finger": "LI"
         },
-        "f": {
+        "y": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -103,7 +103,7 @@
             "col": 9,
             "finger": "RP"
         },
-        "v": {
+        "f": {
             "row": 1,
             "col": 10,
             "finger": "RP"
@@ -118,20 +118,20 @@
             "col": 1,
             "finger": "LM"
         },
-        "z": {
+        "d": {
             "row": 2,
             "col": 2,
             "finger": "LI"
         },
-        "d": {
+        "p": {
             "row": 2,
             "col": 3,
             "finger": "LI"
         },
-        "x": {
+        "v": {
             "row": 2,
             "col": 4,
-            "finger": "LI"
+            "finger": "RI"
         },
         "c": {
             "row": 2,

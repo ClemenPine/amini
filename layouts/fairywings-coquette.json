@@ -123,16 +123,6 @@
             "col": 3,
             "finger": "LI"
         },
-        "-": {
-            "row": 2,
-            "col": 4,
-            "finger": "LI"
-        },
-        "`": {
-            "row": 2,
-            "col": 5,
-            "finger": "RI"
-        },
         "d": {
             "row": 2,
             "col": 6,
