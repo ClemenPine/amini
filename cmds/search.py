@@ -85,6 +85,10 @@ def exec(message: Message):
             continue
 
         if filter_vowel:
+            # If the layout has all the params for the vowel flag.
+            if not all(key in ll.keys.keys() for key in filter_vowel):
+                continue
+
             # If the layout has all the vowels.
             if not all(vow in ll.keys.keys() for vow in VOWELS):
                 continue
