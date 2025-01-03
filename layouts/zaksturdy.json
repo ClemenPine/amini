@@ -1,9 +1,9 @@
 {
-    "name": "tastysturdy",
-    "user": 766194884095901746,
+    "name": "zaksturdy",
+    "user": 1204708988298461234,
     "board": "ortho",
     "keys": {
-        "f": {
+        "v": {
             "row": 0,
             "col": 0,
             "finger": "LP"
@@ -23,17 +23,17 @@
             "col": 3,
             "finger": "LI"
         },
-        "z": {
+        "p": {
             "row": 0,
             "col": 4,
             "finger": "LI"
         },
-        "q": {
+        "x": {
             "row": 0,
             "col": 5,
             "finger": "RI"
         },
-        "p": {
+        "f": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -48,7 +48,7 @@
             "col": 8,
             "finger": "RR"
         },
-        ",": {
+        "j": {
             "row": 0,
             "col": 9,
             "finger": "RP"
@@ -78,7 +78,7 @@
             "col": 4,
             "finger": "LI"
         },
-        "b": {
+        ".": {
             "row": 1,
             "col": 5,
             "finger": "RI"
@@ -103,32 +103,37 @@
             "col": 9,
             "finger": "RP"
         },
-        "x": {
+        "-": {
+            "row": 1,
+            "col": 10,
+            "finger": "RP"
+        },
+        "k": {
             "row": 2,
             "col": 0,
             "finger": "LP"
         },
-        "v": {
+        "q": {
             "row": 2,
             "col": 1,
             "finger": "LR"
         },
-        "j": {
-            "row": 2,
-            "col": 2,
-            "finger": "LM"
-        },
         "g": {
             "row": 2,
-            "col": 3,
+            "col": 2,
             "finger": "LI"
         },
         "w": {
             "row": 2,
+            "col": 3,
+            "finger": "LI"
+        },
+        "z": {
+            "row": 2,
             "col": 4,
             "finger": "LI"
         },
-        "k": {
+        "b": {
             "row": 2,
             "col": 5,
             "finger": "RI"
@@ -148,7 +153,7 @@
             "col": 8,
             "finger": "RR"
         },
-        ".": {
+        ",": {
             "row": 2,
             "col": 9,
             "finger": "RP"
