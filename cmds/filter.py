@@ -1,5 +1,6 @@
 import glob
 import random
+import json
 from discord import Message, ChannelType
 
 from util import parser, memory, corpora, cache
@@ -16,17 +17,22 @@ REVERSE_METRIC_NAMES = {
     'alt', 'roll', 'oneh', 'inroll', 'outroll', 'rolltal', 'inrolltal'
 }
 FULL_LAYOUT = set('abcdefghijklmnopqrstuvwxyz')
+FULL_PUNC = set('.,\'')
+THUMBS = ('LT', 'RT', 'TB',)
+VOWELS = "eiauo"
 
 
 def exec(message: Message):
     is_dm = message.channel.type is ChannelType.private
     kwargs: dict[str, str | bool | list]
-    kwargs, err = parser.get_kwargs(message, str, column=list, homerow=str, sort=str,
+    kwargs, err = parser.get_kwargs(message, str, column=list, col=list, homerow=str, sort=str,
                                     sfb=str, sfs=str, alt=str, red=str,
                                     roll=str, oneh=str, inroll=str, outroll=str,
                                     rolltal=str, inrolltal=str,
                                     name=str,
-                                    partial=bool,
+                                    partial=bool, punc=bool, thumb=bool,
+                                    vowel=str,
+                                    author=list,
                                     )
     if err is not None:
         return (f'{str(err)}\n'
@@ -34,11 +40,23 @@ def exec(message: Message):
                 f'{use()}\n'
                 f'```')
 
-    column: list[str] = kwargs['column']
+    column: list[str] = kwargs['column'] if kwargs['column'] else kwargs['col']
     row: str = kwargs['homerow']
     filter_name: str = kwargs['name']
     filter_partial: bool = kwargs['partial']
+    filter_punc: bool = kwargs['punc']
+    filter_thumb: bool = kwargs['thumb']
+    filter_vowel: str = kwargs['vowel']
+    filter_author: list = tuple(author.lower() for author in kwargs['author'])
     sort_metric: str = kwargs['sort']
+
+
+    # Create the list of blocked ids if the author flag is specified.
+    targets: set = set()
+    if filter_author:
+        with open("authors.json", "r") as file:
+            targets = set(id for name, id in json.load(file).items() if name.lower() in filter_author)
+
 
     filter_stats: dict[str, str] = {stat: kwargs[stat] for stat in METRIC_NAMES}
     corpus = corpora.get_corpus(message.author.id)
@@ -65,6 +83,40 @@ def exec(message: Message):
 
     for file in glob.glob('layouts/*.json'):
         ll = memory.parse_file(file)
+
+        if filter_vowel:
+            # If the layout has all the vowels.
+            if not set(ll.keys.keys()).issuperset(set(VOWELS)):
+                continue
+            # If the layout has all the keys specified in the --vowel params.
+            if not set(ll.keys.keys()).issuperset(set(filter_vowel)):
+                continue
+
+            # If the layout has a vowel hand.
+            vowel_hands: set = set(ll.keys[vowel].finger[0] for vowel in VOWELS)
+            if len(vowel_hands) != 1:
+                continue
+
+            # Check the param of --vowel.
+            vowel_hand: str = vowel_hands.pop()
+            if not all(ll.keys[char].finger[0] == vowel_hand for char in filter_vowel):
+                continue
+
+        # If the creator of the layout is in the no fly list.
+        if ll.user in targets:
+            continue
+
+        # Partial layout disabled but layout does not contain a-z
+        if not filter_partial and not set(ll.keys).issuperset(set(FULL_LAYOUT)):
+            continue
+
+        # Partial punc layouts disabled but layout does not contain .,'
+        if not filter_punc and not set(ll.keys).issuperset(set(FULL_PUNC)):
+            continue
+
+        # Thumb layout disabled but layout has thumb keys.
+        if not filter_thumb and any(position.finger in THUMBS for position in ll.keys.values()):
+            continue
 
         # Filter by sfb/column
         if sfb:
@@ -114,10 +166,6 @@ def exec(message: Message):
         if not filtered:
             continue
 
-        # Partial layout disabled but layout does not contain a-z
-        if not filter_partial and not set(ll.keys).issuperset(FULL_LAYOUT):
-            continue
-
         if sort_method:
             res_ordered[ll.name] = sort_method(cached_stats)
         else:
@@ -161,12 +209,16 @@ def try_into_float(s: str) -> tuple[float, bool]:
 def use():
     return ('filter [--kwargs]\n'
             'Supported options: \n'
-            '[--column <sfb/column, ...fingers>],\n'
+            '[--col(umn) <sfb/column, ...fingers>],\n'
             '[--homerow <keys / "sequence">],\n'
             '[--sort <metric>],\n'
             '[--name <name>]\n'
             '[--<metric> {< or >}{num}]\n'
             '[--partial]\n'
+            '[--punc]\n'
+            '[--thumb]\n'
+            '[--vowel]\n'
+            `[--author]\n`
             'metrics: sfb, sfs, alt, red, roll, oneh, inroll, outroll, rolltal, inrolltal\n'
             )
 
@@ -175,5 +227,9 @@ def desc():
     return ('Filters layouts by column, homerow, name, metric.\n'
             'Sort the layouts alphabetically or by metric.\n'
             "Filters out layouts that doesn't complete the English alphabet\n"
-            'Use `--partial` to include partial layouts'
+            'Use `--partial` to include partial layouts\n'
+            'Use `--punc` to include layouts without .,\'\n'
+            'Use `--thumb` to include thumb layouts\n'
+            'Use `--vowel` to filter for vowel hand letters\n'
+            'Use `--author` to exclude out authors\n'
             )
