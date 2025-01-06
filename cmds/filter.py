@@ -52,10 +52,10 @@ def exec(message: Message):
 
 
     # Create the list of blocked ids if the author flag is specified.
-    targets: tuple = tuple()
+    targets: set = set()
     if filter_author:
         with open("authors.json", "r") as file:
-            targets = tuple(id for name, id in json.load(file).items() if name.lower() in filter_author)
+            targets = set(id for name, id in json.load(file).items() if name.lower() in filter_author)
 
 
     filter_stats: dict[str, str] = {stat: kwargs[stat] for stat in METRIC_NAMES}
@@ -93,12 +93,12 @@ def exec(message: Message):
                 continue
 
             # If the layout has a vowel hand.
-            vowel_hands = set(ll.keys[vowel].finger[0] for vowel in VOWELS)
+            vowel_hands: set = set(ll.keys[vowel].finger[0] for vowel in VOWELS)
             if len(vowel_hands) != 1:
                 continue
 
             # Check the param of --vowel.
-            vowel_hand = vowel_hands.pop()
+            vowel_hand: str = vowel_hands.pop()
             if not all(ll.keys[char].finger[0] == vowel_hand for char in filter_vowel):
                 continue
 
