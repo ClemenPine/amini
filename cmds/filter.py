@@ -47,15 +47,15 @@ def exec(message: Message):
     filter_punc: bool = kwargs['punc']
     filter_thumb: bool = kwargs['thumb']
     filter_vowel: str = kwargs['vowel']
-    filter_author: list = [author.lower() for author in kwargs['author']]
+    filter_author: list = tuple(author.lower() for author in kwargs['author'])
     sort_metric: str = kwargs['sort']
 
 
     # Create the list of blocked ids if the author flag is specified.
-    targets: list = []
+    targets: tuple = tuple()
     if filter_author:
         with open("authors.json", "r") as file:
-            targets = [id for name, id in json.load(file).items() if name.lower() in filter_author]
+            targets = tuple(id for name, id in json.load(file).items() if name.lower() in filter_author)
 
 
     filter_stats: dict[str, str] = {stat: kwargs[stat] for stat in METRIC_NAMES}
@@ -93,12 +93,13 @@ def exec(message: Message):
                 continue
 
             # If the layout has a vowel hand.
-            vow_hands = list(set(map(lambda i: ll.keys[i].finger[0], VOWELS)))
-            if len(vow_hands) != 1:
+            vowel_hands = set(ll.keys[vowel].finger[0] for vowel in VOWELS)
+            if len(vowel_hands) != 1:
                 continue
 
             # Check the param of --vowel.
-            if not all(ll.keys[char].finger[0] == vow_hands[0] for char in filter_vowel):
+            vowel_hand = vowel_hands.pop()
+            if not all(ll.keys[char].finger[0] == vowel_hand for char in filter_vowel):
                 continue
 
         # If the creator of the layout is in the no fly list.
