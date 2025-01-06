@@ -86,11 +86,11 @@ def exec(message: Message):
 
         if filter_vowel:
             # If the layout has all the params for the vowel flag.
-            if not set(filter_vowel).issubset(set(ll.keys.keys())):
+            if not set(ll.keys.keys()).issuperset(set(filter_vowel)):
                 continue
 
             # If the layout has all the vowels.
-            if not set(VOWELS).issubset(set(ll.keys.keys())):
+            if not set(ll.keys.keys()).issuperset(set(VOWELS)):
                 continue
 
             # If the layout has a vowel hand.
