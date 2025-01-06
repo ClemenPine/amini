@@ -208,7 +208,7 @@ def try_into_float(s: str) -> tuple[float, bool]:
 def use():
     return ('filter [--kwargs]\n'
             'Supported options: \n'
-            '[--column <sfb/column, ...fingers>],\n'
+            '[--col(umn) <sfb/column, ...fingers>],\n'
             '[--homerow <keys / "sequence">],\n'
             '[--sort <metric>],\n'
             '[--name <name>]\n'
@@ -216,6 +216,8 @@ def use():
             '[--partial]\n'
             '[--punc]\n'
             '[--thumb]\n'
+            '[--vowel]\n'
+            `[--author]\n`
             'metrics: sfb, sfs, alt, red, roll, oneh, inroll, outroll, rolltal, inrolltal\n'
             )
 
@@ -227,4 +229,6 @@ def desc():
             'Use `--partial` to include partial layouts\n'
             'Use `--punc` to include layouts without .,\'\n'
             'Use `--thumb` to include thumb layouts\n'
+            'Use `--vowel` to filter for vowel hand letters\n'
+            'Use `--author` to exclude out authors\n'
             )
