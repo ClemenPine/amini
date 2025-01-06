@@ -1,5 +1,6 @@
 import glob
 import random
+import json
 from discord import Message, ChannelType
 
 from util import parser, memory, corpora, cache
@@ -18,19 +19,20 @@ REVERSE_METRIC_NAMES = {
 FULL_LAYOUT = set('abcdefghijklmnopqrstuvwxyz')
 FULL_PUNC = set('.,\'')
 THUMBS = ('LT', 'RT', 'TB',)
+VOWELS = "eiauo"
 
 
 def exec(message: Message):
     is_dm = message.channel.type is ChannelType.private
     kwargs: dict[str, str | bool | list]
-    kwargs, err = parser.get_kwargs(message, str, column=list, homerow=str, sort=str,
+    kwargs, err = parser.get_kwargs(message, str, column=list, col=list, homerow=str, sort=str,
                                     sfb=str, sfs=str, alt=str, red=str,
                                     roll=str, oneh=str, inroll=str, outroll=str,
                                     rolltal=str, inrolltal=str,
                                     name=str,
-                                    partial=bool,
-                                    punc=bool,
-                                    thumb=bool,
+                                    partial=bool, punc=bool, thumb=bool,
+                                    vowel=str,
+                                    author=list,
                                     )
     if err is not None:
         return (f'{str(err)}\n'
@@ -38,13 +40,23 @@ def exec(message: Message):
                 f'{use()}\n'
                 f'```')
 
-    column: list[str] = kwargs['column']
+    column: list[str] = kwargs['column'] if kwargs['column'] else kwargs['col']
     row: str = kwargs['homerow']
     filter_name: str = kwargs['name']
     filter_partial: bool = kwargs['partial']
     filter_punc: bool = kwargs['punc']
     filter_thumb: bool = kwargs['thumb']
+    filter_vowel: str = kwargs['vowel']
+    filter_author: list = [author.lower() for author in kwargs['author']]
     sort_metric: str = kwargs['sort']
+
+
+    # Create the list of blocked ids if the author flag is specified.
+    targets: list = []
+    if filter_author:
+        with open("authors.json", "r") as file:
+            targets = [id for name, id in json.load(file).items() if name.lower() in filter_author]
+
 
     filter_stats: dict[str, str] = {stat: kwargs[stat] for stat in METRIC_NAMES}
     corpus = corpora.get_corpus(message.author.id)
@@ -72,11 +84,33 @@ def exec(message: Message):
     for file in glob.glob('layouts/*.json'):
         ll = memory.parse_file(file)
 
-        # Partial layout disabled but layout does not contain a-z
-        if not filter_partial and not set(ll.keys).issuperset(FULL_LAYOUT):
+        if filter_vowel:
+            # If the layout has all the vowels.
+            if not set(ll.keys.keys()).issuperset(set(VOWELS)):
+                continue
+            # If the layout has all the keys specified in the --vowel params.
+            if not set(ll.keys.keys()).issuperset(set(filter_vowel)):
+                continue
+
+            # If the layout has a vowel hand.
+            vow_hands = list(set(map(lambda i: ll.keys[i].finger[0], VOWELS)))
+            if len(vow_hands) != 1:
+                continue
+
+            # Check the param of --vowel.
+            if not all(ll.keys[char].finger[0] == vow_hands[0] for char in filter_vowel):
+                continue
+
+        # If the creator of the layout is in the no fly list.
+        if ll.user in targets:
             continue
 
-        if not filter_punc and not set(ll.keys).issuperset(FULL_PUNC):
+        # Partial layout disabled but layout does not contain a-z
+        if not filter_partial and not set(ll.keys).issuperset(set(FULL_LAYOUT)):
+            continue
+
+        # Partial punc layouts disabled but layout does not contain .,'
+        if not filter_punc and not set(ll.keys).issuperset(set(FULL_PUNC)):
             continue
 
         # Thumb layout disabled but layout has thumb keys.
