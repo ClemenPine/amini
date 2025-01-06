@@ -30,7 +30,7 @@ def exec(message: Message):
                                     index=bool, middle=bool, ring=bool, pinky=bool, thumb=bool,
                                     lh=bool, rh=bool,
                                     name=list,
-                                    vowel=list,
+                                    vowel=str,
                                     )
     if err is not None:
         return (f'{str(err)}\n'
@@ -39,7 +39,7 @@ def exec(message: Message):
                 f'```')
 
     filter_name: str = "".join(kwargs['name'])
-    filter_vowel: str = "".join(kwargs['vowel'])
+    filter_vowel: str = kwargs['vowel']
     sfb: str = kwargs['args']
     # No arguments
     if not sfb and not filter_name:
@@ -86,20 +86,20 @@ def exec(message: Message):
 
         if filter_vowel:
             # If the layout has all the params for the vowel flag.
-            if not all(key in ll.keys.keys() for key in filter_vowel):
+            if not set(filter_vowel).issubset(set(ll.keys.keys())):
                 continue
 
             # If the layout has all the vowels.
-            if not all(vow in ll.keys.keys() for vow in VOWELS):
+            if not set(VOWELS).issubset(set(ll.keys.keys())):
                 continue
 
             # If the layout has a vowel hand.
-            vow_hand = ll.keys[VOWELS[0]].finger[0]
-            if not all(ll.keys[vow].finger[0] == vow_hand for vow in VOWELS[1:]):
+            vow_hands = list(set(map(lambda i: ll.keys[i].finger[0], VOWELS)))
+            if len(vow_hands) != 1:
                 continue
 
             # Check the param of --vowel.
-            if not all(ll.keys[char].finger[0] == vow_hand for char in filter_vowel):
+            if not all(ll.keys[char].finger[0] == vow_hands[0] for char in filter_vowel):
                 continue
 
         res.append(ll.name)
