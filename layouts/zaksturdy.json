@@ -121,7 +121,7 @@
         "g": {
             "row": 2,
             "col": 2,
-            "finger": "LI"
+            "finger": "LM"
         },
         "w": {
             "row": 2,
@@ -143,11 +143,6 @@
             "col": 6,
             "finger": "RI"
         },
-        "'": {
-            "row": 2,
-            "col": 7,
-            "finger": "RM"
-        },
         ";": {
             "row": 2,
             "col": 8,
@@ -157,6 +152,11 @@
             "row": 2,
             "col": 9,
             "finger": "RP"
+        },
+        "'": {
+            "row": 3,
+            "col": 0,
+            "finger": "RT"
         }
     }
 }
