@@ -218,7 +218,7 @@ def use():
             '[--punc]\n'
             '[--thumb]\n'
             '[--vowel]\n'
-            `[--author]\n`
+            '[--author]\n'
             'metrics: sfb, sfs, alt, red, roll, oneh, inroll, outroll, rolltal, inrolltal\n'
             )
 
