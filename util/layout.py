@@ -167,9 +167,9 @@ def stats_str(stats: JSON, use: JSON) -> str:
             f' {"Red:":>5} {stats["redirect"] + stats["bad-redirect"]:>6.2%}'
             f'   (Bad: {stats["bad-redirect"]:>9.2%})\n'
             '\n'
-            f'  SFB: {stats["sfb"]:.2%}\n'
-            f'  SFS: {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}'
-            f'    (Red/Alt: {stats["dsfb-red"]:>5.2%} | {stats["dsfb-alt"]:>5.2%})\n'
+            f' {"SFB:":>5} {stats["sfb"]:>6.2%}\n'
+            f' {"SFS:":>5} {stats["dsfb-red"] + stats["dsfb-alt"]:>6.2%}'
+            f'   (Red/Alt: {stats["dsfb-red"]:>5.2%} | {stats["dsfb-alt"]:>5.2%})\n'
             '\n'
             f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}')
 
