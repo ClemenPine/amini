@@ -64,7 +64,7 @@ def get_commonmatrix(ll1, ll2) -> list[list[str]]:
                 max((x.col if x else 0) for x in ll2.keys.values())) + 1
     max_height = max(max((x.row if x else 0) for x in ll1.keys.values()),
                     max((x.row if x else 0) for x in ll2.keys.values())) + 1
-    
+
     matrix =  [[' '] * max_width for _ in range(max_height)]
     matrix1 = [[' '] * max_width for _ in range(max_height)]
     matrix2 = [[' '] * max_width for _ in range(max_height)]
@@ -166,9 +166,9 @@ def stats_str(stats: JSON, use: JSON) -> str:
             f' {"Red:":>5} {stats["redirect"] + stats["bad-redirect"]:>6.2%}'
             f'   (Bad: {stats["bad-redirect"]:>9.2%})\n'
             '\n'
-            f'  SFB: {stats["sfb"] / 2:.2%}\n'
-            f'  SFS: {stats["dsfb-red"] + stats["dsfb-alt"]:.2%}'
-            f'    (Red/Alt: {stats["dsfb-red"]:>5.2%} | {stats["dsfb-alt"]:>5.2%})\n'
+            f' {"SFB:":>5} {stats["sfb"]:>6.2%}\n'
+            f' {"SFS:":>5} {stats["dsfb-red"] + stats["dsfb-alt"]:>6.2%}'
+            f'   (Red/Alt: {stats["dsfb-red"]:>5.2%} | {stats["dsfb-alt"]:>5.2%})\n'
             '\n'
             f'  LH/RH: {use["LH"]:.2%} | {use["RH"]:.2%}')
 
@@ -177,12 +177,17 @@ def to_string(ll: Layout, id: int):
     author = authors.get_name(ll.user)
 
     monogram = corpora.ngrams(1, id=id)
+    bigram = corpora.ngrams(2, id=id)
     trigram = corpora.ngrams(3, id=id)
 
     matrix_str = get_matrix_str(ll)
 
     stats = analyzer.trigrams(ll, trigram)
+    sfb = analyzer.sfb_bigram(ll, bigram)
     use = analyzer.use(ll, monogram)
+
+    # Ghetto sfb getting
+    stats["sfb"] = sfb
 
     with open('likes.json', 'r') as f:
         likes = json.load(f)
