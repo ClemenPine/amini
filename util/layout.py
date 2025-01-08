@@ -5,7 +5,6 @@ from util.consts import *
 from util.returns import *
 
 from core.keyboard import Layout
-from cmds.sfbs import exec as sfbs
 
 
 def check_name(name: str):
