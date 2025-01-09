@@ -1,7 +1,7 @@
 {
     "name": "andrew_test",
     "user": 383900587877597186,
-    "board": "angle",
+    "board": "ortho",
     "keys": {
         "f": {
             "row": 0,
@@ -31,12 +31,12 @@
         "p": {
             "row": 0,
             "col": 5,
-            "finger": "RI"
+            "finger": "RM"
         },
         "u": {
             "row": 0,
             "col": 6,
-            "finger": "RI"
+            "finger": "RM"
         },
         "o": {
             "row": 0,
@@ -46,12 +46,12 @@
         "j": {
             "row": 0,
             "col": 8,
-            "finger": "RR"
+            "finger": "RM"
         },
         "q": {
             "row": 0,
             "col": 9,
-            "finger": "RP"
+            "finger": "RM"
         },
         "w": {
             "row": 1,
@@ -81,12 +81,12 @@
         "i": {
             "row": 1,
             "col": 5,
-            "finger": "RI"
+            "finger": "RM"
         },
         "e": {
             "row": 1,
             "col": 6,
-            "finger": "RI"
+            "finger": "RM"
         },
         "a": {
             "row": 1,
@@ -96,7 +96,7 @@
         "k": {
             "row": 1,
             "col": 8,
-            "finger": "RR"
+            "finger": "RM"
         },
         "v": {
             "row": 2,
@@ -126,12 +126,12 @@
         "m": {
             "row": 2,
             "col": 5,
-            "finger": "RI"
+            "finger": "RM"
         },
         "z": {
             "row": 2,
             "col": 6,
-            "finger": "RI"
+            "finger": "RM"
         }
     }
 }
