@@ -108,6 +108,21 @@
             "col": 0,
             "finger": "LP"
         },
+        "v": {
+            "row": 2,
+            "col": 1,
+            "finger": "LR"
+        },
+        "s": {
+            "row": 2,
+            "col": 2,
+            "finger": "LM"
+        },
+        "f": {
+            "row": 2,
+            "col": 3,
+            "finger": "LI"
+        },
         "j": {
             "row": 2,
             "col": 4,
@@ -137,38 +152,6 @@
             "row": 2,
             "col": 9,
             "finger": "RP"
-        },
-        "v": {
-            "row": 3,
-            "col": 0,
-            "finger": "LT"
-        },
-        "s": {
-            "row": 3,
-            "col": 1,
-            "finger": "LT"
-        },
-        "f": {
-            "row": 3,
-            "col": 2,
-            "finger": "LT"
         }
-    },
-    "free": [
-        {
-            "row": 2,
-            "col": 1,
-            "finger": "LR"
-        },
-        {
-            "row": 2,
-            "col": 2,
-            "finger": "LM"
-        },
-        {
-            "row": 2,
-            "col": 3,
-            "finger": "LI"
-        }
-    ]
+    }
 }

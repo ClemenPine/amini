@@ -23,7 +23,7 @@
             "col": 3,
             "finger": "LI"
         },
-        "\u2144": {
+        "\ud83c\udd48": {
             "row": 0,
             "col": 4,
             "finger": "LI"
@@ -153,14 +153,9 @@
             "col": 9,
             "finger": "RP"
         },
-        "|": {
-            "row": 3,
-            "col": 0,
-            "finger": "LT"
-        },
         "r": {
             "row": 3,
-            "col": 1,
+            "col": 0,
             "finger": "LT"
         }
     }

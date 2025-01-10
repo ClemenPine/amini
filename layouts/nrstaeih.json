@@ -1,7 +1,7 @@
 {
     "name": "nrstaeih",
-    "user": 130544188818194432,
-    "board": "angle",
+    "user": 766194884095901746,
+    "board": "ortho",
     "keys": {
         "p": {
             "row": 0,
@@ -106,17 +106,17 @@
         "q": {
             "row": 2,
             "col": 0,
-            "finger": "LR"
+            "finger": "LP"
         },
         "v": {
             "row": 2,
             "col": 1,
-            "finger": "LM"
+            "finger": "LR"
         },
         "d": {
             "row": 2,
             "col": 2,
-            "finger": "LI"
+            "finger": "LM"
         },
         "g": {
             "row": 2,

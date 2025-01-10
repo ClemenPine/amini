@@ -1,5 +1,5 @@
 {
-    "name": "lost",
+    "name": "losT",
     "user": 657688933001330718,
     "board": "ortho",
     "keys": {
@@ -158,6 +158,5 @@
             "col": 0,
             "finger": "LT"
         }
-    },
-    "free": []
+    }
 }

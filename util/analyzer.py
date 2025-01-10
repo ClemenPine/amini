@@ -9,7 +9,7 @@ DEFAULT_COUNTER: dict[str, float] = dict.fromkeys(set(TABLE.values()) | {'sfR', 
 
 def use(ll: Layout, grams: Dict[str, str]):
     fingers = {}
-    
+
     for gram, count in grams.items():
         gram = gram.lower()
 
@@ -17,7 +17,7 @@ def use(ll: Layout, grams: Dict[str, str]):
             continue
 
         finger = ll.keys[gram].finger
-        
+
         if finger not in fingers:
             fingers[finger] = 0
 
@@ -31,6 +31,25 @@ def use(ll: Layout, grams: Dict[str, str]):
     fingers['RH'] = sum(fingers[x] for x in fingers if x[0] in 'RT')
 
     return fingers
+
+
+def sfb_bigram(ll: Layout, grams: Dict[str, int]):
+    counts = 0
+    valid_keys = set(ll.keys.keys())
+
+    for gram, count in grams.items():
+        gram = gram.lower()
+
+        if any(char not in valid_keys for char in gram):
+            continue
+
+        if ' ' in gram or gram[0] == gram[1]:
+            continue
+
+        if ll.keys[gram[0]].finger == ll.keys[gram[1]].finger:
+            counts += count
+
+    return counts / sum(grams.values())
 
 
 def trigrams(ll: Layout, grams: Dict[str, int]):
