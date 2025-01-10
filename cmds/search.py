@@ -1,4 +1,3 @@
-import json
 import glob
 import random
 from jellyfish import jaro_winkler_similarity as jw
@@ -10,34 +9,42 @@ from util import parser, memory
 
 FINGERS = ['LI', 'LM', 'LR', 'LP', 'RI', 'RM', 'RR', 'RP', 'LT', 'RT', 'TB']
 FINGER_ALIASES = {
-    'index':  {'LI', 'RI'},
+    'index': {'LI', 'RI'},
     'middle': {'LM', 'RM'},
-    'ring':   {'LR', 'RR'},
-    'pinky':  {'LP', 'RP'},
-    'thumb':  {'LT', 'RT', 'TB'},
+    'ring': {'LR', 'RR'},
+    'pinky': {'LP', 'RP'},
+    'thumb': {'LT', 'RT', 'TB'},
     'lh': {'LI', 'LM', 'LR', 'LP', 'LT'},
     'rh': {'RI', 'RM', 'RR', 'RP', 'RT', 'TB'},
 }
 SIMILARITY_THRES = 0.7
+VOWELS = "eiauo"
+
 
 def exec(message: Message):
     is_dm = message.channel.type is ChannelType.private
-    kwargs: dict[str, str | bool] = parser.get_kwargs(message, str,
-                                                      li=bool, lm=bool, lr=bool, lp=bool, lt=bool,
-                                                      ri=bool, rm=bool, rr=bool, rp=bool, rt=bool, tb=bool,
-                                                      index=bool, middle=bool, ring=bool, pinky=bool, thumb=bool,
-                                                      lh=bool, rh=bool,
-                                                      name=list,
-                                                      )
+    kwargs: dict[str, str | bool | list[str]]
+    kwargs, err = parser.get_kwargs(message, str,
+                                    li=bool, lm=bool, lr=bool, lp=bool, lt=bool,
+                                    ri=bool, rm=bool, rr=bool, rp=bool, rt=bool, tb=bool,
+                                    index=bool, middle=bool, ring=bool, pinky=bool, thumb=bool,
+                                    lh=bool, rh=bool,
+                                    name=list,
+                                    vowel=str,
+                                    )
+    if err is not None:
+        return (f'{str(err)}\n'
+                f'```\n'
+                f'{use()}\n'
+                f'```')
+
     filter_name: str = "".join(kwargs['name'])
+    filter_vowel: str = kwargs['vowel']
     sfb: str = kwargs['args']
     # No arguments
     if not sfb and not filter_name:
-        return '```\n' \
-               'search [sfb/column] [--fingers]\n' \
-               'Supported fingers: \n' \
-               'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, tb, index, middle, ring, pinky, thumb, lh, rh, name\n' \
-               '```'
+        return f'```\n{use()}\n```'
+
     # Only filter by name
     if not sfb:
         res: list[str] = []
@@ -45,7 +52,10 @@ def exec(message: Message):
             name = memory.parse_file(file).name
             if is_similar(filter_name, name):
                 res.append(name)
-        return return_message(res, is_dm)
+        output = return_message(res, is_dm)
+        if filter_vowel:
+            return "The --vowel flag should be used with sfb arg(s).\n" + output
+        return output
 
     # Add fingers to the set
     sfb_fingers: set[str] = {finger for finger in FINGERS if kwargs[finger.lower()]}
@@ -73,9 +83,29 @@ def exec(message: Message):
         # have name filter but name is not similar enough
         if filter_name and not is_similar(filter_name, ll.name):
             continue
+
+        if filter_vowel:
+            # If the layout has all the params for the vowel flag.
+            if not set(ll.keys.keys()).issuperset(set(filter_vowel)):
+                continue
+
+            # If the layout has all the vowels.
+            if not set(ll.keys.keys()).issuperset(set(VOWELS)):
+                continue
+
+            # If the layout has a vowel hand.
+            vow_hands = list(set(map(lambda i: ll.keys[i].finger[0], VOWELS)))
+            if len(vow_hands) != 1:
+                continue
+
+            # Check the param of --vowel.
+            if not all(ll.keys[char].finger[0] == vow_hands[0] for char in filter_vowel):
+                continue
+
         res.append(ll.name)
 
     return return_message(res, is_dm)
+
 
 def get_line_limit(res: list[str]) -> int:
     # Find the max number of lines that fit in the message (only for DMs)
@@ -87,6 +117,7 @@ def get_line_limit(res: list[str]) -> int:
             break
         line_limit += 1
     return line_limit
+
 
 def return_message(res: list[str], is_dm: bool) -> str:
     random.shuffle(res)
@@ -101,12 +132,15 @@ def return_message(res: list[str], is_dm: bool) -> str:
 
     return '\n'.join(lines)
 
+
 def is_similar(s1: str, s2: str) -> bool:
     return jw(s1, s2) > SIMILARITY_THRES
 
 
 def use():
-    return 'search [sfb/column] [--fingers | --name]'
+    return ('search [sfb/column [--vowel <letters>]] [--fingers] [--name <name>]\n'
+            'Supported fingers: \n'
+            'li, lm, lr, lp, ri, rm, rr, rp, lt, rt, tb, index, middle, ring, pinky, thumb, lh, rh, name\n')
 
 
 def desc():

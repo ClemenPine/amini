@@ -23,7 +23,7 @@
             "col": 3,
             "finger": "LI"
         },
-        ".": {
+        "@": {
             "row": 0,
             "col": 6,
             "finger": "RI"
@@ -122,6 +122,11 @@
             "row": 2,
             "col": 6,
             "finger": "RI"
+        },
+        ".": {
+            "row": 2,
+            "col": 9,
+            "finger": "RP"
         },
         "r": {
             "row": 3,

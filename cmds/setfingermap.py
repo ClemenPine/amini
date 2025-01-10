@@ -1,5 +1,4 @@
 from discord import Message
-from importlib import import_module
 
 from util import layout, memory, parser
 from util.consts import *
@@ -18,7 +17,7 @@ def exec(message: Message):
         return 'Error: improper finger matrix shape provided'
 
     rows = string.split('\n')
-    
+
     board = board_value(rows)
 
     if not board:
@@ -44,14 +43,14 @@ def exec(message: Message):
         if key != FREE_CHAR and finger == FREE_CHAR:
             return f'Error: cannot provide empty finger value for {key}'
         ll.keys[key].finger = finger
-    
+
     if not memory.remove(ll.name, id=id):
         return f'Error: you don\'t own a layout named `{ll.name}`'
-    
+
     ll.board = board
     memory.add(ll)
 
-    return f'Success!\n' + import_module('cmds.fingermap').to_string(ll)
+    return f'Success!\n' + layout.fingermap_to_string(ll)
 
 def use():
     return 'setfingermap [layout name] [FINGERMATRIX]'
@@ -76,6 +75,8 @@ def board_value(rows):
         size = len(row) - len(row.lstrip())
         spaces.append(size)
 
+    spaces = [row - min(spaces) for row in spaces]
+
     # Determine board type with leading whitespace
     if spaces[0] < spaces[1] < spaces[2]:
         return 'stagger'
@@ -87,7 +88,7 @@ def board_value(rows):
         return 'ortho'
     else:
         return
-    
+
 def finger_value(finger):
     replacements = {
         '0': 'LP',

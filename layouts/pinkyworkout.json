@@ -1,0 +1,17 @@
+{
+    "name": "pinkyworkout",
+    "user": 616446046549311508,
+    "board": "ortho",
+    "keys": {
+        "f": {
+            "row": 0,
+            "col": 0,
+            "finger": "LP"
+        },
+        "p": {
+            "row": 1,
+            "col": 0,
+            "finger": "LP"
+        }
+    }
+}
